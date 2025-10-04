@@ -271,9 +271,12 @@
 
         Alpine.data("studyApp", () => ({
           availableSubjects: [
-            { name: "Filosofía", file: "filosofia.json" },
-            { name: "Empresa y modelos negocios ", file: "empresa.json" },
-            { name: "Lengua y literatura", file: "lengua.json" },
+            { name: "Filosofía", file: "subjects/filosofia.json" },
+            {
+              name: "Empresa y modelos negocios ",
+              file: "subjects/empresa.json",
+            },
+            { name: "Lengua y literatura", file: "subjects/lengua.json" },
           ],
           selectedSubject: "",
           subjectData: null,
