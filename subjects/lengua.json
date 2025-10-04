@@ -5,6 +5,7 @@
       "title": "1. Sílabas: Tónicas y Átonas",
       "topic": "Tema 1. La acentuación.",
       "text": "La **sílaba** es cada golpe de voz con el que se pronuncia una palabra. Dentro de cada palabra de dos o más sílabas, distinguimos:\n\n* **Sílaba Tónica**: Es la sílaba que se pronuncia con **mayor intensidad** o fuerza dentro de una palabra. Solo puede haber una.\n* **Sílabas Átonas**: Son las sílabas que se pronuncian con **menor intensidad**. Puede haber varias o ninguna.\n\nLa correcta identificación de la sílaba tónica es el primer paso para aplicar las reglas de acentuación. La tilde (´) solo se coloca sobre la vocal de la sílaba tónica.",
+      "appUrl": "apps/silaba-tonica.html",
       "questions": [
         {
           "text": "En la palabra 'ordenador', ¿cuál es la sílaba tónica?",

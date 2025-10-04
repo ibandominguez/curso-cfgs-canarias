@@ -161,9 +161,9 @@
               <button
                 @click="isSpeaking ? stopSpeech() : speak(selectedContent.text)"
                 :class="{
-                                'bg-red-500 hover:bg-red-600': isSpeaking,
-                                'bg-green-500 hover:bg-green-600': !isSpeaking
-                            }"
+                  'bg-red-500 hover:bg-red-600': isSpeaking,
+                  'bg-green-500 hover:bg-green-600': !isSpeaking
+                }"
                 class="text-white font-bold py-2 px-4 rounded flex items-center transition duration-150 mb-6"
               >
                 <svg
@@ -258,6 +258,24 @@
                   </div>
                 </div>
               </template>
+
+              <template x-if="selectedContent.appUrl">
+                <div
+                  class="mb-10 p-4 bg-white rounded-xl shadow-lg border border-blue-200"
+                >
+                  <h3
+                    class="text-xl font-bold text-gray-700 mb-4 border-b pb-2"
+                  >
+                    🧩 Ejercicio Interactivo
+                  </h3>
+                  <iframe
+                    :src="selectedContent.appUrl"
+                    frameborder="0"
+                    class="w-full rounded-lg"
+                    style="height: 120vh; min-height: 600px"
+                  ></iframe>
+                </div>
+              </template>
             </div>
           </template>
         </div>
@@ -284,6 +302,7 @@
           answers: {},
           isSpeaking: false,
           isSidebarOpen: false,
+          // 'activeView' ha sido eliminado
 
           get selectedContent() {
             return (
@@ -351,6 +370,7 @@
             this.stopSpeech();
             this.subjectData = null;
             this.selectedContentIndex = null;
+            // Eliminado: this.activeView = 'content';
 
             if (resetAnswers) {
               this.answers = {};
@@ -383,6 +403,7 @@
           selectContent(index) {
             this.stopSpeech();
             this.selectedContentIndex = index;
+            // Eliminado: this.activeView = 'content';
 
             // Reinicia las respuestas de la sección actual al seleccionarla
             this.answers[index] = {};
