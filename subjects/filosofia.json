@@ -1,0 +1,372 @@
+{
+  "title": "Filosofía",
+  "contents": [
+    {
+      "title": "1. Del mito a la razón",
+      "topic": "Tema 1: El Saber Filosófico",
+      "text": "Una diferencia fundamental entre los seres humanos y el resto de los animales es nuestra **capacidad de pensar, razonar, comprender, interpretar y buscar respuestas** a los grandes interrogantes. A diferencia de los animales, no solo vivimos, sino que nos planteamos preguntas sobre nuestra existencia y el mundo que nos rodea.",
+      "questions": [
+        {
+          "text": "¿Qué capacidad diferencia fundamentalmente a los seres humanos de los animales según el texto?",
+          "options": [
+            {
+              "text": "La capacidad de actuar por instinto.",
+              "correct": false
+            },
+            {
+              "text": "La capacidad de comportarse de forma racional y plantearse preguntas.",
+              "correct": true
+            },
+            { "text": "La capacidad de vivir en comunidad.", "correct": false },
+            { "text": "La capacidad de obtener fuego.", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "1.1. El mito",
+      "topic": "Tema 1: El Saber Filosófico",
+      "text": "Las primeras respuestas a las grandes preguntas las encontramos en el **mito**. Los mitos son **relatos fabulosos, llenos de símbolos y metáforas**, que explican o dan respuesta a interrogantes importantes. Pretenden ser modelos de actuación, imponiéndose con autoridad, pero **sin justificación**; simplemente se apela a que las cosas siempre han sido así. La respuesta mítica es **arbitraria**, distinta en cada cultura. Se apoyan en la **tradición oral** y, en Grecia, fueron sistematizados por obras escritas como las de Homero y Hesíodo.",
+      "questions": [
+        {
+          "text": "¿Cuál es la principal diferencia entre una explicación mitológica y una racional respecto al origen de las causas?",
+          "options": [
+            {
+              "text": "El mito ofrece explicaciones **trascendentales** (dioses/sobrenaturales), mientras la razón ofrece explicaciones **inmanentes** (leyes de la naturaleza).",
+              "correct": true
+            },
+            {
+              "text": "El mito es siempre escrito, la razón es oral.",
+              "correct": false
+            },
+            {
+              "text": "El mito cree en leyes fijas, la razón cree en el capricho de los dioses.",
+              "correct": false
+            },
+            {
+              "text": "El mito siempre es universal, la razón es arbitraria.",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "1.2. Tipos de mitos",
+      "topic": "Tema 1: El Saber Filosófico",
+      "text": "Los mitos se distinguen según el tipo de historia que relatan:\n\n* **Cosmogónicos**: Explican cómo se constituyó el mundo (cosmos) a partir del caos, generalmente por intervención divina.\n* **Teogónicos**: Relatan la historia del mundo de los dioses: sus disputas, aventuras y parentescos.\n* **Etiológicos**: Dan razón del **origen** de elementos específicos del mundo, como fenómenos naturales, conocimientos o reglas humanas.\n* **Escatológicos**: Narran cómo acontecerá el **fin del mundo**, a menudo desde una visión cíclica de destrucción y nuevo comienzo.\n\nUna diferencia clave con la razón es que los mitos son **trascendentales** (se explican por dioses y fuerzas sobrenaturales), mientras que la razón busca explicaciones **inmanentes** (las causas se encuentran en este mundo, en la propia naturaleza).",
+      "questions": [
+        {
+          "text": "¿Qué tipo de mito se ocupa de explicar cómo se constituyó el mundo, usualmente por intervención divina sobre el caos?",
+          "options": [
+            { "text": "Mitos Teogónicos.", "correct": false },
+            { "text": "Mitos Etiológicos.", "correct": false },
+            { "text": "Mitos Escatológicos.", "correct": false },
+            { "text": "Mitos Cosmogónicos.", "correct": true }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "2. ¿Qué es filosofía? El paso del mito al logos",
+      "topic": "Tema 1: El Saber Filosófico",
+      "text": "Etimológicamente, **filosofía** (del griego) significa **\"amor a la sabiduría\"** (filo, amor; sofia, sabiduría). El término se atribuye por primera vez a **Pitágoras** (s. VI a.C.), quien se definió como *philo-sophos* (amante del saber), no un *sophos* (sabio).\n\nLa filosofía surge en el S. VI a.C. como un conocimiento distinto al mito. Por ello, su origen se caracteriza como el **paso del mito al logos**. El **\"Logos\"** griego significa **palabra, razón, explicación racional**. Este paso es el intento de explicar lo que ocurre sin recurrir a lo mítico, buscando leyes estables y fijas en la naturaleza.",
+      "questions": [
+        {
+          "text": "¿Cuál es el significado etimológico de la palabra 'filosofía'?",
+          "options": [
+            { "text": "Búsqueda de la verdad.", "correct": false },
+            { "text": "Explicación racional.", "correct": false },
+            { "text": "Amor a la sabiduría.", "correct": true },
+            { "text": "El principio constitutivo.", "correct": false }
+          ]
+        },
+        {
+          "text": "Señala el término griego que designa la razón o la explicación racional en oposición al mito.",
+          "options": [
+            { "text": "Arjé.", "correct": false },
+            { "text": "Sofía.", "correct": false },
+            { "text": "Physis.", "correct": false },
+            { "text": "Logos.", "correct": true }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "2.1. Origen psicológico de la Filosofía",
+      "topic": "Tema 1: El Saber Filosófico",
+      "text": "La filosofía surge de la actitud de **asombro, admiración y curiosidad**. No es un saber terminado, sino una **actividad racional** de pensar por uno mismo. Se ocupa de **cuestiones vitales** que atañen a cualquier persona (libertad, justicia, etc.).\n\nAristóteles dijo que los hombres \"comienzan y comenzaron siempre a filosofar **movidos por la admiración**\". Esta admiración es la que nace de **reconocer la propia ignorancia** sobre aquello que se creía saber (admiración socrática). Hacer filosofía es \"estar en camino\", en continua **búsqueda de la verdad** (desentrañar secretos del universo) y **búsqueda de la felicidad** (organizar la vida para vivir bien).",
+      "questions": [
+        {
+          "text": "¿Según Aristóteles, cuál es el motor que mueve a los hombres a filosofar?",
+          "options": [
+            { "text": "La ambición por el poder.", "correct": false },
+            { "text": "La admiración (asombro).", "correct": true },
+            { "text": "La fe en los dioses.", "correct": false },
+            { "text": "La experimentación científica.", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "2.2. Comienzo geográfico y cronológico",
+      "topic": "Tema 1: El Saber Filosófico",
+      "text": "El pensamiento filosófico surgió casi al mismo tiempo (en torno al **siglo VI a.C.**) en tres lugares muy apartados: **China, India y Grecia**.\n\n* **India**: Principalmente el **budismo**.\n* **China**: Principalmente el **confucionismo** y el **taoísmo**.\n* **Grecia**: Dio origen a la filosofía **occidental**.\n\nLa filosofía occidental nace en **Mileto**. Los primeros filósofos se cuestionaron los mitos y, con una actitud crítica, buscaron las causas de los acontecimientos en la **naturaleza** (el \"milagro griego\").",
+      "questions": [
+        {
+          "text": "¿En qué siglo y en qué tres regiones surgió el pensamiento filosófico casi al mismo tiempo?",
+          "options": [
+            {
+              "text": "Siglo V a.C., en Roma, Egipto y Mesopotamia.",
+              "correct": false
+            },
+            {
+              "text": "Siglo VI a.C., en China, India y Grecia.",
+              "correct": true
+            },
+            {
+              "text": "Siglo VIII a.C., en Persia, Grecia y China.",
+              "correct": false
+            },
+            {
+              "text": "Siglo VI d.C., en Europa, Asia y América.",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "3. Los dos sentidos de la filosofía",
+      "topic": "Tema 1: El Saber Filosófico",
+      "text": "La palabra \"filosofía\" se usa en dos sentidos diferentes:\n\n1.  Como **disciplina académica**: Es un **conjunto de conocimientos**.\n2.  Como **actividad de indagación**: Consiste en **plantearse preguntas** y tratar de buscar **respuestas racionales** para las grandes preguntas.\n\nLo más valioso de la filosofía es la **actitud de indagación** y la **búsqueda racional** de respuestas, que obliga a pensar por nosotros mismos, más allá de un catálogo de soluciones.",
+      "questions": [
+        {
+          "text": "¿Cuál es el sentido de la filosofía que se enfoca en la búsqueda racional de respuestas a las grandes preguntas?",
+          "options": [
+            { "text": "Como disciplina académica.", "correct": false },
+            { "text": "Como conjunto de conocimientos.", "correct": false },
+            { "text": "Como actividad de indagación.", "correct": true },
+            { "text": "Como saber terminado.", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "4. Características de la filosofía",
+      "topic": "Tema 1: El Saber Filosófico",
+      "text": "La filosofía se caracteriza por ser **antidogmática**: cuestiona las evidencias y se rebela contra imposiciones, advirtiendo a la gente que piense por sí misma.\n\nLas respuestas filosóficas aspiran a ser:\n\n* **Racional**: Se basa en **argumentaciones lógicas** y observaciones, buscando el *porqué* de las cosas.\n* **Crítico**: No admite nada sin examen racional y **combate los dogmas y prejuicios**.\n* **Radical**: Se ocupa de encontrar la **causa** o la **\"raíz\"** de los objetos de estudio (ir al fondo de las cosas).\n* **Universal**: Se ocupa de la **totalidad de lo real** (todo lo que preocupa al ser humano) de forma global.\n\nLas preguntas filosóficas nacen de la **experiencia**, la **curiosidad innata**, y de los problemas irresolubles de modo universal (quién soy, cómo debo actuar, etc.).",
+      "questions": [
+        {
+          "text": "¿Qué característica de la filosofía implica que se ocupa de la totalidad de lo real y busca la interrelación entre los distintos ámbitos?",
+          "options": [
+            { "text": "Saber Racional.", "correct": false },
+            { "text": "Saber Radical.", "correct": false },
+            { "text": "Saber Crítico.", "correct": false },
+            { "text": "Saber Universal.", "correct": true }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "5. La especificidad de la filosofía",
+      "topic": "Tema 1: El Saber Filosófico",
+      "text": "Durante muchos siglos, la filosofía no se distinguió de la ciencia. El cambio ocurrió con la **Revolución científica** (siglos XVI y XVII) y el surgimiento del **método científico** (Kepler, Galileo, Newton), basado en la experimentación y las leyes matemáticas.",
+      "questions": [
+        {
+          "text": "Selecciona una semejanza entre la ciencia y la filosofía.",
+          "options": [
+            {
+              "text": "Ambas se ocupan de aspectos concretos y cuantitativos.",
+              "correct": false
+            },
+            {
+              "text": "Ambas formulan leyes matemáticas y usan la experimentación.",
+              "correct": false
+            },
+            {
+              "text": "Ambas son racionales y buscan fundamentar sus afirmaciones por medio de la razón.",
+              "correct": true
+            },
+            {
+              "text": "Ambas se ocupan de problemas de funcionamiento y no de sentido.",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "5.1. Filosofía y ciencia",
+      "topic": "Tema 1: El Saber Filosófico",
+      "text": "### Semejanzas\n* Ambas buscan responder problemas fundamentales para los que el conocimiento vulgar es insuficiente.\n* Ambas son **racionales** y buscan fundamentar sus afirmaciones exclusivamente por medio de la **razón**.\n\n### Diferencias\n| Aspecto | Ciencia | Filosofía |\n| :--- | :--- | :--- |\n| **Objeto** | Aspectos **concretos** y **cuantitativos** de la realidad. | La **realidad en su totalidad** (universal) y aspectos **cualitativos**. |\n| **Método** | Se basa en la **experiencia** y se demuestra mediante el **experimento**. | Opera por **abstracción**. Sus afirmaciones **no se demuestran** experimentalmente, solo se justifican y argumentan. |\n| **Problemas** | Problemas de **funcionamiento**. | Problemas de **sentido** y de **finalidad**. |",
+      "questions": [
+        {
+          "text": "¿Cuál es un objeto de estudio exclusivo de la filosofía en contraste con la ciencia?",
+          "options": [
+            {
+              "text": "Aspectos cuantitativos de la realidad.",
+              "correct": false
+            },
+            {
+              "text": "Problemas de funcionamiento que se pueden demostrar con experimentos.",
+              "correct": false
+            },
+            {
+              "text": "La realidad en su totalidad, ocupándose de problemas de sentido y finalidad.",
+              "correct": true
+            },
+            {
+              "text": "Las leyes matemáticas que gobiernan la naturaleza.",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "5.2. Religión y filosofía",
+      "topic": "Tema 1: El Saber Filosófico",
+      "text": "Tanto la filosofía como la religión abordan problemas fundamentales para el ser humano.\n\n* **Religión**: Se fundamenta en el **dogma** (verdad fundamental que no se puede razonar y que se acepta sin cuestionar) y la **fe**. Ofrece una verdad **revelada**.\n* **Filosofía**: Tiene carácter **racional**. Rechaza argumentos basados en dogmas o la autoridad y busca fundamentar sus afirmaciones exclusivamente por medio de la **razón**.",
+      "questions": [
+        {
+          "text": "¿Cuál es la fuente fundamental de la explicación religiosa?",
+          "options": [
+            {
+              "text": "La argumentación lógica y el análisis racional.",
+              "correct": false
+            },
+            { "text": "La experimentación empírica.", "correct": false },
+            { "text": "El dogma y la fe (verdad revelada).", "correct": true },
+            { "text": "La búsqueda incesante de la verdad.", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "5.3. Arte y filosofía",
+      "topic": "Tema 1: El Saber Filosófico",
+      "text": "La razón filosófica es **discursiva** y se apoya en el lenguaje para elaborar **conceptos, argumentos y teorías**.\n\n* **Arte/Literatura**: Su objetivo es **emocionar** y **producir sentimientos** (disfrutar de la belleza del lenguaje).\n* **Filosofía**: Su propósito central es **buscar respuestas racionales** a las grandes preguntas.\n\nAunque a veces los textos filosóficos son bellos y las obras literarias tienen contenido filosófico, el **objetivo principal** permite distinguirlas.",
+      "questions": [
+        {
+          "text": "¿Cuál es el propósito central que permite distinguir una obra artística o literaria de una obra filosófica?",
+          "options": [
+            {
+              "text": "El arte busca la verdad; la filosofía busca la belleza.",
+              "correct": false
+            },
+            {
+              "text": "El arte busca emocionar y producir sentimientos; la filosofía busca respuestas racionales.",
+              "correct": true
+            },
+            {
+              "text": "El arte es discursivo; la filosofía es conceptual.",
+              "correct": false
+            },
+            {
+              "text": "El arte utiliza el lenguaje; la filosofía solo conceptos.",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "6. Ramas de la filosofía",
+      "topic": "Tema 1: El Saber Filosófico",
+      "text": "La filosofía tiene **vocación universalista**, pero se ha dividido en ramas según el problema y la perspectiva.\n\n* **Metafísica**: Se ocupa del **ser**, es decir, de las propiedades de **todo lo que es o existe** (es una de las más antiguas).\n* **Lógica**: Se ocupa de los **razonamientos** (expresados lingüísticamente). Estudia su estructura, forma y corrección para establecer la validez de la conclusión.\n* **Epistemología** (Teoría del conocimiento): Se ocupa de cuestiones relativas al **conocimiento** (qué es, sus tipos, límites, la ciencia, etc.).\n* **Ética**: Estudia y reflexiona sobre los **códigos morales** (su fundamentación, validez y universalización).\n* **Estética**: Se interesa por el **arte** y la **belleza** en general (nace como disciplina filosófica en el s. XVIII).\n* **Política**: Es la dimensión comunitaria de la ética. Pregunta fundamental: **¿Cómo debemos vivir?** en sociedad. Se pregunta por el origen y la legitimación del poder político.\n\nTambién existen las \"filosofías de...\" que se ocupan de la validez y fundamentación de otras disciplinas (ej: filosofía de la mente, del lenguaje, etc.).",
+      "questions": [
+        {
+          "text": "¿Qué rama de la filosofía se ocupa del estudio del ser, es decir, de las propiedades de todo lo que es o existe?",
+          "options": [
+            { "text": "Ética.", "correct": false },
+            { "text": "Epistemología.", "correct": false },
+            { "text": "Metafísica.", "correct": true },
+            { "text": "Lógica.", "correct": false }
+          ]
+        },
+        {
+          "text": "¿Qué rama de la filosofía es considerada la dimensión comunitaria de la ética y se pregunta por el origen y la legitimación del poder?",
+          "options": [
+            { "text": "Estética.", "correct": false },
+            { "text": "Filosofía Política.", "correct": true },
+            { "text": "Lógica.", "correct": false },
+            { "text": "Metafísica.", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "7. Utilidad de la Filosofía",
+      "topic": "Tema 1: El Saber Filosófico",
+      "text": "La filosofía aporta:\n\n* **Reflexión crítica** sobre los problemas fundamentales del ser humano.\n* **Comprensión global del mundo** que permite a las personas encontrar una orientación en él.\n* **Orientación para \"vivir por cuenta propia\"** frente a \"dejarse vivir\".\n\nHistóricamente, la reflexión filosófica ha dado forma a conceptos como la **libertad**, la **justicia** o los **valores** con que vivimos. Su función es **potenciar la razón** como muestra de convivencia y como fuente de disidencia y rebelión.",
+      "questions": [
+        {
+          "text": "¿Cuál es un aporte clave de la filosofía según el texto?",
+          "options": [
+            {
+              "text": "Ofrecer un catálogo de soluciones duraderas y definitivas.",
+              "correct": false
+            },
+            {
+              "text": "Potenciar el dogma como fuente de verdad.",
+              "correct": false
+            },
+            {
+              "text": "Aportar reflexión crítica y comprensión global para la orientación en el mundo.",
+              "correct": true
+            },
+            {
+              "text": "Establecer leyes matemáticas para la naturaleza.",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "8. La Filosofía en su historia",
+      "topic": "Tema 1: El Saber Filosófico",
+      "text": "La historia de la filosofía se divide en varias etapas:\n\n### 8.1. Filosofía Antigua (Finales del s. VI a. C. al s. V d. C.)\n* **Período Cosmológico (Presocráticos)**: Indagaron el origen del universo (**cosmos**) y el principio constitutivo de toda la realidad (**arjé**). Buscaban explicaciones racionales, de carácter material, en la **naturaleza** (*physis*).\n* **Período Antropológico (Sócrates y Sofistas)**: Introdujo el **giro antropológico**; los temas fundamentales pasaron a ser la **ética y la política** (cuestiones puramente humanas).\n* **Período Ontológico (Platón y Aristóteles)**: Platón elaboró un sistema filosófico que afirmaba la existencia de otro mundo, el **\"mundo de las ideas\"** (inmaterial e inmutable).\n* **Período Helenístico (Epicureísmo, Estoicismo, Cínicos, Escépticos)**: Se enfocaron en la **búsqueda de la vida feliz**.\n\n### 8.2. Filosofía Medieval (s. V al s. XV)\n* Su función fue ayudar a **clarificar la doctrina teológica cristiana** (razón complementaria a las Sagradas Escrituras).\n* Dividida en **Filosofía Patrística** (Agustín de Hipona) y **Escolástica** (Tomás de Aquino).\n\n### 8.3. Renacimiento y Filosofía Moderna (s. XV al XVII)\n* El tema central pasa de Dios al **ser humano** (Humanismo).\n* Aparición de la **Revolución Científica** (Copérnico, Galileo, Newton).\n* Descartes inicia la filosofía moderna. Corrientes principales: **Racionalismo** (Descartes, Spinoza), **Empirismo** (Locke, Hume) y **Criticismo** (Kant).\n\n### 8.4. Filosofía Contemporánea\n* Caracterizada por un **talante crítico** y de **denuncia/sospecha**.\n* Inaugurada por corrientes como el **Marxismo**, el **Psicoanálisis** (Freud) y el **Vitalismo** (Nietzsche).",
+      "questions": [
+        {
+          "text": "¿Qué escuela filosófica antigua se centró en indagar el origen del universo (cosmos) y el principio constitutivo (arjé)?",
+          "options": [
+            { "text": "Los Sofistas.", "correct": false },
+            { "text": "Los Pitagóricos.", "correct": false },
+            {
+              "text": "Los Presocráticos (Período Cosmológico).",
+              "correct": true
+            },
+            { "text": "Las Escuelas Helenísticas.", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "9. Mujer y filosofía",
+      "topic": "Tema 1: El Saber Filosófico",
+      "text": "La cultura occidental es **androcéntrica** (centrada en lo masculino), lo que ha llevado al **olvido** e **invisibilización** de mujeres relevantes en la filosofía. Esta situación es fruto de una **sociedad patriarcal**.\n\nEl patriarcado, según Gerda Lerner, se produjo con la división sexual del trabajo, se reforzó con las religiones monoteístas y se consolidó con la **filosofía sexista de Aristóteles**.\n\n* **Platón**: Mantenía una actitud de **igualdad**. Admitía mujeres en su academia y consideraba que el gobierno de la polis podía corresponder a una **reina filósofa**.\n* **Aristóteles**: Se apartó de esta visión, afirmando que **\"la hembra es como si fuese un macho estéril\"** y que el macho debe mandar y la hembra obedecer.\n\nEl **feminismo** ha luchado contra estos prejuicios desde el siglo XVIII, dividiéndose en tres etapas:\n\n1.  **Primera etapa (s. XVIII - 1ª mitad s. XIX)**: Reivindicación de los mismos **derechos civiles** (trabajo, educación, matrimoniales). Destacan Olympe de Gouges y Mary Wollstonecraft.\n2.  **Segunda etapa (2ª mitad s. XIX - 1er tercio s. XX)**: Reivindicación del **sufragio universal** (voto), educación superior, igualdad salarial y acceso profesional. Destacan Clara Campoamor y Simone de Beauvoir.\n3.  **Tercera etapa (2ª mitad s. XX - actualidad)**: Consolidación del pensamiento feminista, análisis del sistema patriarcal e intervención en instituciones para cambiar legislaciones y practicar **políticas de igualdad**.",
+      "questions": [
+        {
+          "text": "¿Cuál de estos filósofos mantuvo una actitud de igualdad, admitiendo mujeres en su academia y considerando la posibilidad de una reina filósofa?",
+          "options": [
+            { "text": "Aristóteles.", "correct": false },
+            { "text": "Nietzsche.", "correct": false },
+            { "text": "Agustín de Hipona.", "correct": false },
+            { "text": "Platón.", "correct": true }
+          ]
+        },
+        {
+          "text": "¿Cuál es la característica que define la cultura occidental que ha provocado la invisibilización de la mujer en la filosofía?",
+          "options": [
+            { "text": "Es una cultura teocéntrica.", "correct": false },
+            { "text": "Es una cultura etiológica.", "correct": false },
+            { "text": "Es una cultura androcéntrica.", "correct": true },
+            { "text": "Es una cultura cosmológica.", "correct": false }
+          ]
+        }
+      ]
+    }
+  ]
+}

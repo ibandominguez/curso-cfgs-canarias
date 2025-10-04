@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabla de Frecuencias y Medidas Estadísticas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <style>
+      /* Estilo simple para centrar y ocultar elementos de Alpine al inicio */
+      [x-cloak] {
+        display: none !important;
+      }
+      /* Estilo para la "x" con barra (Media) usando Unicode */
+      /* Unicode para x con barra: x&#773; o x&#x0305; */
+      .x-bar::after {
+        content: "̄"; /* Solo la barra superior */
+      }
+      .x-bar-container {
+        position: relative;
+        display: inline-block;
+      }
+      .x-bar-text {
+        position: relative;
+      }
+      .x-bar-text::before {
+        content: "x";
+      }
+      .x-bar-text::after {
+        content: "̄";
+        position: absolute;
+        top: -0.4em;
+        left: 0;
+        right: 0;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 p-8" x-data="estadisticaApp()">
+    <div class="max-w-5xl mx-auto bg-white p-6 rounded-lg shadow-xl">
+      <h1 class="text-3xl font-bold text-gray-800 mb-6 border-b pb-2">
+        📊 Guía de Validación Estadística
+      </h1>
+
+      <div class="mb-6">
+        <label
+          for="datosInput"
+          class="block text-sm font-medium text-gray-700 mb-2"
+        >
+          Introduce los datos (separados por espacios):
+        </label>
+        <textarea
+          id="datosInput"
+          class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 font-mono"
+          rows="3"
+          x-model="datosRaw"
+          @input.debounce.500ms="procesarDatos"
+          placeholder="Ejemplo: 1 1 2 3 0 0 1 2 2 3 1 2 1 2"
+        ></textarea>
+        <p class="mt-2 text-sm text-gray-500">
+          Total de valores N =
+          <span
+            x-text="datosProcesados.length"
+            class="font-semibold text-blue-600"
+          ></span>
+        </p>
+      </div>
+
+      <!-- <button -->
+      <!--   @click="procesarDatos" -->
+      <!--   class="w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-150 mb-6" -->
+      <!-- > -->
+      <!--   Calcular -->
+      <!-- </button> -->
+
+      <div
+        x-show="error"
+        x-cloak
+        class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4"
+        role="alert"
+      >
+        <strong class="font-bold">¡Error!</strong>
+        <span class="block sm:inline" x-text="error"></span>
+      </div>
+
+      <div x-show="tabla.length > 0" x-cloak>
+        <h2 class="text-2xl font-semibold text-gray-800 mb-4 pt-4 border-t">
+          Tabla de Frecuencias
+        </h2>
+        <div class="overflow-x-auto">
+          <table
+            class="min-w-full divide-y divide-gray-200 border border-gray-300"
+          >
+            <thead class="bg-gray-50">
+              <tr>
+                <th
+                  class="px-3 py-2 text-xs font-medium text-gray-500 tracking-wider border-r"
+                >
+                  x<sub>i</sub> (Valor)
+                </th>
+                <th
+                  class="px-3 py-2 text-xs font-medium text-gray-500 tracking-wider border-r"
+                >
+                  f<sub>i</sub> (Frec. Abs.)
+                </th>
+                <th
+                  class="px-3 py-2 text-xs font-medium text-gray-500 tracking-wider border-r"
+                >
+                  F<sub>i</sub> (Frec. Abs. Acum.)
+                </th>
+                <th
+                  class="px-3 py-2 text-xs font-medium text-gray-500 tracking-wider border-r"
+                >
+                  h<sub>i</sub> (Frec. Rel.)
+                </th>
+                <th
+                  class="px-3 py-2 text-xs font-medium text-gray-500 tracking-wider border-r"
+                >
+                  % (Porcentual)
+                </th>
+                <th
+                  class="px-3 py-2 text-xs font-medium text-gray-500 tracking-wider border-r"
+                >
+                  x<sub>i</sub> &#8901; f<sub>i</sub>
+                </th>
+                <th
+                  class="px-3 py-2 text-xs font-medium text-gray-500 tracking-wider"
+                >
+                  x<sub>i</sub>&sup2; &#8901; f<sub>i</sub>
+                </th>
+              </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200">
+              <template x-for="fila in tabla" :key="fila.xi">
+                <tr>
+                  <td
+                    class="px-3 py-2 whitespace-nowrap text-sm font-medium text-gray-900 border-r"
+                    x-text="fila.xi"
+                  ></td>
+                  <td
+                    class="px-3 py-2 whitespace-nowrap text-sm text-gray-500 border-r"
+                    x-text="fila.fi"
+                  ></td>
+                  <td
+                    class="px-3 py-2 whitespace-nowrap text-sm text-gray-500 border-r"
+                    x-text="fila.Fi"
+                  ></td>
+                  <td
+                    class="px-3 py-2 whitespace-nowrap text-sm text-gray-500 border-r"
+                    x-text="fila.hi.toFixed(4)"
+                  ></td>
+                  <td
+                    class="px-3 py-2 whitespace-nowrap text-sm text-gray-500 border-r"
+                    x-text="(fila.hi * 100).toFixed(2) + '%'"
+                  ></td>
+                  <td
+                    class="px-3 py-2 whitespace-nowrap text-sm text-gray-500 border-r"
+                    x-text="fila.xifi.toFixed(2)"
+                  ></td>
+                  <td
+                    class="px-3 py-2 whitespace-nowrap text-sm text-gray-500"
+                    x-text="fila.xi2fi.toFixed(2)"
+                  ></td>
+                </tr>
+              </template>
+              <tr class="bg-gray-100 font-bold">
+                <td class="px-3 py-2 text-sm text-gray-900 border-r">Total</td>
+                <td
+                  class="px-3 py-2 text-sm text-gray-900 border-r"
+                  x-text="datosProcesados.length"
+                ></td>
+                <td class="px-3 py-2 text-sm text-gray-900 border-r">--</td>
+                <td
+                  class="px-3 py-2 text-sm text-gray-900 border-r"
+                  x-text="sumHi.toFixed(4)"
+                ></td>
+                <td
+                  class="px-3 py-2 text-sm text-gray-900 border-r"
+                  x-text="(sumHi * 100).toFixed(2) + '%'"
+                ></td>
+                <td
+                  class="px-3 py-2 text-sm text-gray-900 border-r"
+                  x-text="sumXiFi.toFixed(2)"
+                ></td>
+                <td
+                  class="px-3 py-2 text-sm text-gray-900"
+                  x-text="sumXi2Fi.toFixed(2)"
+                ></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div x-show="tabla.length > 0" x-cloak class="mt-8">
+        <h2 class="text-2xl font-semibold text-gray-800 mb-4 pt-4 border-t">
+          Medidas Estadísticas Clave
+        </h2>
+        <div class="grid grid-cols-1 gap-4">
+          <div
+            class="bg-blue-50 p-4 rounded-lg border border-blue-200 flex justify-between items-center"
+          >
+            <div>
+              <p class="font-semibold text-blue-800">Media (x&#773;):</p>
+              <span
+                class="text-xl font-bold text-gray-900"
+                x-text="media.toFixed(4)"
+              ></span>
+            </div>
+            <code
+              class="text-sm bg-blue-100 p-1 rounded font-mono text-blue-900"
+              >x&#773; = (&#8721; x<sub>i</sub> &#8901; f<sub>i</sub>) / N</code
+            >
+          </div>
+
+          <div
+            class="bg-blue-50 p-4 rounded-lg border border-blue-200 flex justify-between items-center"
+          >
+            <div>
+              <p class="font-semibold text-blue-800">Mediana (Me):</p>
+              <span
+                class="text-xl font-bold text-gray-900"
+                x-text="mediana.toFixed(4)"
+              ></span>
+            </div>
+            <code
+              class="text-sm bg-blue-100 p-1 rounded font-mono text-blue-900"
+              >Valor en la posición (N+1)/2</code
+            >
+          </div>
+
+          <div
+            class="bg-blue-50 p-4 rounded-lg border border-blue-200 flex justify-between items-center"
+          >
+            <div>
+              <p class="font-semibold text-blue-800">Moda (Mo):</p>
+              <span
+                class="text-xl font-bold text-gray-900"
+                x-text="moda"
+              ></span>
+            </div>
+            <code
+              class="text-sm bg-blue-100 p-1 rounded font-mono text-blue-900"
+              >Valor(es) con la mayor f<sub>i</sub></code
+            >
+          </div>
+        </div>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-3">
+          Medidas de Dispersión
+        </h3>
+        <div class="grid grid-cols-1 gap-4">
+          <div
+            class="bg-green-50 p-4 rounded-lg border border-green-200 flex justify-between items-center"
+          >
+            <div>
+              <p class="font-semibold text-green-800">
+                Varianza (&sigma;&sup2;):
+              </p>
+              <span
+                class="text-xl font-bold text-gray-900"
+                x-text="varianza.toFixed(4)"
+              ></span>
+            </div>
+            <code
+              class="text-sm bg-green-100 p-1 rounded font-mono text-green-900"
+              >&sigma;&sup2; = [(&#8721; x<sub>i</sub>&sup2; &#8901;
+              f<sub>i</sub>) / N] - x&#773;&sup2;</code
+            >
+          </div>
+
+          <div
+            class="bg-green-50 p-4 rounded-lg border border-green-200 flex justify-between items-center"
+          >
+            <div>
+              <p class="font-semibold text-green-800">
+                Desviación Típica (&sigma;):
+              </p>
+              <span
+                class="text-xl font-bold text-gray-900"
+                x-text="desviacionTipica.toFixed(4)"
+              ></span>
+            </div>
+            <code
+              class="text-sm bg-green-100 p-1 rounded font-mono text-green-900"
+              >&sigma; = &#8730;(&sigma;&sup2;)</code
+            >
+          </div>
+
+          <div
+            class="bg-green-50 p-4 rounded-lg border border-green-200 flex justify-between items-center"
+          >
+            <div>
+              <p class="font-semibold text-green-800">
+                Coef. de Variación (CV):
+              </p>
+              <span
+                class="text-xl font-bold text-gray-900"
+                x-text="coeficienteVariacion.toFixed(4)"
+              ></span>
+            </div>
+            <code
+              class="text-sm bg-green-100 p-1 rounded font-mono text-green-900"
+              >CV = &sigma; / x&#773;</code
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function estadisticaApp() {
+        return {
+          // Datos de entrada y estado
+          datosRaw: "1 1 2 3 0 0 1 2 2 3 1 2 1 2", // Ejemplo base
+          datosProcesados: [],
+          tabla: [],
+          error: "",
+
+          // Medidas de tendencia central y dispersión
+          media: 0,
+          mediana: 0,
+          moda: "",
+          varianza: 0,
+          desviacionTipica: 0,
+          coeficienteVariacion: 0,
+
+          // Totales para la tabla
+          sumXiFi: 0,
+          sumXi2Fi: 0,
+          sumHi: 0, // Suma de frecuencias relativas para la validación
+
+          init() {
+            this.procesarDatos(); // Ejecutar el cálculo inicial
+          },
+
+          procesarDatos() {
+            this.error = "";
+            this.tabla = [];
+
+            // 1. Limpiar y convertir los datos de entrada a números
+            const datos = this.datosRaw
+              .trim()
+              .split(/\s+/) // Separar por uno o más espacios/saltos de línea
+              .filter((d) => d.length > 0)
+              .map(Number);
+
+            if (datos.some(isNaN) || datos.length === 0) {
+              this.error =
+                "Asegúrate de introducir números válidos separados por espacios.";
+              return;
+            }
+
+            this.datosProcesados = datos.sort((a, b) => a - b);
+            const N = this.datosProcesados.length;
+
+            // 2. Calcular la Tabla de Frecuencias
+            const frecuencias = {};
+            this.datosProcesados.forEach((x) => {
+              frecuencias[x] = (frecuencias[x] || 0) + 1;
+            });
+
+            let Fi_acumulada = 0;
+            let sum_xi_fi = 0;
+            let sum_xi2_fi = 0;
+            let sum_hi = 0;
+
+            this.tabla = Object.keys(frecuencias).map((key) => {
+              const xi = Number(key);
+              const fi = frecuencias[key];
+              const hi = fi / N;
+              const xifi = xi * fi;
+              const xi2fi = xi ** 2 * fi;
+
+              Fi_acumulada += fi;
+              sum_xi_fi += xifi;
+              sum_xi2_fi += xi2fi;
+              sum_hi += hi;
+
+              return {
+                xi: xi,
+                fi: fi,
+                Fi: Fi_acumulada, // Frecuencia Absoluta Acumulada
+                hi: hi, // Frecuencia Relativa
+                xifi: xifi,
+                xi2fi: xi2fi,
+              };
+            });
+
+            this.sumXiFi = sum_xi_fi;
+            this.sumXi2Fi = sum_xi2_fi;
+            this.sumHi = sum_hi; // Debería ser ~1.0
+
+            // 3. Calcular Medidas de Tendencia Central y Dispersión
+            this.calcularMedidas(N);
+          },
+
+          calcularMedidas(N) {
+            if (N === 0) {
+              this.media =
+                this.mediana =
+                this.varianza =
+                this.desviacionTipica =
+                this.coeficienteVariacion =
+                  0;
+              this.moda = "";
+              return;
+            }
+
+            // MEDIA
+            this.media = this.sumXiFi / N;
+
+            // MEDIANA
+            const puntoMedio = N / 2;
+            if (N % 2 === 1) {
+              // N impar
+              this.mediana = this.datosProcesados[Math.floor(puntoMedio)];
+            } else {
+              // N par
+              const valor1 = this.datosProcesados[puntoMedio - 1];
+              const valor2 = this.datosProcesados[puntoMedio];
+              this.mediana = (valor1 + valor2) / 2;
+            }
+
+            // MODA
+            let maxFi = 0;
+            let modas = [];
+            this.tabla.forEach((fila) => {
+              if (fila.fi > maxFi) {
+                maxFi = fila.fi;
+                modas = [fila.xi];
+              } else if (fila.fi === maxFi && maxFi > 0) {
+                modas.push(fila.xi);
+              }
+            });
+            this.moda = modas.length > 0 ? modas.join(", ") : "No hay moda";
+            if (modas.length === this.tabla.length)
+              this.moda =
+                "Amodal (todos los valores tienen la misma frecuencia)";
+
+            // VARIANZA ($\sigma^2$)
+            // Fórmula: ($\sum(xi^2 * fi) / N$) - $\bar{x}^2$
+            this.varianza = this.sumXi2Fi / N - this.media ** 2;
+            if (this.varianza < 0) this.varianza = 0; // Evitar errores de redondeo
+
+            // DESVIACIÓN TÍPICA ($\sigma$)
+            this.desviacionTipica = Math.sqrt(this.varianza);
+
+            // COEFICIENTE DE VARIACIÓN ($CV$)
+            // Fórmula: $\sigma / \bar{x}$
+            this.coeficienteVariacion =
+              this.media !== 0 ? this.desviacionTipica / this.media : 0;
+          },
+        };
+      }
+    </script>
+  </body>
+</html>

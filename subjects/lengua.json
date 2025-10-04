@@ -1,0 +1,166 @@
+{
+  "title": "Lengua y Literatura",
+  "contents": [
+    {
+      "title": "1. Sílabas: Tónicas y Átonas",
+      "topic": "Tema 1. La acentuación.",
+      "text": "La **sílaba** es cada golpe de voz con el que se pronuncia una palabra. Dentro de cada palabra de dos o más sílabas, distinguimos:\n\n* **Sílaba Tónica**: Es la sílaba que se pronuncia con **mayor intensidad** o fuerza dentro de una palabra. Solo puede haber una.\n* **Sílabas Átonas**: Son las sílabas que se pronuncian con **menor intensidad**. Puede haber varias o ninguna.\n\nLa correcta identificación de la sílaba tónica es el primer paso para aplicar las reglas de acentuación. La tilde (´) solo se coloca sobre la vocal de la sílaba tónica.",
+      "questions": [
+        {
+          "text": "En la palabra 'ordenador', ¿cuál es la sílaba tónica?",
+          "options": [
+            { "text": "or", "correct": false },
+            { "text": "de", "correct": false },
+            { "text": "na", "correct": false },
+            { "text": "**dor**", "correct": true }
+          ]
+        },
+        {
+          "text": "En la palabra 'árbol', ¿cuántas sílabas átonas hay?",
+          "options": [
+            { "text": "Cero.", "correct": false },
+            { "text": "Una (bol).", "correct": true },
+            { "text": "Dos (ár y bol).", "correct": false },
+            { "text": "Tres.", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "2. Reglas Generales: Agudas, Llanas y Esdrújulas",
+      "topic": "Tema 1. La acentuación.",
+      "text": "La acentuación gráfica (el uso de la tilde) depende de la posición de la sílaba tónica:\n\n* **Palabras Agudas**: La sílaba tónica es la **última**.\n    * **Llevan tilde** cuando terminan en **-n, -s o vocal**.\n    * Ejemplos: *comió, compás, balón, café*.\n    * *Excepción*: No llevan tilde si terminan en **-s** precedida por otra consonante (*robots*).\n\n* **Palabras Llanas (o Graves)**: La sílaba tónica es la **penúltima**.\n    * **Llevan tilde** cuando **NO** terminan en **-n, -s o vocal**.\n    * Ejemplos: *árbol, lápiz, cómic, ángel*.\n    * *Excepción*: Llevan tilde si terminan en **-s** precedida por otra consonante (*bíceps*).\n\n* **Palabras Esdrújulas y Sobreesdrújulas**: La sílaba tónica es la **antepenúltima** (esdrújulas) o anterior a la antepenúltima (sobreesdrújulas).\n    * **SIEMPRE llevan tilde**.\n    * Ejemplos: *pájaro, médico, cántalo, débilmente*.",
+      "questions": [
+        {
+          "text": "La palabra 'carácter' es llana. ¿Lleva tilde y por qué?",
+          "options": [
+            {
+              "text": "Sí, porque termina en -r (no en -n, -s, vocal).",
+              "correct": true
+            },
+            { "text": "No, porque es llana.", "correct": false },
+            { "text": "Sí, porque es esdrújula.", "correct": false },
+            { "text": "No, porque termina en consonante.", "correct": false }
+          ]
+        },
+        {
+          "text": "La palabra 'colibrí' lleva tilde porque es una palabra:",
+          "options": [
+            { "text": "Esdrújula, terminada en vocal.", "correct": false },
+            { "text": "Aguda, terminada en -i (vocal).", "correct": true },
+            { "text": "Llena, terminada en vocal.", "correct": false },
+            { "text": "Aguda, terminada en -s.", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "3. Acentuación de Diptongos, Triptongos e Hiatos",
+      "topic": "Tema 1. La acentuación.",
+      "text": "La correcta acentuación de estas combinaciones depende de si se rompen o no las sílabas:\n\n### Diptongo (2 vocales juntas en la misma sílaba)\nUnión de una vocal fuerte (**a, e, o**) + una vocal débil (**i, u**), o la unión de dos vocales débiles.\n* **Regla**: Los diptongos siguen las **reglas generales** de agudas, llanas y esdrújulas. Si llevan tilde, se coloca sobre la **vocal fuerte** (o sobre la segunda, si ambas son débiles).\n* Ejemplos: *camión* (aguda terminada en -n), *cuídate* (esdrújula, tilde en la fuerte).\n\n### Triptongo (3 vocales juntas en la misma sílaba)\nUnión de vocal débil + vocal fuerte + vocal débil.\n* **Regla**: Siguen las **reglas generales**. Si llevan tilde, se coloca sobre la **vocal fuerte** (la del medio).\n* Ejemplos: *averiguáis, confiéis*.\n\n### Hiato (2 vocales juntas en sílabas diferentes)\nSe produce por dos casos:\n\n1.  **Dos vocales fuertes seguidas** (**a, e, o**).\n    * **Regla**: Siguen las **reglas generales**. Ejemplos: *poeta, campeón*.\n\n2.  **Vocal fuerte + vocal débil tónica** (o viceversa).\n    * **Regla**: **SIEMPRE llevan tilde** en la vocal débil (**i** o **u**), sin importar las reglas generales (rompe el diptongo).\n    * Ejemplos: *país, baúl, oído, búho*.",
+      "questions": [
+        {
+          "text": "La tilde en la palabra 'raíz' se debe a que:",
+          "options": [
+            {
+              "text": "Es una palabra aguda terminada en -z, lo cual es una excepción.",
+              "correct": false
+            },
+            {
+              "text": "Se rompe un diptongo, creando un hiato acentual, por lo que la vocal débil lleva tilde.",
+              "correct": true
+            },
+            {
+              "text": "Es una palabra llana terminada en -z.",
+              "correct": false
+            },
+            { "text": "Es una esdrújula irregular.", "correct": false }
+          ]
+        },
+        {
+          "text": "¿Por qué la palabra 'juguéis' (triptongo) lleva tilde?",
+          "options": [
+            {
+              "text": "Porque siempre se acentúan los triptongos.",
+              "correct": false
+            },
+            {
+              "text": "Porque es una palabra aguda terminada en -s, siguiendo la regla general.",
+              "correct": true
+            },
+            {
+              "text": "Porque la vocal fuerte 'e' es la que lleva el acento.",
+              "correct": false
+            },
+            { "text": "Porque rompe el diptongo 'ui'.", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "4. La Tilde Diacrítica",
+      "topic": "Tema 1. La acentuación.",
+      "text": "La **tilde diacrítica** se utiliza para diferenciar **palabras que se escriben igual, pero tienen significados y funciones gramaticales distintas**.\n\n| Con Tilde (Tónica) | Sin Tilde (Átona) |\n| :--- | :--- |\n| **Tú** (Pronombre personal) | **Tu** (Adjetivo posesivo) |\n| **Él** (Pronombre personal) | **El** (Artículo) |\n| **Mí** (Pronombre personal) | **Mi** (Adjetivo posesivo o nota musical) |\n| **Sé** (Verbo *saber* o *ser*) | **Se** (Pronombre personal/reflexivo) |\n| **Sí** (Adverbio de afirmación o Pronombre reflexivo) | **Si** (Conjunción condicional o nota musical) |\n| **Dé** (Verbo *dar*) | **De** (Preposición) |\n| **Más** (Adverbio de cantidad) | **Mas** (Conjunción, equivalente a *pero*) |\n| **Aún** (Adverbio de tiempo, equivalente a *todavía*) | **Aun** (Adverbio, equivalente a *incluso* o *ni siquiera*) |\n\nLa RAE indica que los demostrativos (*este, ese, aquel*) y la conjunción *o* **ya no deben llevar tilde** bajo ninguna circunstancia, incluso en casos de ambigüedad.",
+      "questions": [
+        {
+          "text": "Solo tienes que traer _______ libro.",
+          "options": [
+            { "text": "él", "correct": false },
+            { "text": "el", "correct": true }
+          ]
+        },
+        {
+          "text": "Estoy seguro de que ______ me lo vas a agradecer.",
+          "options": [
+            { "text": "té", "correct": false },
+            { "text": "tú", "correct": true },
+            { "text": "tu", "correct": false },
+            { "text": "el", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "5. Acentuación en Palabras Compuestas",
+      "topic": "Tema 1. La acentuación.",
+      "text": "La acentuación en palabras compuestas se rige por la unión de sus elementos:\n\n1.  **Palabra Compuesta Simple (Unida)**: La palabra resultante sigue las **reglas generales** como si fuera una palabra única. Los acentos originales de las palabras base se pierden.\n    * Ejemplos: *décimo* + *séptimo* → **decimoséptimo** (llana terminada en vocal, no lleva tilde).\n\n2.  **Palabras Unidas por Guion**: Cada palabra mantiene su **acentuación individual**.\n    * Ejemplos: *físico-químico*, *histórico-artístico*.\n\n3.  **Adverbios terminados en -mente**: El primer elemento es un adjetivo y el segundo el sufijo **-mente**.\n    * **Regla**: La palabra lleva tilde **SOLO si la llevaba el adjetivo original**.\n    * Ejemplos: *fácil* → **fácilmente**; *tonta* → **tontamente** (no lleva).",
+      "questions": [
+        {
+          "text": "La palabra 'decimoséptimo' (unión de décimo + séptimo) no lleva tilde porque:",
+          "options": [
+            {
+              "text": "Es una excepción a la regla de las esdrújulas.",
+              "correct": false
+            },
+            {
+              "text": "Es una palabra llana terminada en vocal, siguiendo la regla general de las llanas.",
+              "correct": true
+            },
+            {
+              "text": "Es una palabra aguda terminada en vocal, por lo que no lleva.",
+              "correct": false
+            },
+            {
+              "text": "Es una palabra compuesta y las compuestas nunca llevan tilde.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "text": "¿Cómo se acentúa correctamente el adverbio formado por el adjetivo 'cortés'?",
+          "options": [
+            { "text": "Cortesmente (sin tilde).", "correct": false },
+            {
+              "text": "Cortésmente (con tilde, ya que el adjetivo original la lleva).",
+              "correct": true
+            },
+            {
+              "text": "Cortésmente (con tilde, porque es esdrújula).",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

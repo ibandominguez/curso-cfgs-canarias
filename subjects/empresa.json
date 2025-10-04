@@ -1,0 +1,341 @@
+{
+  "title": "Empresa y modelos de negocio",
+  "contents": [
+    {
+      "title": "1. Actividad económica y empresa.",
+      "topic": "Tema 1. La empresa. El emprendimiento.",
+      "text": "La **economía**, según la definición clásica, es la ciencia que estudia la forma de satisfacer las necesidades humanas gestionando la escasez de los recursos. Una definición más moderna incluye la capacidad de generar nuevas necesidades, gestionar los recursos limitados y abogar por la creación de nuevos recursos ilimitados.\n\nPara satisfacer las necesidades, las personas consumen **bienes y servicios** producidos por las empresas.\n\nLas actividades económicas básicas son la **producción**, la **distribución** y el **consumo**.",
+      "questions": [
+        {
+          "text": "¿Cuáles son las tres actividades económicas básicas?",
+          "options": [
+            { "text": "Inversión, ahorro y gasto.", "correct": false },
+            { "text": "Producción, distribución y consumo.", "correct": true },
+            { "text": "Marketing, ventas y logística.", "correct": false },
+            {
+              "text": "Financiación, contabilidad y recursos humanos.",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "2. Los agentes económicos.",
+      "topic": "Tema 1. La empresa. El emprendimiento.",
+      "text": "La sociedad se divide en agentes económicos que toman decisiones en el sistema vigente:\n\n1.  **Economías domésticas (Familias u Hogares)**: Son las unidades básicas de **consumo**. Consumen productos y proporcionan a las empresas los **factores de producción** (trabajo, capital, recursos naturales).\n2.  **Empresas (Sector Privado)**: Son las unidades básicas de **producción**. Producen bienes y servicios empleando los factores de producción a cambio de una remuneración.\n3.  **Sector Público**: Establece el marco legal, provee bienes y servicios públicos y decide la política económica del país, financiándose mediante impuestos.",
+      "questions": [
+        {
+          "text": "¿Qué agente económico es considerado la unidad básica de producción?",
+          "options": [
+            { "text": "Economías domésticas.", "correct": false },
+            { "text": "Sector Público.", "correct": false },
+            { "text": "Empresas.", "correct": true },
+            { "text": "Agentes financieros.", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "3. Funciones de la empresa en la economía.",
+      "topic": "Tema 1. La empresa. El emprendimiento.",
+      "text": "La empresa cumple las siguientes funciones clave:\n\n1.  **Coordinar los factores productivos** (trabajo, capital y recursos naturales).\n2.  **Crear o aumentar la utilidad de los bienes**: Al transformar materias primas o prestar servicios, añaden **valor** e incrementan la capacidad de satisfacer necesidades humanas.\n3.  **Asumen riesgos**: Pagan rentas por los factores de producción por anticipado, sin conocer el resultado final de su actividad.\n4.  **Crean riqueza y empleo**: Contribuyen al desarrollo económico y mejoran la calidad de vida de la ciudadanía.\n\nEl **proceso de creación de valor** se ilustra con la **cadena de valor**, que son las distintas fases por las que pasa un producto antes de llegar al consumidor, y cada fase añade utilidad.",
+      "questions": [
+        {
+          "text": "Una de las funciones de la empresa es 'asumir riesgos'. ¿A qué se refiere esto?",
+          "options": [
+            {
+              "text": "A que invierten todo su capital en la bolsa.",
+              "correct": false
+            },
+            {
+              "text": "A que pagan rentas por factores de producción por anticipado sin conocer el resultado final de la actividad.",
+              "correct": true
+            },
+            {
+              "text": "A que garantizan la venta de todos sus productos antes de producirlos.",
+              "correct": false
+            },
+            {
+              "text": "A que su única meta es crear riqueza y empleo.",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "4. Los elementos de la empresa.",
+      "topic": "Tema 1. La empresa. El emprendimiento.",
+      "text": "Los elementos comunes a toda empresa son:\n\n* **Factores humanos (Grupo Humano)**: Personas trabajadoras, propietarias (socias o accionistas) y colaboradoras externas.\n* **Factores tangibles e intangibles (Patrimonio)**: Bienes materiales (maquinaria, instalaciones) y elementos intangibles (patentes).\n* **Organización**: La estructura para coordinar tareas, comunicación y autoridad, permitiendo alcanzar los objetivos de forma eficaz.\n* **Entorno**: Factores externos que influyen en la empresa:\n    * **Macroentorno** o entorno general (afecta a todas las empresas).\n    * **Microentorno** o entorno específico (afecta a cada sector particular).",
+      "questions": [
+        {
+          "text": "¿Qué elemento de la empresa incluye tanto el macroentorno como el microentorno?",
+          "options": [
+            { "text": "Factores humanos.", "correct": false },
+            { "text": "Organización.", "correct": false },
+            { "text": "Entorno.", "correct": true },
+            { "text": "Patrimonio.", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "5. Los objetivos de la empresa.",
+      "topic": "Tema 1. La empresa. El emprendimiento.",
+      "text": "Los objetivos empresariales actuales son:\n\n1.  **Búsqueda de la máxima rentabilidad** del capital invertido (relación beneficios/inversiones).\n2.  **Crecimiento y creación de valor** para la empresa, lo que satisface a directivos y accionistas.\n3.  **Responsabilidad social** y ética hacia los colectivos que la integran, la sociedad y el medio ambiente.",
+      "questions": [
+        {
+          "text": "El crecimiento de la empresa está relacionado con:",
+          "options": [
+            {
+              "text": "La disminución de su valor de mercado.",
+              "correct": false
+            },
+            { "text": "La pérdida de accionistas.", "correct": false },
+            {
+              "text": "La creación de valor para la empresa, lo que satisface a directivos y accionistas.",
+              "correct": true
+            },
+            { "text": "La reducción de la rentabilidad.", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "6.1 La persona empresaria.",
+      "topic": "Tema 1. La empresa. El emprendimiento.",
+      "text": "La persona empresaria es quien **toma decisiones** para conseguir objetivos, manteniendo el equilibrio entre los elementos de la empresa, y siempre actuando en condiciones de **riesgo**.\n\nLas funciones básicas de la persona empresaria, según la economía clásica, son:\n\n* **Planificar**: Diseñar un plan de acción.\n* **Organizar**: Coordinar los elementos para una eficacia máxima.\n* **Gestionar**: Dirigir los elementos hacia el objetivo marcado.\n* **Controlar**: Verificar el cumplimiento de los objetivos y corregir desviaciones.\n\nEn grandes empresas, la figura del **CEO (Chief Executive Officer)** ejerce las funciones ejecutivas y recae en él la responsabilidad de cumplir los objetivos.",
+      "questions": [
+        {
+          "text": "¿Qué función del empresario implica el diseño de un plan de acción después de un análisis de la situación económica?",
+          "options": [
+            { "text": "Organizar.", "correct": false },
+            { "text": "Controlar.", "correct": false },
+            { "text": "Planificar.", "correct": true },
+            { "text": "Gestionar.", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "6.2 El emprendimiento.",
+      "topic": "Tema 1. La empresa. El emprendimiento.",
+      "text": "Una persona emprendedora es aquella que, a partir de una **idea innovadora**, ve una **oportunidad** y asume **riesgos económicos** y financieros para poner en marcha su propio negocio.\n\nEntre las **dificultades** que afrontan se encuentran:\n\n* Incertidumbre financiera.\n* Poca estabilidad y estrés emocional.\n* Sobrecarga de trabajo.\n* Poca experiencia en gestión empresarial.\n* Pocas redes de apoyo.",
+      "questions": [
+        {
+          "text": "¿Cuál es un desafío común para los emprendedores con habilidades específicas en su área de negocio, pero sin experiencia en gestión empresarial?",
+          "options": [
+            { "text": "Exceso de estabilidad financiera.", "correct": false },
+            {
+              "text": "Riesgo de sobrecarga de trabajo y tomar decisiones equivocadas.",
+              "correct": true
+            },
+            {
+              "text": "Demasiadas redes de apoyo que causan confusión.",
+              "correct": false
+            },
+            {
+              "text": "Dificultad para encontrar ideas innovadoras.",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "6.2.1 El nuevo mercado laboral: knowmads.",
+      "topic": "Tema 1. La empresa. El emprendimiento.",
+      "text": "El término **knowmad** es un neologismo que combina *know* ('conocer', 'saber') y *nomad* ('nómada'). Surgen por la sociedad del conocimiento y la industria 4.0.\n\nSon personas cualificadas, generadoras y gestoras de conocimiento, con gran habilidad en entornos digitales y tecnológico. Se caracterizan por su **flexibilidad** y **adaptabilidad**. Son exponentes del **teletrabajo** y pueden ser emprendedoras o personal independiente.\n\nOtras características: Adaptables, Independientes, Creativas, Digitales, Autodidactas y Resilientes.",
+      "questions": [
+        {
+          "text": "El término 'knowmad' se refiere a la combinación de:",
+          "options": [
+            { "text": "Saber y Locura.", "correct": false },
+            { "text": "Conocimiento y Nómada.", "correct": true },
+            { "text": "Nuevo y Digital.", "correct": false },
+            { "text": "Gestión y Tecnología.", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "6.2.2 Mujer, emprendimiento e inclusión.",
+      "topic": "Tema 1. La empresa. El emprendimiento.",
+      "text": "A pesar del avance en la igualdad, persisten barreras. La **teoría del techo de cristal** (G. Bryant, 1984) describe las **barreras invisibles** que impiden el desarrollo profesional de las mujeres, especialmente su acceso a cargos directivos o de alta responsabilidad, a pesar de su formación.\n\nDificultades para emprender:\n\n* Falta de referentes femeninos visibles.\n* Estereotipos de género (percepción equivocada de debilidad).\n* Conciliación de la vida profesional y familiar.\n* Discriminación de género y acceso a financiación.\n\nUn factor objetivo de desigualdad es la **brecha salarial**.",
+      "questions": [
+        {
+          "text": "¿Qué describe la teoría del 'techo de cristal'?",
+          "options": [
+            {
+              "text": "La incapacidad de las mujeres para crear empresas rentables.",
+              "correct": false
+            },
+            {
+              "text": "Las barreras invisibles que impiden a las mujeres acceder a altos cargos directivos.",
+              "correct": true
+            },
+            {
+              "text": "El riesgo financiero de emprender en solitario.",
+              "correct": false
+            },
+            {
+              "text": "La falta de legislación para la igualdad de género.",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "6.2.3. Inclusión y emprendimiento.",
+      "topic": "Tema 1. La empresa. El emprendimiento.",
+      "text": "El emprendimiento es una herramienta poderosa para fomentar la **inclusión** y la **igualdad de oportunidades**. El **emprendimiento inclusivo** es aquel que tiene en cuenta a personas de distintos orígenes y con diferentes capacidades o habilidades. Implica efectuar las adaptaciones necesarias en los lugares de trabajo para que todo el mundo pueda formar parte del proyecto y sentirse integrado. Incluye a personas con diferentes capacidades o en riesgo de exclusión social.",
+      "questions": [
+        {
+          "text": "El emprendimiento inclusivo se caracteriza por:",
+          "options": [
+            {
+              "text": "Solo buscar el máximo beneficio económico.",
+              "correct": false
+            },
+            {
+              "text": "Solo enfocarse en personas con experiencia previa.",
+              "correct": false
+            },
+            {
+              "text": "Tener en cuenta a distintas personas y sus capacidades, efectuando las adaptaciones necesarias.",
+              "correct": true
+            },
+            { "text": "Limitar el acceso a la financiación.", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "7. Clases de empresa (Tamaño, Sector y Ámbito).",
+      "topic": "Tema 1. La empresa. El emprendimiento.",
+      "text": "Las empresas se clasifican según distintos criterios:\n\n* **Según su tamaño (empleados/as o volumen de ventas)**:\n    * **Microempresas**: menos de 10 trabajadores/as o < 2M €.\n    * **Pequeñas**: menos de 50 trabajadores/as o < 10M €.\n    * **Medianas**: menos de 250 trabajadores/as o < 50M €.\n    * **Grandes**: 250 trabajadores/as o más o ≥ 50M €.\n\n* **Según el sector económico**:\n    * **Primario**: Obtienen recursos de la naturaleza (agrícolas, pesqueras, etc.).\n    * **Secundario o transformadoras**: Transforman físicamente bienes (industria, construcción).\n    * **Terciario o de servicios**: Comerciales y otros servicios (turísticas, financieras, docentes).\n    * **Cuaternario**: Actividades relacionadas con la ciencia y la técnica (informática, biogenética), que requieren alta formación.\n\n* **Según su ámbito de actuación**: Locales, regionales, nacionales y **multinacionales** (actividad en dos o más naciones).",
+      "questions": [
+        {
+          "text": "Una empresa que se dedica a la industria textil (transformación física de bienes) pertenece al:",
+          "options": [
+            { "text": "Sector primario.", "correct": false },
+            { "text": "Sector secundario o transformador.", "correct": true },
+            { "text": "Sector terciario.", "correct": false },
+            { "text": "Sector cuaternario.", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "7. Clases de empresa (Capital y Responsabilidad).",
+      "topic": "Tema 1. La empresa. El emprendimiento.",
+      "text": "* **Según la titularidad del capital**:\n    * **Públicas**: Propiedad y control de una Administración pública (Estado, CCAA, Ayuntamientos). Objetivo principal: ofrecer un servicio de calidad a la población.\n    * **Privadas**: Capital y control de particulares (personas físicas u otras empresas). Objetivo principal: obtención de beneficio.\n    * **Mixtas**: Capital compartido entre administración pública y particulares/empresas.\n\n* **Según la responsabilidad patrimonial** (modo en que responden socios/as ante deudas):\n    * **Ilimitada**: Socios/as responden con su patrimonio propio, presente y futuro (ej: Empresario/a Individual).\n    * **Limitada**: Socios/as solo responden con las aportaciones realizadas a la sociedad (ej: SA, SL).\n    * **Mixta**: Existen socios/as con responsabilidad limitada y otros con ilimitada (ej: Sociedades comanditarias).",
+      "questions": [
+        {
+          "text": "¿Cuál es el objetivo principal de una empresa pública?",
+          "options": [
+            {
+              "text": "La obtención del máximo beneficio económico.",
+              "correct": false
+            },
+            {
+              "text": "Ofrecer un servicio de calidad a la población.",
+              "correct": true
+            },
+            {
+              "text": "Maximizar la rentabilidad del capital invertido.",
+              "correct": false
+            },
+            {
+              "text": "Realizar su actividad en dos o más naciones.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "text": "¿Qué tipo de responsabilidad obliga al socio a responder con su patrimonio personal ante las deudas de la empresa?",
+          "options": [
+            { "text": "Responsabilidad limitada.", "correct": false },
+            { "text": "Responsabilidad mixta.", "correct": false },
+            {
+              "text": "Responsabilidad limitada al capital.",
+              "correct": false
+            },
+            { "text": "Responsabilidad ilimitada.", "correct": true }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "7. Clases de empresa (Forma Jurídica).",
+      "topic": "Tema 1. La empresa. El emprendimiento.",
+      "text": "Se diferencian por su personalidad:\n\n* **Empresas con personalidad física**: Mantienen la personalidad física del propietario/a (ej: Empresario/a Individual). La responsabilidad es **ilimitada**.\n* **Empresas con personalidad jurídica**: Tienen personalidad jurídica propia, distinta a la de sus propietarios/as (ej: sociedades mercantiles).\n\n| Forma Jurídica | N.º Socios/as Mín. | Capital Mín. | Responsabilidad | Fiscalidad |\n| :--- | :--- | :--- | :--- | :--- |\n| **Empresario/a Individual** | 1 | No existe | Ilimitada | IRPF |\n| **S. de Resp. Limitada (SL)** | 1 | 1€ | Limitada al capital aportado | Impuesto sobre sociedades |\n| **S. Anónima (SA)** | 1 | 60.000€ | Limitada al capital aportado | Impuesto sobre sociedades |",
+      "questions": [
+        {
+          "text": "¿Cuál es el mínimo de capital social legalmente exigido para constituir una Sociedad Anónima (SA)?",
+          "options": [
+            { "text": "No existe mínimo legal.", "correct": false },
+            { "text": "1 euro.", "correct": false },
+            { "text": "3.000 euros.", "correct": false },
+            { "text": "60.000 euros.", "correct": true }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "8.1. El mercado de competencia perfecta.",
+      "topic": "Tema 1. La empresa. El emprendimiento.",
+      "text": "Se trata de un mercado con los siguientes supuestos:\n\n* **Muchos compradores/as y muchos vendedores** (multitud de pequeñas empresas).\n* **Empresas precio-aceptantes**: Ninguna puede modificar los precios determinados por la ley de la oferta y la demanda.\n* **Producto homogéneo** (no hay grandes diferencias).\n* **Mercados transparentes** (plena información).\n* **No existen barreras de entrada y de salida**.\n* **Independencia** en la toma de decisiones.\n\nEjemplos: una lonja de pescado o el mercado de valores (Bolsa).",
+      "questions": [
+        {
+          "text": "¿Por qué se dice que las empresas en competencia perfecta son 'precio-aceptantes'?",
+          "options": [
+            {
+              "text": "Porque fijan el precio basándose en sus costes de producción.",
+              "correct": false
+            },
+            {
+              "text": "Porque no pueden modificar los precios que se determinan por la ley de la oferta y la demanda.",
+              "correct": true
+            },
+            {
+              "text": "Porque su producto es totalmente heterogéneo.",
+              "correct": false
+            },
+            {
+              "text": "Porque existen fuertes barreras de entrada.",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "8.2. Mercados de competencia imperfecta.",
+      "topic": "Tema 1. La empresa. El emprendimiento.",
+      "text": "En estos mercados, las empresas pueden **influir en mayor o menor medida en los precios**. Se dividen en:\n\n1.  **Monopolio**: Caso extremo con una **única empresa oferente** frente a muchos demandantes. La empresa puede influir en el precio o la cantidad. Las barreras de entrada son muy altas. Solo se justifica para el suministro de servicios con grandes infraestructuras (agua, electricidad).\n2.  **Oligopolio**: Hay **pocas empresas vendedoras** y muchas compradoras. Existen fuertes barreras de entrada (ej: sector del automóvil, petróleo).\n3.  **Competencia monopolística**: Existen **muchas empresas** que satisfacen la misma necesidad, pero tratan de **diferenciar sus productos** para que sean percibidos como exclusivos (ej: equipaciones deportivas, comida rápida).",
+      "questions": [
+        {
+          "text": "¿En qué tipo de mercado de competencia imperfecta existe una única empresa oferente con gran capacidad para influir en el precio?",
+          "options": [
+            { "text": "Competencia monopolística.", "correct": false },
+            { "text": "Oligopolio.", "correct": false },
+            { "text": "Monopolio.", "correct": true },
+            { "text": "Competencia perfecta.", "correct": false }
+          ]
+        },
+        {
+          "text": "El mercado de los refrescos (Coca-Cola, Pepsi) es un ejemplo clásico de:",
+          "options": [
+            { "text": "Monopolio.", "correct": false },
+            { "text": "Oligopolio.", "correct": true },
+            { "text": "Competencia perfecta.", "correct": false },
+            { "text": "Empresa pública.", "correct": false }
+          ]
+        }
+      ]
+    }
+  ]
+}

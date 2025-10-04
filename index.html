@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Repaso Interactivo Mobile</title>
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+      /* Estilo para transición del sidebar */
+      .sidebar-transition {
+        transition: transform 0.3s ease-in-out;
+      }
+      [x-cloak] {
+        display: none !important;
+      }
+    </style>
+  </head>
+
+  <body class="bg-gray-100 min-h-screen">
+    <div x-data="studyApp()" x-init="init()" class="flex flex-col h-screen">
+      <header
+        class="bg-white shadow-md p-4 flex justify-between items-center z-10"
+      >
+        <button
+          @click="isSidebarOpen = !isSidebarOpen; stopSpeech()"
+          class="lg:hidden text-gray-600 focus:outline-none"
+        >
+          <svg
+            x-show="!isSidebarOpen"
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+          <svg
+            x-show="isSidebarOpen"
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            ></path>
+          </svg>
+        </button>
+
+        <h1 class="text-xl lg:text-2xl font-bold text-gray-800 hidden sm:block">
+          📚 Repaso Prueba FCGS
+        </h1>
+
+        <div class="flex items-center space-x-4">
+          <label
+            for="subject-select"
+            class="text-gray-600 font-medium hidden sm:block"
+            >Asignatura:</label
+          >
+          <select
+            id="subject-select"
+            x-model="selectedSubject"
+            @change="loadSubject(selectedSubject, true)"
+            class="p-2 text-sm lg:text-base border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+            <option value="" disabled>Selecciona...</option>
+            <template x-for="subject in availableSubjects" :key="subject.file">
+              <option :value="subject.file" x-text="subject.name"></option>
+            </template>
+          </select>
+        </div>
+      </header>
+
+      <main class="flex flex-1 overflow-hidden relative">
+        <nav
+          x-cloak
+          :class="{ 
+                    'translate-x-0': isSidebarOpen, 
+                    '-translate-x-full': !isSidebarOpen 
+                }"
+          class="w-64 bg-gray-50 border-r border-gray-200 overflow-y-auto p-4 flex-shrink-0 lg:translate-x-0 lg:static absolute inset-y-0 left-0 z-20 sidebar-transition"
+          x-show="subjectData"
+        >
+          <h2
+            class="text-xl font-semibold mb-4 text-gray-700"
+            x-text="subjectData ? subjectData.title : ''"
+          ></h2>
+
+          <template
+            x-for="([topic, contents], topicIndex) in $store.groupedContents"
+            :key="topic"
+          >
+            <div
+              :class="{'mt-4 border-t pt-4 border-gray-300': topicIndex > 0}"
+            >
+              <h3
+                class="font-bold text-base text-gray-800 mb-2"
+                x-text="topic"
+              ></h3>
+              <template
+                x-for="(content, index) in contents"
+                :key="content.title"
+              >
+                <div class="mb-2">
+                  <button
+                    @click="selectContent(content.originalIndex); isSidebarOpen = false"
+                    :class="{ 
+                                        'bg-blue-500 text-white font-semibold': selectedContentIndex === content.originalIndex, 
+                                        'text-gray-700 hover:bg-blue-100': selectedContentIndex !== content.originalIndex 
+                                    }"
+                    class="w-full text-left p-2 pl-4 rounded-lg transition duration-150 ease-in-out text-sm"
+                  >
+                    <span x-text="content.title"></span>
+                  </button>
+                </div>
+              </template>
+            </div>
+          </template>
+        </nav>
+
+        <div
+          x-show="isSidebarOpen"
+          @click="isSidebarOpen = false"
+          class="lg:hidden absolute inset-0 bg-black opacity-50 z-10"
+        ></div>
+
+        <div class="flex-1 overflow-y-auto p-4 lg:p-8">
+          <div
+            x-show="!subjectData"
+            class="h-full flex items-center justify-center text-gray-600 text-2xl"
+          >
+            Cargando asignatura...
+          </div>
+
+          <template x-if="selectedContent">
+            <div>
+              <h2
+                class="text-2xl lg:text-3xl font-extrabold mb-2 text-gray-800"
+                x-text="selectedContent.title"
+              ></h2>
+              <p
+                class="text-sm text-blue-600 font-medium mb-6"
+                x-text="selectedContent.topic"
+              ></p>
+
+              <button
+                @click="isSpeaking ? stopSpeech() : speak(selectedContent.text)"
+                :class="{
+                                'bg-red-500 hover:bg-red-600': isSpeaking,
+                                'bg-green-500 hover:bg-green-600': !isSpeaking
+                            }"
+                class="text-white font-bold py-2 px-4 rounded flex items-center transition duration-150 mb-6"
+              >
+                <svg
+                  x-show="!isSpeaking"
+                  class="w-5 h-5 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9c2.828 2.83 2.828 7.425 0 10.253M17 13h1m-1 3h1m-1-7h1m-1 3h-1m-4 3h1m-1 3h1m-1-7h1m-1 3h-1m-4 3h1m-1 3h1m-1-7h1m-1 3h-1m-4 3h1m-1 3h1m-1-7h1"
+                  ></path>
+                </svg>
+                <svg
+                  x-show="isSpeaking"
+                  class="w-5 h-5 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  ></path>
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 10h6m-3 3v-6"
+                  ></path>
+                </svg>
+                <span
+                  x-text="isSpeaking ? 'Detener Lectura' : 'Escuchar Lectura'"
+                ></span>
+              </button>
+
+              <div
+                class="prose lg:prose-lg max-w-none mb-10 p-6 bg-white rounded-xl shadow-lg border border-gray-200"
+                x-html="renderMarkdown(selectedContent.text)"
+              ></div>
+
+              <h3
+                class="text-xl lg:text-2xl font-bold text-gray-700 mb-4 border-b pb-2"
+              >
+                Sección de Repaso Rápido
+              </h3>
+
+              <template
+                x-for="(question, qIndex) in selectedContent.questions"
+                :key="qIndex"
+              >
+                <div
+                  class="mb-6 p-5 bg-white rounded-lg shadow-sm border border-blue-100"
+                >
+                  <p
+                    class="font-semibold text-base lg:text-lg text-gray-800 mb-3"
+                    x-text="`${qIndex + 1}. ${question.text}`"
+                  ></p>
+
+                  <div class="space-y-2">
+                    <template
+                      x-for="(option, oIndex) in question.options"
+                      :key="oIndex"
+                    >
+                      <button
+                        @click="checkAnswer(qIndex, oIndex, option.correct)"
+                        :disabled="answers[selectedContentIndex] && answers[selectedContentIndex][qIndex] !== undefined"
+                        :class="getOptionClasses(qIndex, oIndex, option.correct)"
+                      >
+                        <span x-text="option.text"></span>
+                        <span
+                          x-show="answers[selectedContentIndex] && answers[selectedContentIndex][qIndex] !== undefined && option.correct"
+                          class="float-right text-green-700 font-bold"
+                        >
+                          ✔ Correcto
+                        </span>
+                        <span
+                          x-show="answers[selectedContentIndex] && answers[selectedContentIndex][qIndex] === oIndex && !option.correct"
+                          class="float-right text-red-700 font-bold"
+                        >
+                          ❌ Incorrecto
+                        </span>
+                      </button>
+                    </template>
+                  </div>
+                </div>
+              </template>
+            </div>
+          </template>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      document.addEventListener("alpine:init", () => {
+        // 1. Store para agrupar los contenidos
+        Alpine.store("groupedContents", {});
+
+        Alpine.data("studyApp", () => ({
+          availableSubjects: [
+            { name: "Filosofía", file: "filosofia.json" },
+            { name: "Empresa y modelos negocios ", file: "empresa.json" },
+            { name: "Lengua y literatura", file: "lengua.json" },
+          ],
+          selectedSubject: "",
+          subjectData: null,
+          selectedContentIndex: null,
+          answers: {},
+          isSpeaking: false,
+          isSidebarOpen: false,
+
+          get selectedContent() {
+            return (
+              this.subjectData?.contents[this.selectedContentIndex] || null
+            );
+          },
+
+          init() {
+            this.selectedSubject = this.availableSubjects[0].file;
+            this.loadSubject(this.selectedSubject, false);
+
+            if (window.innerWidth >= 1024) {
+              this.isSidebarOpen = true;
+            }
+          },
+
+          getOptionClasses(qIndex, oIndex, isCorrectOption) {
+            const contentIndex = this.selectedContentIndex;
+            const answersForContent = this.answers[contentIndex];
+
+            const isAnswered =
+              answersForContent && answersForContent[qIndex] !== undefined;
+            const userSelectionIndex = isAnswered
+              ? answersForContent[qIndex]
+              : null;
+            const userSelectedThis = userSelectionIndex === oIndex;
+
+            let classes =
+              "w-full text-left p-3 rounded-md border-2 transition duration-200 text-sm";
+
+            if (!isAnswered) {
+              classes +=
+                " border-gray-200 bg-gray-50 hover:bg-gray-100 cursor-pointer";
+            } else {
+              if (isCorrectOption) {
+                classes += " bg-green-100 border-green-500 font-medium";
+              } else if (userSelectedThis) {
+                classes += " bg-red-100 border-red-500 font-medium";
+              } else {
+                classes +=
+                  " bg-gray-100 border-gray-200 text-gray-500 cursor-not-allowed";
+              }
+            }
+
+            return classes;
+          },
+
+          // Función para agrupar contenidos por tema (topic)
+          groupContents(contents) {
+            const grouped = {};
+            contents.forEach((content, index) => {
+              // Usamos un índice original para que los botones sigan apuntando al contenido correcto
+              const contentWithIndex = { ...content, originalIndex: index };
+              const topic = content.topic || "Sin tema";
+              if (!grouped[topic]) {
+                grouped[topic] = [];
+              }
+              grouped[topic].push(contentWithIndex);
+            });
+            // Convertir el objeto en un array de pares [tema, contenidos] para usar con x-for
+            return Object.entries(grouped);
+          },
+
+          async loadSubject(file, resetAnswers = true) {
+            this.stopSpeech();
+            this.subjectData = null;
+            this.selectedContentIndex = null;
+
+            if (resetAnswers) {
+              this.answers = {};
+            }
+
+            try {
+              const response = await fetch(file);
+              if (!response.ok) {
+                throw new Error(
+                  `No se pudo cargar ${file}. Asegúrate de que el archivo JSON existe.`,
+                );
+              }
+              this.subjectData = await response.json();
+
+              // **AGRUPAR CONTENIDOS Y ALMACENAR EN EL STORE**
+              Alpine.store(
+                "groupedContents",
+                this.groupContents(this.subjectData.contents),
+              );
+
+              if (this.subjectData.contents.length > 0) {
+                this.selectContent(0);
+              }
+            } catch (error) {
+              console.error("Error al cargar la asignatura:", error);
+              this.subjectData = { title: "Error de Carga", contents: [] };
+            }
+          },
+
+          selectContent(index) {
+            this.stopSpeech();
+            this.selectedContentIndex = index;
+
+            // Reinicia las respuestas de la sección actual al seleccionarla
+            this.answers[index] = {};
+            this.answers = { ...this.answers };
+          },
+
+          checkAnswer(qIndex, oIndex, isCorrect) {
+            if (
+              this.answers[this.selectedContentIndex] &&
+              this.answers[this.selectedContentIndex][qIndex] === undefined
+            ) {
+              this.answers[this.selectedContentIndex][qIndex] = oIndex;
+              this.answers = { ...this.answers };
+            }
+          },
+
+          renderMarkdown(markdownText) {
+            if (markdownText && window.marked) {
+              return marked.parse(markdownText);
+            }
+            return "";
+          },
+
+          cleanMarkdownForSpeech(markdownText) {
+            if (!markdownText) return "";
+            let cleanText = markdownText.replace(/(\*\*|__|\*|_|#|`|>)/g, "");
+            cleanText = cleanText.replace(/(\r\n|\n|\r)/gm, ". ");
+            cleanText = cleanText.replace(/\s{2,}/g, " ");
+            return cleanText;
+          },
+
+          speak(text) {
+            this.stopSpeech();
+
+            if ("speechSynthesis" in window) {
+              const cleanText = this.cleanMarkdownForSpeech(text);
+              const utterance = new SpeechSynthesisUtterance(cleanText);
+              utterance.lang = "es-ES";
+
+              utterance.onstart = () => {
+                this.isSpeaking = true;
+              };
+              utterance.onend = () => {
+                this.isSpeaking = false;
+              };
+              utterance.onerror = () => {
+                this.isSpeaking = false;
+                console.error("Error en la lectura de voz");
+              };
+
+              window.speechSynthesis.speak(utterance);
+            } else {
+              alert("Tu navegador no soporta la API de Speech Synthesis.");
+              this.isSpeaking = false;
+            }
+          },
+
+          stopSpeech() {
+            if (
+              "speechSynthesis" in window &&
+              window.speechSynthesis.speaking
+            ) {
+              window.speechSynthesis.cancel();
+              this.isSpeaking = false;
+            }
+          },
+        }));
+      });
+    </script>
+  </body>
+</html>
