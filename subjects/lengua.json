@@ -31,6 +31,7 @@
       "title": "2. Reglas Generales: Agudas, Llanas y Esdrújulas",
       "topic": "Tema 1. La acentuación.",
       "text": "La acentuación gráfica (el uso de la tilde) depende de la posición de la sílaba tónica:\n\n* **Palabras Agudas**: La sílaba tónica es la **última**.\n    * **Llevan tilde** cuando terminan en **-n, -s o vocal**.\n    * Ejemplos: *comió, compás, balón, café*.\n    * *Excepción*: No llevan tilde si terminan en **-s** precedida por otra consonante (*robots*).\n\n* **Palabras Llanas (o Graves)**: La sílaba tónica es la **penúltima**.\n    * **Llevan tilde** cuando **NO** terminan en **-n, -s o vocal**.\n    * Ejemplos: *árbol, lápiz, cómic, ángel*.\n    * *Excepción*: Llevan tilde si terminan en **-s** precedida por otra consonante (*bíceps*).\n\n* **Palabras Esdrújulas y Sobreesdrújulas**: La sílaba tónica es la **antepenúltima** (esdrújulas) o anterior a la antepenúltima (sobreesdrújulas).\n    * **SIEMPRE llevan tilde**.\n    * Ejemplos: *pájaro, médico, cántalo, débilmente*.",
+      "appUrl": "apps/tipo-tonica.html",
       "questions": [
         {
           "text": "La palabra 'carácter' es llana. ¿Lleva tilde y por qué?",
