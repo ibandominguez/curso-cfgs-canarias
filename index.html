@@ -315,7 +315,8 @@
 
           init() {
             // Handle URL routing for subjects and content
-            this.route();
+            // Use a timeout to ensure the hash is correctly read on initial page load
+            setTimeout(() => this.route(), 50);
             window.addEventListener("hashchange", () => this.route());
 
             if (window.innerWidth >= 1024) {
@@ -336,8 +337,12 @@
               const contentIndex = contentIndexStr
                 ? parseInt(contentIndexStr, 10)
                 : 0;
+              // If the subject in the URL is not the one currently selected
               if (subjectToLoad.file !== this.selectedSubject) {
-                this.loadSubject(subjectToLoad.file, true, contentIndex);
+                // First, update the selector to match the URL
+                this.selectedSubject = subjectToLoad.file;
+                // Then, load the subject data
+                this.loadSubject(this.selectedSubject, true, contentIndex);
               } else if (contentIndex !== this.selectedContentIndex) {
                 this.selectContent(contentIndex);
               }
@@ -415,7 +420,6 @@
             this.stopSpeech();
             this.subjectData = null;
             this.selectedContentIndex = null;
-            this.selectedSubject = file; // Keep dropdown in sync
 
             if (resetAnswers) {
               this.answers = {};
