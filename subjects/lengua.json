@@ -13,7 +13,7 @@
             { "text": "or", "correct": false },
             { "text": "de", "correct": false },
             { "text": "na", "correct": false },
-            { "text": "**dor**", "correct": true }
+            { "text": "dor", "correct": true }
           ]
         },
         {
