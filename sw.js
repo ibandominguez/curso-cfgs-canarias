@@ -11,16 +11,19 @@ const urlsToCache = [
   "/subjects/filosofia.json",
   "/subjects/empresa.json",
   "/subjects/lengua.json",
+  "/subjects/matematicas.json",
 
   // Micro apps
   "/apps/estadistica.html",
   "/apps/tipo-tonica-desktop.html",
   "/apps/silaba-tonica.html",
+  "/apps/graficos-cualitativos.html",
 
   // CDNS
   "https://cdn.tailwindcss.com?plugins=typography",
   "https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js",
   "https://cdn.jsdelivr.net/npm/marked/marked.min.js",
+  "https://www.gstatic.com/charts/loader.js",
 ].map((url) => (url.startsWith("http") ? url : REPO_NAME + url));
 
 // 1. Evento de Instalación (Instalar el SW y cachear los recursos estáticos)

@@ -1,0 +1,163 @@
+{
+  "title": "Matemáticas: Estadística",
+  "contents": [
+    {
+      "title": "1. Terminología Estadística: Población, Muestra e Individuo",
+      "topic": "Tema 1. Estadística",
+      "text": "La **Estadística** utiliza una terminología clave para sus estudios.\n\n* **Población**: Es el **conjunto de elementos** sobre los que se realiza el estudio.\n* **Individuo**: Es **cada uno de los elementos** sobre los que se realiza el estudio.\n* **Muestra**: Es una **parte de la población** sobre la que se realiza el estudio.\n\nPor ejemplo, si se estudia el número de centros de primaria en 300 de los 2.537 pueblos de una Diputación, la población son los 2.537 pueblos, y la muestra son los 300 pueblos analizados.",
+      "questions": [
+        {
+          "text": "¿Qué término se utiliza para referirse a la parte de la población sobre la que se realiza el estudio?",
+          "options": [
+            { "text": "Población", "correct": false },
+            { "text": "Muestra", "correct": true },
+            { "text": "Individuo", "correct": false }
+          ]
+        },
+        {
+          "text": "Si una marca de ropa quiere estudiar las preferencias de moda de los jóvenes de una ciudad con edades comprendidas entre 16 y 20 años, ¿cuál sería la población?",
+          "options": [
+            { "text": "La marca de ropa.", "correct": false },
+            {
+              "text": "Todos los jóvenes de esa ciudad con edades entre 16 y 20 años.",
+              "correct": true
+            },
+            { "text": "Un joven de entre 16 y 20 años.", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "2. Tipos de Variables: Cualitativas y Cuantitativas",
+      "topic": "Tema 1. Estadística",
+      "text": "Las variables estadísticas se clasifican en dos grandes grupos:\n\n### Cualitativas o Categóricas\nSon aquellas que **no son medibles**, es decir, sus observaciones **no tienen carácter numérico**, sino que expresan cualidades o categorías. Ejemplos incluyen el **Sexo**, la **Profesión**, o el **Estado Civil**.\n\n### Cuantitativas\nSon aquellas que **son medibles**, y sus observaciones tienen **carácter numérico**. Se subdividen en:\n\n* **Discretas**: Toman valores numéricos **fijos**. Ejemplos: Número de habitaciones, número de hijos de una familia.\n* **Continuas**: Toman valores en **intervalos de números**.",
+      "questions": [
+        {
+          "text": "La variable 'Número de hijos de una familia' se clasifica como:",
+          "options": [
+            { "text": "Cualitativa", "correct": false },
+            { "text": "Cuantitativa Continua", "correct": false },
+            { "text": "Cuantitativa Discreta", "correct": true }
+          ]
+        },
+        {
+          "text": "¿Cuál de las siguientes variables es cualitativa o categórica?",
+          "options": [
+            { "text": "Número de accidentes diarios", "correct": false },
+            { "text": "Estado civil", "correct": true },
+            { "text": "Estatura en cm", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "3. Distribuciones de Frecuencia",
+      "topic": "Tema 1. Estadística",
+      "text": "Una distribución de frecuencia organiza y resume los datos mediante:\n\n* **Frecuencia Absoluta ($f_i$):** Es el número de veces que se repite un valor ($x_i$) o modalidad. La suma de todas es igual al tamaño muestral ($N$).\n* **Frecuencia Relativa ($h_i$):** Es la frecuencia absoluta dividida por el tamaño muestral ($h_i = f_i/N$). La suma de todas es igual a la unidad.\n* **Frecuencia Acumulada ($F_i$):** El número de datos igual o inferiores a uno determinado. Se calcula: $F_i = \\sum_{j=1}^{i}f_j = F_{i-1}+f_i$. La última $F_i$ es el tamaño muestral.\n* **Frecuencia Relativa Acumulada ($H_i$):** Es el resultado de dividir cada frecuencia acumulada por el número total de datos $H_i = F_i/N = \\sum_{j=1}^{i}h_j$. La última $H_i$ es la unidad.",
+      "appUrl": "apps/estadistica.html",
+      "questions": [
+        {
+          "text": "¿Qué propiedad cumple la suma de todas las frecuencias relativas ($h_i$)?",
+          "options": [
+            { "text": "Es igual al tamaño muestral ($N$).", "correct": false },
+            {
+              "text": "Es igual a la frecuencia absoluta más grande.",
+              "correct": false
+            },
+            { "text": "Es igual a la unidad (1).", "correct": true }
+          ]
+        },
+        {
+          "text": "Si el tamaño muestral ($N$) es 14, y la frecuencia absoluta ($f_i$) de un valor es 5, ¿cuál es la frecuencia relativa ($h_i$)?",
+          "options": [
+            { "text": "$h_i = 5$", "correct": false },
+            { "text": "$h_i = 0.357$ (aprox.)", "correct": true },
+            { "text": "$h_i = 19$", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "4. Gráficos Estadísticos para Variables Cualitativas",
+      "topic": "Tema 1. Estadística",
+      "text": "Las variables cualitativas se suelen representar mediante:\n\n* **Diagrama de Barras**: Se construye dibujando sobre cada modalidad una barra, cuya **altura** representa la **frecuencia absoluta**.\n* **Diagrama de Sectores (Gráfico Circular)**: Es un círculo en el que se representan tantos sectores como modalidades. El **ángulo** de cada sector es **proporcional a la frecuencia** de la modalidad correspondiente.\n\nEn un ejemplo con $N=30$ personas y sus deportes favoritos, 'Baloncesto' tiene una frecuencia absoluta de 12, 'Natación' de 3, 'Fútbol' de 9, y 'Sin deporte' de 6. Para 'Natación' ($f_i=3$), el ángulo es de $36°$.",
+      "appUrl": "apps/graficos-cualitativos.html",
+      "questions": [
+        {
+          "text": "¿Qué representa la altura de la barra en un Diagrama de Barras para variables cualitativas?",
+          "options": [
+            { "text": "El tamaño muestral.", "correct": false },
+            { "text": "La frecuencia absoluta.", "correct": true },
+            { "text": "La frecuencia acumulada.", "correct": false }
+          ]
+        },
+        {
+          "text": "En un Diagrama de Sectores, ¿qué es proporcional a la frecuencia de la modalidad?",
+          "options": [
+            { "text": "El radio del círculo.", "correct": false },
+            { "text": "El ángulo de cada sector.", "correct": true },
+            { "text": "La circunferencia.", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "5. Medidas de Centralización: Media y Moda",
+      "topic": "Tema 1. Estadística",
+      "text": "Las medidas de centralización buscan un valor típico o central para el conjunto de datos.\n\n* **Media ($\\bar{x}$):** Es el resultado que se obtiene al dividir la suma de todos los datos entre el número total de ellos. La fórmula para datos agrupados o con frecuencias es: \n$$ \\bar{x} = \\frac{\\sum_{i=1}^{n} f_i \\cdot x_i}{N} $$ \n\n* **Moda ($M_o$):** Es el **valor que tiene mayor frecuencia** ($f_i$), es decir, el que más se repite.\n\nPara la serie de accidentes diarios $1, 1, 2, 3, 0, 0, 1, 2, 2, 3, 1, 2, 1, 2$, el tamaño muestral ($N$) es 14, y la suma de los datos es $0(2) + 1(5) + 2(5) + 3(2) = 21$. Por lo tanto, la media es $21/14 = 1.5$.",
+      "appUrl": "apps/estadistica.html",
+      "questions": [
+        {
+          "text": "¿Cómo se define la Media de un conjunto de datos?",
+          "options": [
+            { "text": "El valor que más se repite.", "correct": false },
+            {
+              "text": "El resultado de dividir la suma de todos los datos entre el número total de ellos.",
+              "correct": true
+            },
+            { "text": "La raíz cuadrada de la varianza.", "correct": false }
+          ]
+        },
+        {
+          "text": "En el ejemplo de accidentes diarios ($1, 1, 2, 3, 0, 0, 1, 2, 2, 3, 1, 2, 1, 2$), ¿cuál es la Moda ($M_o$)?",
+          "options": [
+            { "text": "0", "correct": false },
+            { "text": "1 y 2", "correct": true },
+            { "text": "1.5", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "6. Medidas de Dispersión: Varianza y Desviación Típica",
+      "topic": "Tema 1. Estadística",
+      "text": "Las medidas de dispersión indican cómo de alejados están los datos de la media.\n\n* **Varianza ($\\sigma^2$):** Es la media de los **cuadrados de las desviaciones**. Su fórmula es:\n$$ \\sigma^2 = \\frac{\\sum_{i=1}^{n} f_i \\cdot (x_i - \\bar{x})^2}{N} $$ \n\n* **Desviación Típica ($\\sigma$):** Es la **raíz cuadrada de la varianza**.\n$$ \\sigma = \\sqrt{\\sigma^2} = \\sqrt{\\frac{\\sum_{i=1}^{n} f_i \\cdot (x_i - \\bar{x})^2}{N}} $$",
+      "appUrl": "apps/estadistica.html",
+      "questions": [
+        {
+          "text": "¿Qué medida de dispersión se define como la media de los cuadrados de las desviaciones?",
+          "options": [
+            { "text": "Desviación Típica", "correct": false },
+            { "text": "Varianza", "correct": true },
+            { "text": "Recorrido", "correct": false }
+          ]
+        },
+        {
+          "text": "¿Cómo se calcula la Desviación Típica ($\\sigma$)?",
+          "options": [
+            {
+              "text": "Sumando todos los datos y dividiendo entre N.",
+              "correct": false
+            },
+            { "text": "Elevando la varianza al cuadrado.", "correct": false },
+            {
+              "text": "Calculando la raíz cuadrada de la varianza.",
+              "correct": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
