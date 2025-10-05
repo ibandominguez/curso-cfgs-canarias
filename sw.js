@@ -14,7 +14,7 @@ const urlsToCache = [
 
   // Micro apps
   "/apps/estadistica.html",
-  "/apps/tipo-tonica.html",
+  "/apps/tipo-tonica-desktop.html",
   "/apps/silaba-tonica.html",
 
   // CDNS

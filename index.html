@@ -263,7 +263,8 @@
 
               <template x-if="selectedContent.appUrl">
                 <div
-                  class="mb-10 p-4 bg-white rounded-xl shadow-lg border border-blue-200 hidden sm:block"
+                  class="mb-10 p-4 bg-white rounded-xl shadow-lg border border-blue-200"
+                  :class="{ 'hidden sm:block': selectedContent.appUrl.includes('desktop') }"
                 >
                   <h3
                     class="text-xl font-bold text-gray-700 mb-4 border-b pb-2"
