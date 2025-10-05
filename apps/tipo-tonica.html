@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clasificador de Palabras (Tónica)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <style>
+      /* Estilos básicos para el arrastre y la corrección */
+      [x-cloak] {
+        display: none !important;
+      }
+      .drag-item {
+        cursor: grab;
+        user-select: none;
+        touch-action: none; /* Mejorar el comportamiento en móvil */
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      }
+      .drag-over {
+        border: 2px dashed #3b82f6; /* Borde azul al arrastrar */
+      }
+      .correct-drop {
+        background-color: #d1fae5; /* Fondo verde para acierto */
+        border-color: #059669;
+      }
+      .incorrect-drop {
+        background-color: #fee2e2; /* Fondo rojo para fallo */
+        border-color: #ef4444;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 p-4 min-h-screen" x-data="syllableSorter()">
+    <h1 class="text-lg font-bold text-gray-800 mb-6 text-center">
+      Clasifica por Sílaba Tónica
+    </h1>
+
+    <div class="mb-8 p-4 bg-white rounded-xl shadow-lg border border-gray-200">
+      <h2 class="text-sm font-semibold text-gray-600 mb-3 border-b pb-2">
+        Palabras pendientes:
+      </h2>
+      <div class="flex flex-wrap gap-3 justify-center min-h-[3.5rem]">
+        <template x-for="word in unclassifiedWords" :key="word.name">
+          <div
+            class="drag-item bg-blue-100 text-blue-800 p-2 rounded-lg font-medium text-sm transition-all duration-300"
+            :class="{ 'opacity-50': isDragging }"
+            :draggable="!isChecking"
+            @dragstart="handleDragStart($event, word)"
+            x-text="word.name"
+          ></div>
+        </template>
+      </div>
+      <p
+        x-show="unclassifiedWords.length === 0 && !isChecking"
+        class="text-center text-gray-500 mt-4 text-sm"
+      >
+        ¡Todas las palabras están en las columnas! Corrige el ejercicio.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div
+        @drop="handleDrop($event, 'aguda')"
+        @dragover.prevent
+        @dragenter.self="activeDropZone = 'aguda'"
+        @dragleave.self="activeDropZone = null"
+        :class="{ 
+          'drag-over': activeDropZone === 'aguda', 
+          'correct-drop': isChecking && totalAgudasCorrect === classified.aguda.length && totalAgudasCorrect > 0, 
+          'incorrect-drop': isChecking && classified.aguda.length > 0 && totalAgudasCorrect !== classified.aguda.length 
+        }"
+        class="p-4 bg-white border-2 border-gray-300 rounded-lg min-h-40 shadow-md transition-all duration-300"
+      >
+        <h2 class="text-base font-bold text-gray-700 mb-3 text-center">
+          🔴 Agudas
+        </h2>
+        <div class="flex flex-wrap gap-2 content-start min-h-[5rem]">
+          <template x-for="word in classified.aguda" :key="word.name">
+            <div
+              class="p-2 rounded-lg font-medium text-sm shadow-sm transition-all duration-300 cursor-grab"
+              :class="getWordClass(word, 'aguda')"
+              x-text="word.name"
+              :draggable="!isChecking"
+              @dragstart="handleDragStart($event, word)"
+            ></div>
+          </template>
+        </div>
+      </div>
+
+      <div
+        @drop="handleDrop($event, 'llana')"
+        @dragover.prevent
+        @dragenter.self="activeDropZone = 'llana'"
+        @dragleave.self="activeDropZone = null"
+        :class="{ 
+          'drag-over': activeDropZone === 'llana', 
+          'correct-drop': isChecking && totalLlanasCorrect === classified.llana.length && totalLlanasCorrect > 0, 
+          'incorrect-drop': isChecking && classified.llana.length > 0 && totalLlanasCorrect !== classified.llana.length 
+        }"
+        class="p-4 bg-white border-2 border-gray-300 rounded-lg min-h-40 shadow-md transition-all duration-300"
+      >
+        <h2 class="text-base font-bold text-gray-700 mb-3 text-center">
+          🟡 Llanas
+        </h2>
+        <div class="flex flex-wrap gap-2 content-start min-h-[5rem]">
+          <template x-for="word in classified.llana" :key="word.name">
+            <div
+              class="p-2 rounded-lg font-medium text-sm shadow-sm transition-all duration-300 cursor-grab"
+              :class="getWordClass(word, 'llana')"
+              x-text="word.name"
+              :draggable="!isChecking"
+              @dragstart="handleDragStart($event, word)"
+            ></div>
+          </template>
+        </div>
+      </div>
+
+      <div
+        @drop="handleDrop($event, 'esdrujula')"
+        @dragover.prevent
+        @dragenter.self="activeDropZone = 'esdrujula'"
+        @dragleave.self="activeDropZone = null"
+        :class="{ 
+          'drag-over': activeDropZone === 'esdrujula', 
+          'correct-drop': isChecking && totalEsdrújulasCorrect === classified.esdrujula.length && totalEsdrújulasCorrect > 0, 
+          'incorrect-drop': isChecking && classified.esdrujula.length > 0 && totalEsdrújulasCorrect !== classified.esdrujula.length 
+        }"
+        class="p-4 bg-white border-2 border-gray-300 rounded-lg min-h-40 shadow-md transition-all duration-300"
+      >
+        <h2 class="text-base font-bold text-gray-700 mb-3 text-center">
+          🟢 Esdrújulas
+        </h2>
+        <div class="flex flex-wrap gap-2 content-start min-h-[5rem]">
+          <template x-for="word in classified.esdrujula" :key="word.name">
+            <div
+              class="p-2 rounded-lg font-medium text-sm shadow-sm transition-all duration-300 cursor-grab"
+              :class="getWordClass(word, 'esdrujula')"
+              x-text="word.name"
+              :draggable="!isChecking"
+              @dragstart="handleDragStart($event, word)"
+            ></div>
+          </template>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-8 flex justify-center space-x-4">
+      <button
+        @click="isChecking ? resetExercise() : checkAnswers()"
+        :disabled="!isChecking && unclassifiedWords.length > 0"
+        class="py-3 px-6 rounded-lg font-semibold text-white transition-all duration-300 focus:outline-none focus:ring-4"
+        :class="{
+          'bg-red-500 hover:bg-red-600 focus:ring-red-300': isChecking,
+          'bg-blue-600 hover:bg-blue-700 focus:ring-blue-300': !isChecking && (unclassifiedWords.length === 0),
+          'bg-gray-400 cursor-not-allowed': !isChecking && unclassifiedWords.length > 0
+        }"
+        x-text="isChecking ? 'Reiniciar Ejercicio' : 'Corregir'"
+      ></button>
+    </div>
+
+    <div
+      x-show="isChecking"
+      class="mt-6 p-4 text-center rounded-lg shadow-inner"
+      :class="{
+        'bg-green-100 text-green-800 border-green-400': totalScore === totalWords,
+        'bg-yellow-100 text-yellow-800 border-yellow-400': totalScore > 0 && totalScore < totalWords,
+        'bg-red-100 text-red-800 border-red-400': totalScore === 0
+      }"
+    >
+      <h3
+        class="font-bold text-lg mb-1"
+        x-text="totalScore === totalWords ? '¡Clasificación Perfecta! 🌟' : (totalScore > 0 ? '¡Buen trabajo! Faltan algunas.' : 'Necesitas repasar las reglas. 🧐')"
+      ></h3>
+      <p class="text-sm">
+        Puntuación: <span class="font-bold" x-text="totalScore"></span> de
+        <span x-text="totalWords"></span>.
+      </p>
+    </div>
+
+    <script>
+      document.addEventListener("alpine:init", () => {
+        Alpine.data("syllableSorter", () => ({
+          // Definición de las 20 palabras con su tipo de acentuación correcto
+          allWords: [
+            // Agudas (7)
+            { name: "Balón", type: "aguda" },
+            { name: "Reloj", type: "aguda" },
+            { name: "Perdí", type: "aguda" },
+            { name: "Cantar", type: "aguda" },
+            { name: "Colibrí", type: "aguda" },
+            { name: "Quizás", type: "aguda" },
+            { name: "Sofá", type: "aguda" },
+
+            // Llanas (7)
+            { name: "Árbol", type: "llana" },
+            { name: "Mesa", type: "llana" },
+            { name: "Lápiz", type: "llana" },
+            { name: "Césped", type: "llana" },
+            { name: "Vientos", type: "llana" },
+            { name: "Difícil", type: "llana" },
+            { name: "Cráter", type: "llana" },
+
+            // Esdrújulas (6)
+            { name: "Música", type: "esdrujula" },
+            { name: "Bolígrafo", type: "esdrujula" },
+            { name: "Cántaro", type: "esdrujula" },
+            { name: "Esdrújula", type: "esdrujula" },
+            { name: "Rápido", type: "esdrujula" },
+            { name: "Coméntaselo", type: "esdrujula" }, // Sobreesdrújula, pero se agrupa
+          ],
+          unclassifiedWords: [],
+          classified: {
+            aguda: [],
+            llana: [],
+            esdrujula: [],
+          },
+          draggedWord: null,
+          activeDropZone: null,
+          isChecking: false,
+
+          get totalWords() {
+            return this.allWords.length;
+          },
+
+          get totalScore() {
+            let score = 0;
+            ["aguda", "llana", "esdrujula"].forEach((type) => {
+              this.classified[type].forEach((word) => {
+                if (word.type === type) {
+                  score++;
+                }
+              });
+            });
+            return score;
+          },
+
+          get totalAgudasCorrect() {
+            return this.classified.aguda.filter((word) => word.type === "aguda")
+              .length;
+          },
+          get totalLlanasCorrect() {
+            return this.classified.llana.filter((word) => word.type === "llana")
+              .length;
+          },
+          get totalEsdrújulasCorrect() {
+            return this.classified.esdrujula.filter(
+              (word) => word.type === "esdrujula",
+            ).length;
+          },
+
+          // Función para desordenar un array (Fisher-Yates)
+          shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+              const j = Math.floor(Math.random() * (i + 1));
+              [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+          },
+
+          init() {
+            this.resetExercise();
+          },
+
+          resetExercise() {
+            // Desordenar las palabras antes de reasignarlas
+            const shuffledWords = this.shuffleArray([...this.allWords]);
+            this.unclassifiedWords = shuffledWords;
+            this.classified = { aguda: [], llana: [], esdrujula: [] };
+            this.isChecking = false;
+            this.draggedWord = null;
+          },
+
+          // *** CORRECCIÓN CLAVE: handleDragStart solo guarda la palabra y establece la data. ***
+          handleDragStart(event, word) {
+            if (this.isChecking) {
+              event.preventDefault();
+              return;
+            }
+            // Solo guarda la palabra que se está arrastrando
+            this.draggedWord = word;
+            // Usa JSON.stringify para asegurar que la data transfer sea robusta y se pueda recuperar
+            event.dataTransfer.setData(
+              "application/json",
+              JSON.stringify(word),
+            );
+            event.dataTransfer.effectAllowed = "move";
+          },
+
+          handleDragOver(event) {
+            event.preventDefault(); // Permite la acción de soltar (drop)
+            if (this.isChecking) return;
+          },
+
+          // Esta función ahora solo es responsable de la eliminación
+          removeClassifiedWord(wordName) {
+            // Quita de la lista inicial
+            this.unclassifiedWords = this.unclassifiedWords.filter(
+              (w) => w.name !== wordName,
+            );
+            // Quita de todas las columnas (solo estará en una si estaba clasificada)
+            ["aguda", "llana", "esdrujula"].forEach((type) => {
+              this.classified[type] = this.classified[type].filter(
+                (w) => w.name !== wordName,
+              );
+            });
+          },
+
+          // *** CORRECCIÓN CLAVE: handleDrop ahora maneja la eliminación y el movimiento. ***
+          handleDrop(event, targetType) {
+            event.preventDefault();
+            if (this.isChecking) return;
+
+            this.activeDropZone = null;
+
+            let word;
+            try {
+              // Recupera la palabra del dataTransfer
+              word = JSON.parse(event.dataTransfer.getData("application/json"));
+            } catch (e) {
+              console.error("Error al recuperar la palabra arrastrada", e);
+              return;
+            }
+
+            if (!word) return;
+
+            // 1. Quitar la palabra de donde estuviera (lista inicial o cualquier columna)
+            this.removeClassifiedWord(word.name);
+
+            // 2. Moverla a la nueva columna
+            this.classified[targetType].push(word);
+            this.draggedWord = null;
+          },
+
+          checkAnswers() {
+            this.isChecking = true;
+          },
+
+          getWordClass(word, columnType) {
+            let classes =
+              "p-2 rounded-lg font-medium text-sm transition-all duration-300";
+
+            // Si no estamos corrigiendo, usar color de columna y permitir arrastre
+            if (!this.isChecking) {
+              if (columnType === "aguda") classes += " bg-red-200 text-red-900";
+              if (columnType === "llana")
+                classes += " bg-yellow-200 text-yellow-900";
+              if (columnType === "esdrujula")
+                classes += " bg-green-200 text-green-900";
+              return classes;
+            }
+
+            // Si estamos corrigiendo, mostrar si es correcta o incorrecta
+            if (word.type === columnType) {
+              classes += " bg-green-300 text-green-900 border border-green-600"; // Correcta
+            } else {
+              classes += " bg-red-300 text-red-900 border border-red-600"; // Incorrecta
+            }
+            classes += " cursor-not-allowed"; // Deshabilita el arrastre al corregir
+            return classes;
+          },
+        }));
+      });
+    </script>
+  </body>
+</html>
