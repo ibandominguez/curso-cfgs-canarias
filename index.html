@@ -313,11 +313,49 @@
           },
 
           init() {
-            this.selectedSubject = this.availableSubjects[0].file;
-            this.loadSubject(this.selectedSubject, false);
+            // Handle URL routing for subjects and content
+            this.route();
+            window.addEventListener("hashchange", () => this.route());
 
             if (window.innerWidth >= 1024) {
               this.isSidebarOpen = true;
+            }
+          },
+
+          route() {
+            const hash = window.location.hash.substring(2); // from #/subject/index
+            const [subjectSlug, contentIndexStr] = hash.split("/");
+
+            const subjectToLoad = this.availableSubjects.find(
+              (s) =>
+                s.file.split("/").pop().replace(".json", "") === subjectSlug,
+            );
+
+            if (subjectToLoad) {
+              const contentIndex = contentIndexStr
+                ? parseInt(contentIndexStr, 10)
+                : 0;
+              if (subjectToLoad.file !== this.selectedSubject) {
+                this.loadSubject(subjectToLoad.file, true, contentIndex);
+              } else if (contentIndex !== this.selectedContentIndex) {
+                this.selectContent(contentIndex);
+              }
+            } else {
+              // Default route if hash is invalid or empty
+              const defaultSubjectFile = this.availableSubjects[0].file;
+              // This will trigger a hashchange and re-run route()
+              this.updateUrl(defaultSubjectFile, 0);
+            }
+          },
+
+          updateUrl(subjectFile, contentIndex) {
+            const subjectSlug = subjectFile
+              .split("/")
+              .pop()
+              .replace(".json", "");
+            const newHash = `#/${subjectSlug}/${contentIndex}`;
+            if (window.location.hash !== newHash) {
+              window.location.hash = newHash;
             }
           },
 
@@ -368,11 +406,15 @@
             return Object.entries(grouped);
           },
 
-          async loadSubject(file, resetAnswers = true) {
+          async loadSubject(
+            file,
+            resetAnswers = true,
+            initialContentIndex = 0,
+          ) {
             this.stopSpeech();
             this.subjectData = null;
             this.selectedContentIndex = null;
-            // Eliminado: this.activeView = 'content';
+            this.selectedSubject = file; // Keep dropdown in sync
 
             if (resetAnswers) {
               this.answers = {};
@@ -394,7 +436,7 @@
               );
 
               if (this.subjectData.contents.length > 0) {
-                this.selectContent(0);
+                this.selectContent(initialContentIndex);
               }
             } catch (error) {
               console.error("Error al cargar la asignatura:", error);
@@ -405,7 +447,7 @@
           selectContent(index) {
             this.stopSpeech();
             this.selectedContentIndex = index;
-            // Eliminado: this.activeView = 'content';
+            this.updateUrl(this.selectedSubject, index);
 
             // Reinicia las respuestas de la sección actual al seleccionarla
             this.answers[index] = {};
