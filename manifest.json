@@ -1,13 +1,13 @@
 {
-  "name": "Curso Prueba FCGS Canarias",
+  "name": "Curso Prueba CFGS Canarias",
   "short_name": "FGCS",
-  "start_url": "/curso-fcgs-canarias/",
+  "start_url": "/curso-cfgs-canarias/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#ffffff",
   "icons": [
     {
-      "src": "/curso-fcgs-canarias/icon-512x512.png",
+      "src": "/curso-cfgs-canarias/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     }

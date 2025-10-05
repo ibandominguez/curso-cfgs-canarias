@@ -1,5 +1,5 @@
 const CACHE_NAME = "mi-pwa-cache-v1";
-const REPO_NAME = "/curso-fcgs-canarias";
+const REPO_NAME = "/curso-cfgs-canarias";
 
 // Lista de recursos a cachear (App Shell y CDN's)
 const urlsToCache = [

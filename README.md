@@ -1,4 +1,4 @@
-# curso-fcgs-canarias
+# curso-cfgs-canarias
 
 Un libro interactivo para repasar apuntes de estudio del curso para la prueba para acceder a ciclos de formación de grado superior en Canarias con la opción A.
 
