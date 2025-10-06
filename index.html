@@ -472,10 +472,35 @@
           },
 
           renderMarkdown(markdownText) {
-            if (markdownText && window.marked) {
-              return marked.parse(markdownText);
-            }
-            return "";
+            if (!markdownText || !window.marked) return "";
+            markdownText = markdownText.replace(
+              /\b([A-Za-z])_([a-zA-Z0-9\-]+)\b/g,
+              "$1<sub>$2</sub>",
+            );
+            markdownText = markdownText.replace(
+              /\b([A-Za-z0-9<>\(\)]+)\^2\b/g,
+              "$1&sup2;",
+            );
+            markdownText = markdownText.replace(/\\bar\{x\}/g, "x&#773;");
+            markdownText = markdownText.replace(/\\sigma\^2/g, "&sigma;&sup2;");
+            markdownText = markdownText.replace(/\\sigma/g, "&sigma;");
+            markdownText = markdownText.replace(
+              /\\sum_{([^}]+)}/g,
+              "&#8721;<sub>$1</sub>",
+            );
+            markdownText = markdownText.replace(
+              /∑i=1\^\{n\}/g,
+              "&#8721;<sub>i=1</sub>^n",
+            );
+            markdownText = markdownText.replace(/\\cdot|⋅/g, "&#8901;");
+            markdownText = markdownText.replace(
+              /\\frac\{([^}]+)\}\{([^}]+)\}/g,
+              "($1) / ($2)",
+            );
+            markdownText = markdownText.replace(/\\sqrt\{([^}]+)\}/g, "√($1)");
+            markdownText = markdownText.replace(/M_o/g, "M<sub>o</sub>");
+            markdownText = markdownText.replace(/\$\$?/g, "");
+            return marked.parse(markdownText);
           },
 
           cleanMarkdownForSpeech(markdownText) {
