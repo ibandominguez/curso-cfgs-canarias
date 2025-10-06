@@ -1,10 +1,12 @@
 const CACHE_NAME = "cfgs-cache-v1";
 const REPO_NAME = "/curso-cfgs-canarias";
+const OFFLINE_URL = REPO_NAME + "/offline.html";
 
-// Lista de recursos a cachear (App Shell y CDN's)
+// Lista de recursos a cachear (App Shell y CDNs)
 const urlsToCache = [
   "/",
   "/index.html",
+  "/offline.html",
   "/manifest.json",
 
   // Subjects
@@ -19,62 +21,74 @@ const urlsToCache = [
   "/apps/silaba-tonica.html",
   "/apps/graficos-cualitativos.html",
 
-  // CDNS
+  // CDNs
   "https://cdn.tailwindcss.com?plugins=typography",
   "https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js",
   "https://cdn.jsdelivr.net/npm/marked/marked.min.js",
   "https://www.gstatic.com/charts/loader.js",
 ].map((url) => (url.startsWith("http") ? url : REPO_NAME + url));
 
-// 1. Evento de Instalación (Instalar el SW y cachear los recursos estáticos)
+// --------------------------
+// 1. Instalación del SW
+// --------------------------
 self.addEventListener("install", (event) => {
-  console.log("Service Worker: Instalando y cacheando recursos");
+  console.log("Service Worker: Instalando y cacheando recursos...");
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      console.log("Cache abierto, agregando URLs:");
-      return cache.addAll(urlsToCache).catch((error) => {
-        console.error("Error al cachear una URL:", error);
-      });
-    }),
+    caches
+      .open(CACHE_NAME)
+      .then((cache) => {
+        console.log("Cache abierto, agregando URLs...");
+        return cache.addAll(urlsToCache);
+      })
+      .catch((err) => {
+        console.error("Error al cachear recursos:", err);
+      }),
   );
+  self.skipWaiting();
 });
 
-// 2. Evento de Activación (Limpiar cachés viejos)
+// --------------------------
+// 2. Activación del SW
+// --------------------------
 self.addEventListener("activate", (event) => {
   console.log("Service Worker: Activado");
   const cacheWhitelist = [CACHE_NAME];
   event.waitUntil(
-    caches.keys().then((cacheNames) => {
-      return Promise.all(
+    caches.keys().then((cacheNames) =>
+      Promise.all(
         cacheNames.map((cacheName) => {
-          if (cacheWhitelist.indexOf(cacheName) === -1) {
-            return caches.delete(cacheName); // Elimina cachés viejos
+          if (!cacheWhitelist.includes(cacheName)) {
+            console.log("Eliminando cache viejo:", cacheName);
+            return caches.delete(cacheName);
           }
         }),
-      );
-    }),
+      ),
+    ),
   );
+  self.clients.claim();
 });
 
-// 3. Evento de Fetch (Manejo de solicitudes de red)
+// --------------------------
+// 3. Manejo de Fetch
+// --------------------------
 self.addEventListener("fetch", (event) => {
-  // Estrategia Cache-First, luego Network
   event.respondWith(
-    caches.match(event.request).then((response) => {
-      // 1. Si el recurso está en caché (incluyendo Tailwind/Alpine de CDN), lo devuelve
-      if (response) {
+    fetch(event.request)
+      .then((response) => {
+        // Opcional: actualizar cache con respuestas válidas
+        if (event.request.method === "GET") {
+          const responseClone = response.clone();
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(event.request, responseClone);
+          });
+        }
         return response;
-      }
-
-      // 2. Si no está en caché, va a la red
-      return fetch(event.request).catch(() => {
-        // 3. Si la red falla Y el recurso *no* se encontró en caché,
-        // simplemente dejamos que el fetch falle y el navegador muestre su error de desconexión.
-        // (La lógica de devolver /offline.html ha sido eliminada)
-        // El bloque .catch() aquí simplemente intercepta el error de red
-        // y lo propaga, lo que resulta en un mensaje de "Sin conexión" del navegador.
-        // No es necesario añadir código aquí, simplemente retorna.
-      });
-    }),
+      })
+      .catch(() =>
+        caches.match(event.request).then((cachedResponse) => {
+          // Devuelve cachedResponse o la página offline
+          return cachedResponse || caches.match(OFFLINE_URL);
+        }),
+      ),
   );
 });

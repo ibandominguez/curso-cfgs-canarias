@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oups! Sin conexión</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
+
+      body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #ff7e5f, #feb47b);
+        font-family: "Fredoka One", sans-serif;
+        color: #fff;
+        text-align: center;
+        overflow: hidden;
+      }
+
+      .container {
+        max-width: 500px;
+        padding: 20px;
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        animation: float 3s ease-in-out infinite;
+      }
+
+      h1 {
+        font-size: 3rem;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 1.2rem;
+        margin: 0;
+      }
+
+      .emoji {
+        font-size: 4rem;
+        display: block;
+        margin-bottom: 15px;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <span class="emoji">⚡📡</span>
+      <h1>Oups!!!</h1>
+      <p>Sin internet esto no funciona...</p>
+    </div>
+  </body>
+</html>
