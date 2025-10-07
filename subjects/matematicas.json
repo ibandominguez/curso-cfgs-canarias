@@ -53,7 +53,7 @@
     {
       "title": "3. Distribuciones de Frecuencia",
       "topic": "Tema 1. Estadística",
-      "text": "Una distribución de frecuencia organiza y resume los datos mediante:\n\n* **Frecuencia Absoluta ($f_i$):** Es el número de veces que se repite un valor ($x_i$) o modalidad. La suma de todas es igual al tamaño muestral ($N$).\n* **Frecuencia Relativa ($h_i$):** Es la frecuencia absoluta dividida por el tamaño muestral ($h_i = f_i/N$). La suma de todas es igual a la unidad.\n* **Frecuencia Acumulada ($F_i$):** El número de datos igual o inferiores a uno determinado. Se calcula: $F_i = \\sum_{j=1}^{i}f_j = F_{i-1}+f_i$. La última $F_i$ es el tamaño muestral.\n* **Frecuencia Relativa Acumulada ($H_i$):** Es el resultado de dividir cada frecuencia acumulada por el número total de datos $H_i = F_i/N = \\sum_{j=1}^{i}h_j$. La última $H_i$ es la unidad.",
+      "text": "Una distribución de frecuencia organiza y resume los datos mediante:\n\n* **Frecuencia Absoluta ($f_i$):** Es el número de veces que se repite un valor ($x_i$) o modalidad. La suma de todas es igual al tamaño muestral ($N$).\n* **Frecuencia Relativa ($h_i$):** Es la frecuencia absoluta dividida por el tamaño muestral ($h_i = f_i/N$). La suma de todas es igual a la unidad.\n* **Frecuencia Acumulada ($F_i$):** El número de datos igual o inferiores a uno determinado. Se calcula: $F_i = \\sum_{j=1}^{i}f_j = F_{i-1}+f_i$. La última $F_i$ es el tamaño muestral.\n* **Frecuencia Relativa Acumulada ($H_i$):** Es el resultado de dividir cada frecuencia acumulada por el número total de datos $H_i = F_i/N = \\sum_{j=1}^{i}h_j$. La última $H_i$ es la unidad. [iframe:https://www.youtube.com/embed/xq6tBKbg3HQ?si=GKqq58Lzq4kBXuY]",
       "appUrl": "apps/estadistica.html",
       "questions": [
         {
@@ -104,7 +104,7 @@
     {
       "title": "5. Medidas de Centralización: Media y Moda",
       "topic": "Tema 1. Estadística",
-      "text": "Las medidas de centralización buscan un valor típico o central para el conjunto de datos.\n\n* **Media ($\\bar{x}$):** Es el resultado que se obtiene al dividir la suma de todos los datos entre el número total de ellos. La fórmula para datos agrupados o con frecuencias es: \n$$ \\bar{x} = \\frac{\\sum_{i=1}^{n} f_i \\cdot x_i}{N} $$ \n\n* **Moda ($M_o$):** Es el **valor que tiene mayor frecuencia** ($f_i$), es decir, el que más se repite.\n\nPara la serie de accidentes diarios $1, 1, 2, 3, 0, 0, 1, 2, 2, 3, 1, 2, 1, 2$, el tamaño muestral ($N$) es 14, y la suma de los datos es $0(2) + 1(5) + 2(5) + 3(2) = 21$. Por lo tanto, la media es $21/14 = 1.5$.",
+      "text": "Las medidas de centralización buscan un valor típico o central para el conjunto de datos.\n\n* **Media ($\\bar{x}$):** Es el resultado que se obtiene al dividir la suma de todos los datos entre el número total de ellos. La fórmula para datos agrupados o con frecuencias es: \n$$ \\bar{x} = \\frac{\\sum_{i=1}^{n} f_i \\cdot x_i}{N} $$ \n\n* **Moda ($M_o$):** Es el **valor que tiene mayor frecuencia** ($f_i$), es decir, el que más se repite.\n\nPara la serie de accidentes diarios $1, 1, 2, 3, 0, 0, 1, 2, 2, 3, 1, 2, 1, 2$, el tamaño muestral ($N$) es 14, y la suma de los datos es $0(2) + 1(5) + 2(5) + 3(2) = 21$. Por lo tanto, la media es $21/14 = 1.5$. [iframe:https://www.youtube.com/embed/CrItHF8aJ3M?si=rGP3MJGJJdiyMyF0]",
       "appUrl": "apps/estadistica.html",
       "questions": [
         {
@@ -131,7 +131,7 @@
     {
       "title": "6. Medidas de Dispersión: Varianza y Desviación Típica",
       "topic": "Tema 1. Estadística",
-      "text": "Las medidas de dispersión indican cómo de alejados están los datos de la media.\n\n* **Varianza ($\\sigma^2$):** Es la media de los **cuadrados de las desviaciones**. Su fórmula es:\n$$ \\sigma^2 = \\frac{\\sum_{i=1}^{n} f_i \\cdot (x_i - \\bar{x})^2}{N} $$ \n\n* **Desviación Típica ($\\sigma$):** Es la **raíz cuadrada de la varianza**.\n$$ \\sigma = \\sqrt{\\sigma^2} = \\sqrt{\\frac{\\sum_{i=1}^{n} f_i \\cdot (x_i - \\bar{x})^2}{N}} $$",
+      "text": "Las medidas de dispersión indican cómo de alejados están los datos de la media.\n\n* **Varianza ($\\sigma^2$):** Es la media de los **cuadrados de las desviaciones**. Su fórmula es:\n$$ \\sigma^2 = \\frac{\\sum_{i=1}^{n} f_i \\cdot (x_i - \\bar{x})^2}{N} $$ \n\n* **Desviación Típica ($\\sigma$):** Es la **raíz cuadrada de la varianza**.\n$$ \\sigma = \\sqrt{\\sigma^2} = \\sqrt{\\frac{\\sum_{i=1}^{n} f_i \\cdot (x_i - \\bar{x})^2}{N}} $$\n [iframe:https://www.youtube.com/embed/Vg5PD7FROgo?si=4AO-pKHlo-EGrbVK] [iframe:https://www.youtube.com/embed/MNMZOTgUOFY?si=jYbcHRjdAhAS5jSf]",
       "appUrl": "apps/estadistica.html",
       "questions": [
         {
@@ -160,4 +160,3 @@
     }
   ]
 }
-

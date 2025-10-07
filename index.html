@@ -497,6 +497,10 @@
               /\\frac\{([^}]+)\}\{([^}]+)\}/g,
               "($1) / ($2)",
             );
+            markdownText = markdownText.replace(
+              /\[iframe:(https?:\/\/[^\]]+)\]/g,
+              '<div class="relative w-full aspect-video rounded overflow-hidden shadow-sm my-5"><iframe class="absolute inset-0 w-full h-full" src="$1" title="Título accesible del vídeo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>',
+            );
             markdownText = markdownText.replace(/\\sqrt\{([^}]+)\}/g, "√($1)");
             markdownText = markdownText.replace(/M_o/g, "M<sub>o</sub>");
             markdownText = markdownText.replace(/\$\$?/g, "");
