@@ -279,6 +279,82 @@
                   ></iframe>
                 </div>
               </template>
+
+              <div class="flex justify-between mt-12 border-t pt-8">
+                <!-- Botón Anterior -->
+                <div class="w-1/2 pr-2">
+                  <template x-if="selectedContentIndex > 0">
+                    <button
+                      @click="selectContent(selectedContentIndex - 1)"
+                      class="w-full text-left p-4 rounded-lg bg-white hover:bg-gray-50 shadow-md transition-all duration-200 hover:shadow-xl border border-gray-200"
+                    >
+                      <div class="flex items-center">
+                        <svg
+                          class="w-8 h-8 mr-4 text-blue-500 flex-shrink-0"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                          ></path>
+                        </svg>
+                        <div>
+                          <p class="text-sm font-semibold text-gray-500">
+                            Anterior
+                          </p>
+                          <p
+                            class="text-base lg:text-lg font-bold text-gray-800 truncate"
+                            x-text="subjectData.contents[selectedContentIndex - 1].title"
+                          ></p>
+                        </div>
+                      </div>
+                    </button>
+                  </template>
+                </div>
+
+                <!-- Botón Siguiente -->
+                <div class="w-1/2 pl-2">
+                  <template
+                    x-if="selectedContentIndex < subjectData.contents.length - 1"
+                  >
+                    <button
+                      @click="selectContent(selectedContentIndex + 1)"
+                      class="w-full text-right p-4 rounded-lg bg-white hover:bg-gray-50 shadow-md transition-all duration-200 hover:shadow-xl border border-gray-200"
+                    >
+                      <div class="flex items-center justify-end">
+                        <div class="text-right">
+                          <p class="text-sm font-semibold text-gray-500">
+                            Siguiente
+                          </p>
+                          <p
+                            class="text-base lg:text-lg font-bold text-gray-800 truncate"
+                            x-text="subjectData.contents[selectedContentIndex + 1].title"
+                          ></p>
+                        </div>
+                        <svg
+                          class="w-8 h-8 ml-4 text-blue-500 flex-shrink-0"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M14 5l7 7m0 0l-7 7m7-7H3"
+                          ></path>
+                        </svg>
+                      </div>
+                    </button>
+                  </template>
+                </div>
+              </div>
             </div>
           </template>
         </div>
