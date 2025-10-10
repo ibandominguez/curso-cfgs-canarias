@@ -23,10 +23,14 @@
     </style>
   </head>
 
-  <body class="bg-gray-100 min-h-screen">
-    <div x-data="studyApp()" x-init="init()" class="flex flex-col h-screen">
+  <body class="bg-gray-100 min-h-screen overflow-hidden">
+    <div
+      x-data="studyApp()"
+      x-init="init()"
+      class="flex flex-col h-screen overflow-hidden"
+    >
       <header
-        class="bg-white shadow-md p-4 flex justify-between items-center z-10"
+        class="fixed top-0 w-full bg-white shadow-md p-4 flex justify-between items-center z-30"
       >
         <button
           @click="isSidebarOpen = !isSidebarOpen; stopSpeech()"
@@ -94,7 +98,11 @@
         </div>
       </header>
 
-      <main class="flex flex-1 relative">
+      <main
+        id="main"
+        class="flex flex-1 relative h-screen overflow-hidden"
+        style="padding-top: 71px"
+      >
         <!-- Vista de selección de asignatura -->
         <div x-show="!subjectData" x-cloak class="w-full p-4 sm:p-6 md:p-8">
           <h2
