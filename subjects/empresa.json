@@ -336,6 +336,303 @@
           ]
         }
       ]
+    },
+    {
+      "title": "1. El sistema informativo de la empresa: la Contabilidad.",
+      "topic": "Tema 2. Información de la empresa: Obligaciones contables.",
+      "text": "La **Contabilidad** es el sistema informativo fundamental para conocer la situación **patrimonial** y de **resultados económicos** de una empresa. Es un proceso técnico que consiste en **registrar**, **clasificar**, **analizar**, **interpretar** y **comunicar** la información patrimonial y financiera de una entidad.\n\n**Agentes interesados** en esta información son la dirección, accionistas, Hacienda, bancos, proveedores y trabajadores. Según el Código de Comercio, toda empresa está obligada a llevar la **contabilidad externa o financiera**.\n\nEl marco normativo principal en España es el **Plan General de Contabilidad de 2007 (PGC)**, cuyo objetivo es mostrar la **imagen fiel** del patrimonio, la situación financiera y los resultados de la empresa. Para ello, las empresas deben elaborar las **Cuentas Anuales**, que se componen obligatoriamente de tres documentos:\n\n1.  **El Balance de Situación**\n2.  **La Cuenta de Pérdidas y Ganancias**\n3.  **La Memoria**",
+      "questions": [
+        {
+          "text": "¿Cuál es el objetivo principal del Plan General de Contabilidad (PGC)?",
+          "options": [
+            {
+              "text": "Determinar la cantidad de impuestos a pagar.",
+              "correct": false
+            },
+            {
+              "text": "Mostrar la imagen fiel del patrimonio y la situación financiera de la empresa.",
+              "correct": true
+            },
+            {
+              "text": "Gestionar el cobro de deudas a clientes.",
+              "correct": false
+            },
+            {
+              "text": "Clasificar el personal según su cargo.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "text": "¿Qué documentos componen las Cuentas Anuales obligatorias, según el PGC?",
+          "options": [
+            {
+              "text": "Libro Diario, Libro Mayor y Balance de Comprobación.",
+              "correct": false
+            },
+            {
+              "text": "Balance, Cuenta de Pérdidas y Ganancias, y Memoria.",
+              "correct": true
+            },
+            {
+              "text": "Presupuesto, Inventario y Estudio de Mercado.",
+              "correct": false
+            },
+            {
+              "text": "Flujo de Caja, Análisis de Inversiones y Plan de Viabilidad.",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "2. El patrimonio de la empresa.",
+      "topic": "Tema 2. Información de la empresa: Obligaciones contables.",
+      "text": "El **Patrimonio** de la empresa es el conjunto de **bienes**, **derechos** y **obligaciones** que posee en un momento determinado. Estos elementos se agrupan en dos grandes masas patrimoniales y su resultante:\n\n* **Activo (A):** Está formado por los **bienes** (ej. mobiliario, local, dinero en caja) y **derechos** (ej. pagarés por cobrar a clientes).\n* **Pasivo (P):** Representa las **obligaciones** o deudas que tiene la empresa con terceros (ej. deudas con proveedores, préstamos bancarios).\n* **Patrimonio Neto (PN):** Es el valor del patrimonio y se calcula restando las obligaciones (Pasivo) a los bienes y derechos (Activo).\n\nLa relación entre estos elementos se conoce como la **Ecuación Fundamental del Patrimonio**:\n\n$$\\text{Activo} = \\text{Patrimonio Neto} + \\text{Pasivo}$$",
+      "questions": [
+        {
+          "text": "¿Cómo se define el Patrimonio Neto (PN) de una empresa?",
+          "options": [
+            {
+              "text": "Es la suma de los bienes y las obligaciones.",
+              "correct": false
+            },
+            {
+              "text": "Es la diferencia entre el Activo (Bienes y Derechos) y el Pasivo (Obligaciones).",
+              "correct": true
+            },
+            {
+              "text": "Es el valor total de las obligaciones a largo plazo.",
+              "correct": false
+            },
+            {
+              "text": "Es la suma del Activo Corriente y el Activo No Corriente.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "text": "¿Qué elemento patrimonial representa una deuda con un proveedor por una compra de mercaderías?",
+          "options": [
+            { "text": "Un Bien (Activo).", "correct": false },
+            { "text": "Un Derecho (Activo).", "correct": false },
+            { "text": "Una Obligación (Pasivo).", "correct": true },
+            { "text": "Patrimonio Neto.", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "3. Elementos y masas patrimoniales.",
+      "topic": "Tema 2. Información de la empresa: Obligaciones contables.",
+      "text": "Los **Elementos Patrimoniales** son los distintos bienes, derechos y obligaciones individuales que forman el patrimonio de la empresa. Estos se agrupan en **Masas Patrimoniales** según su función o naturaleza.\n\n**3.1 Clasificación del Activo**\n\nEl Activo se clasifica en función de su permanencia en la empresa:\n\n* **Activo No Corriente (ANC):** Elementos cuya función es asegurar la vida de la empresa. Su permanencia es **indefinida** (más de un año). Se denominan también **Inmovilizados** (ej. edificios, terrenos, maquinaria).\n* **Activo Corriente (AC):** Elementos asociados al ciclo productivo de **corto plazo** (período inferior a 1 año), como las mercaderías, el dinero en bancos y el efectivo en caja.\n\n**3.2 Clasificación del Patrimonio Neto y del Pasivo**\n\nEl Patrimonio Neto y el Pasivo se clasifican por su exigibilidad (si son deudas) y por el plazo de devolución:\n\n* **Patrimonio Neto (No Exigible):** Son los **fondos propios** (ej. capital aportado por socios, reservas), ya que no son deudas que la empresa deba devolver a terceros.\n* **Pasivo No Corriente (PNC - Exigible a l/p):** Deudas a las que la empresa debe hacer frente con vencimiento a **más de un año** (ej. préstamos a largo plazo).\n* **Pasivo Corriente (PC - Exigible a c/p):** Obligaciones de pago a corto plazo, es decir, con vencimiento **inferior a un año** (ej. deudas con proveedores, préstamos a corto plazo).\n\nLa suma de los fondos propios (PN) y el pasivo no corriente (PNC) se conoce como **Recursos Permanentes**.",
+      "questions": [
+        {
+          "text": "¿Cuál es la característica principal del Activo No Corriente (ANC)?",
+          "options": [
+            { "text": "Su liquidez es inmediata.", "correct": false },
+            {
+              "text": "Está asociado al ciclo productivo de la empresa a corto plazo.",
+              "correct": false
+            },
+            {
+              "text": "Tiene permanencia indefinida y se le denomina Inmovilizado.",
+              "correct": true
+            },
+            { "text": "Representa las deudas a corto plazo.", "correct": false }
+          ]
+        },
+        {
+          "text": "¿Qué masas patrimoniales conforman los llamados \"Recursos Permanentes\"?",
+          "options": [
+            {
+              "text": "Activo Corriente y Pasivo Corriente.",
+              "correct": false
+            },
+            {
+              "text": "Patrimonio Neto y Pasivo No Corriente.",
+              "correct": true
+            },
+            {
+              "text": "Activo No Corriente y Pasivo No Corriente.",
+              "correct": false
+            },
+            { "text": "Activo Total y Pasivo Total.", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "4. El Balance de Situación.",
+      "topic": "Tema 2. Información de la empresa: Obligaciones contables.",
+      "text": "El **Balance de Situación** es un documento contable fundamental que refleja el patrimonio de una empresa en un momento concreto.\n\n**4.1 Ordenación del Activo**\n\nLos elementos del Activo se ordenan de **menor a mayor grado de liquidez** (facilidad para convertirse en dinero):\n\n* El **Activo No Corriente** incluye el Inmovilizado Intangible (ej. aplicaciones informáticas) y el Inmovilizado Material (ej. terrenos, maquinaria). Su pérdida de valor se refleja en la **Amortización acumulada**.\n* El **Activo Corriente** se ordena desde las **Existencias** (mercaderías) hasta el **Efectivo** y otros activos líquidos equivalentes (dinero en caja y bancos).\n\n**4.2 Ordenación del Patrimonio Neto y Pasivo**\n\nSe ordenan de **menor a mayor grado de exigibilidad** (la urgencia con la que la empresa debe hacer frente al pago):\n\n* **Patrimonio Neto (PN):** Menor exigibilidad, ya que son fondos propios.\n* **Pasivo No Corriente (PNC):** Deudas a largo plazo.\n* **Pasivo Corriente (PC):** Mayor exigibilidad, pues son las deudas a corto plazo.",
+      "questions": [
+        {
+          "text": "¿Cuál es el criterio de ordenación que se aplica a las partidas del Activo en el Balance de Situación?",
+          "options": [
+            { "text": "De mayor a menor exigibilidad.", "correct": false },
+            { "text": "De mayor a menor liquidez.", "correct": false },
+            { "text": "De menor a mayor grado de liquidez.", "correct": true },
+            {
+              "text": "Según el criterio de permanencia en la empresa.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "text": "¿Qué activo se considera el de mayor liquidez en el Balance de Situación?",
+          "options": [
+            { "text": "El Inmovilizado Material.", "correct": false },
+            { "text": "Las Existencias (Mercaderías).", "correct": false },
+            {
+              "text": "El Efectivo (Dinero en caja y bancos).",
+              "correct": true
+            },
+            { "text": "Los Deudores Comerciales.", "correct": false }
+          ]
+        },
+        {
+          "text": "¿Cómo se ordenan el Patrimonio Neto y el Pasivo en el Balance?",
+          "options": [
+            {
+              "text": "De menor a mayor grado de exigibilidad.",
+              "correct": true
+            },
+            {
+              "text": "De menor a mayor grado de permanencia.",
+              "correct": false
+            },
+            { "text": "De mayor a menor valor monetario.", "correct": false },
+            {
+              "text": "Según la fecha de emisión de las deudas.",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "5. La Cuenta de Resultados o Cuenta de Pérdidas y Ganancias.",
+      "topic": "Tema 2. Información de la empresa: Obligaciones contables.",
+      "text": "La **Cuenta de Pérdidas y Ganancias** es una Cuenta Anual obligatoria que nos informa del origen y composición de los **resultados** obtenidos por la empresa al final de cada ejercicio. En este documento se recogen, de forma detallada, los **ingresos** y los **gastos** derivados de las operaciones realizadas por la empresa .\n\nEl resultado del ejercicio es **positivo (beneficios)** si los ingresos superan a los gastos, y **negativo (pérdidas)** en caso contrario .\n\nEl Plan General de Contabilidad de PYMES (PGC PYMES) organiza esta cuenta por la naturaleza del ingreso o gasto, diferenciando entre los resultados propios de la **explotación** y los originados por circunstancias **financieras o fiscales**.\n\nLos principales niveles de resultados que se obtienen son:\n\n* **A) RESULTADOS DE EXPLOTACIÓN**\n* **B) RESULTADO FINANCIERO**\n* **C) RESULTADO ANTES DE IMPUESTO** (A + B)\n* **D) RESULTADO DEL EJERCICIO**",
+      "questions": [
+        {
+          "text": "¿Cuál es el propósito principal de la Cuenta de Pérdidas y Ganancias?",
+          "options": [
+            {
+              "text": "Reflejar el patrimonio de la empresa en un momento dado.",
+              "correct": false
+            },
+            {
+              "text": "Informar del origen y composición de los resultados (ingresos y gastos) de un ejercicio.",
+              "correct": true
+            },
+            {
+              "text": "Medir la capacidad de la empresa para hacer frente a sus deudas a corto plazo.",
+              "correct": false
+            },
+            {
+              "text": "Detallar las aportaciones de capital de los socios.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "text": "¿Qué indica un resultado negativo (pérdidas) en esta cuenta?",
+          "options": [
+            {
+              "text": "Que los gastos han superado a los ingresos en el ejercicio.",
+              "correct": true
+            },
+            {
+              "text": "Que el Pasivo Corriente es mayor que el Activo Corriente.",
+              "correct": false
+            },
+            {
+              "text": "Que la empresa no tiene activos suficientes para operar.",
+              "correct": false
+            },
+            {
+              "text": "Que el resultado de explotación ha sido nulo.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "text": "¿Cómo se calcula el 'Resultado antes de Impuesto' según la estructura del PGC PYMES?",
+          "options": [
+            {
+              "text": "Resultado del Ejercicio menos Impuesto sobre Beneficios.",
+              "correct": false
+            },
+            { "text": "Ventas menos Compras.", "correct": false },
+            {
+              "text": "Resultado de Explotación más Resultado Financiero.",
+              "correct": true
+            },
+            { "text": "Activo menos Pasivo.", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "6. Análisis de estados financieros.",
+      "topic": "Tema 2. Información de la empresa: Obligaciones contables.",
+      "text": "El **análisis de estados contables** utiliza determinadas técnicas e instrumentos para obtener información sobre la **eficiencia de la gestión** y la **capacidad financiera** futura de la empresa. Se divide principalmente en dos áreas:\n\n## Análisis Financiero (Liquidez y Solvencia) \n\nSe centra en analizar la capacidad de la empresa para hacer frente a sus deudas.\n\n* **Fondo de Maniobra (FM):** $$\\text{Activo Corriente} - \\text{Pasivo Corriente}$$. Un FM **positivo** (AC > PC) es una situación óptima a corto plazo.\n* **Ratio de Solvencia (o Liquidez General):** $$\\text{Activo Corriente} / \\text{Pasivo Corriente}$$. Mide la capacidad de cubrir deudas a corto plazo. El valor **idóneo es 2** (entre 1,5 y 3).\n* **Ratio de Liquidez (o Prueba Ácida):** $$(\\text{Realizable} + \\text{Disponible}) / \\text{Pasivo Corriente}$$. Elimina las **existencias** del cálculo para una visión más precisa de la posibilidad de pago a corto plazo. Valor **recomendable entre 0,8 y 1**.\n* **Ratio de Garantía:** $$\\text{Activo Total} / \\text{Pasivo Total}$$. Mide la seguridad que tienen los acreedores para cobrar sus deudas. Debe ser **superior a 1** .\n\n## Análisis Económico (Rentabilidad) \n\nMide la rentabilidad de las inversiones y de los recursos propios.\n\n* **Ratio de Rentabilidad Económica:** $$( \\text{Resultado de Explotación} / \\text{Activo Total} ) \\times 100$$. Mide la productividad de los activos totales de la empresa.\n* **Ratio de Rentabilidad Financiera:** $$( \\text{Resultado del ejercicio} / \\text{Recursos propios} ) \\times 100$$. Mide la rentabilidad de la inversión de los propietarios.",
+      "questions": [
+        {
+          "text": "¿Cuál es la fórmula del Fondo de Maniobra (FM) y qué indica un FM positivo?",
+          "options": [
+            {
+              "text": "FM = Pasivo No Corriente - Activo No Corriente. Indica riesgo financiero.",
+              "correct": false
+            },
+            {
+              "text": "FM = Activo Corriente - Pasivo Corriente. Indica una situación óptima a corto plazo (AC > PC).",
+              "correct": true
+            },
+            {
+              "text": "FM = Activo Total / Pasivo Total. Indica una alta rentabilidad.",
+              "correct": false
+            },
+            {
+              "text": "FM = Resultado / Patrimonio Neto. Indica la rentabilidad de los propietarios.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "text": "¿Qué ratio se utiliza para medir la capacidad de la empresa de afrontar sus deudas a corto plazo sin contar con las existencias?",
+          "options": [
+            { "text": "Ratio de Solvencia.", "correct": false },
+            { "text": "Ratio de Garantía.", "correct": false },
+            { "text": "Ratio de Liquidez o Prueba Ácida.", "correct": true },
+            { "text": "Ratio de Rentabilidad Económica.", "correct": false }
+          ]
+        },
+        {
+          "text": "¿Qué mide el Ratio de Rentabilidad Financiera?",
+          "options": [
+            {
+              "text": "La productividad de los activos totales de la empresa.",
+              "correct": false
+            },
+            {
+              "text": "La rentabilidad de la inversión realizada por los propietarios (Resultado del ejercicio / Recursos propios).",
+              "correct": true
+            },
+            {
+              "text": "La proporción de la financiación ajena respecto a los fondos propios.",
+              "correct": false
+            },
+            {
+              "text": "La capacidad de las propiedades para cubrir las deudas totales.",
+              "correct": false
+            }
+          ]
+        }
+      ]
     }
   ]
 }
