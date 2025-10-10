@@ -66,12 +66,15 @@
         </button>
 
         <h1 class="text-xl lg:text-2xl font-bold text-gray-800">
-          <a href="/curso-cfgs-canarias/">
+          <a href="#" @click.prevent="goHome()">
             📚 <span class="hidden sm:inline">Repaso Prueba CFGS</span>
           </a>
         </h1>
 
-        <div class="flex items-center space-x-4">
+        <div
+          class="flex items-center space-x-4"
+          :class="{'hidden': !subjectData}"
+        >
           <label
             for="subject-select"
             class="text-gray-600 font-medium hidden sm:block"
@@ -433,6 +436,20 @@
 
             if (window.innerWidth >= 1024) {
               this.isSidebarOpen = true;
+            }
+          },
+
+          goHome() {
+            this.stopSpeech();
+            this.subjectData = null;
+            this.selectedSubject = "";
+            this.selectedContentIndex = null;
+            if (window.location.hash) {
+              history.pushState(
+                "",
+                document.title,
+                window.location.pathname + window.location.search,
+              );
             }
           },
 
