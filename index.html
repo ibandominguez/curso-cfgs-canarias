@@ -120,6 +120,7 @@
               >
                 <div class="mb-2">
                   <button
+                    :id="`sidebar-content-${content.originalIndex}`"
                     @click="selectContent(content.originalIndex); isSidebarOpen = false"
                     :class="{ 
                                         'bg-blue-500 text-white font-semibold': selectedContentIndex === content.originalIndex, 
@@ -411,27 +412,39 @@
             );
 
             if (subjectToLoad) {
-              const contentIndex = contentIndexStr
+              const urlContentIndex = contentIndexStr
                 ? parseInt(contentIndexStr, 10)
-                : 0;
+                : null;
               // If the subject in the URL is not the one currently selected
               if (subjectToLoad.file !== this.selectedSubject) {
                 // First, update the selector to match the URL
                 this.selectedSubject = subjectToLoad.file;
                 // Then, load the subject data
-                this.loadSubject(this.selectedSubject, true, contentIndex);
-              } else if (contentIndex !== this.selectedContentIndex) {
-                this.selectContent(contentIndex);
+                this.loadSubject(this.selectedSubject, true, urlContentIndex);
+              } else if (urlContentIndex !== null && urlContentIndex !== this.selectedContentIndex) {
+                const bookmarkedIndex = this.getBookmark(this.selectedSubject);
+                if (bookmarkedIndex !== null && urlContentIndex !== bookmarkedIndex) {
+                    const bookmarkedContent = this.subjectData.contents[bookmarkedIndex];
+                    if (confirm(`La última vez que visitaste esta asignatura estabas en el apartado "${bookmarkedContent.title}" del tema "${bookmarkedContent.topic}". ¿Quieres volver a ese apartado?`)) {
+                        this.selectContent(bookmarkedIndex);
+                    } else {
+                        this.selectContent(urlContentIndex);
+                    }
+                } else {
+                    this.selectContent(urlContentIndex);
+                }
               }
             } else {
               // Default route if hash is invalid or empty
               const defaultSubjectFile = this.availableSubjects[0].file;
+              const bookmarkedIndex = this.getBookmark(defaultSubjectFile);
               // This will trigger a hashchange and re-run route()
-              this.updateUrl(defaultSubjectFile, 0);
+              this.updateUrl(defaultSubjectFile, bookmarkedIndex !== null ? bookmarkedIndex : 0);
             }
           },
 
           updateUrl(subjectFile, contentIndex) {
+            if (!subjectFile) return;
             const subjectSlug = subjectFile
               .split("/")
               .pop()
@@ -440,6 +453,19 @@
             if (window.location.hash !== newHash) {
               window.location.hash = newHash;
             }
+          },
+
+          getBookmark(subjectFile) {
+            if (!subjectFile) return null;
+            const bookmarks = JSON.parse(localStorage.getItem('subjectBookmarks')) || {};
+            return bookmarks[subjectFile] !== undefined ? bookmarks[subjectFile] : null;
+          },
+
+          setBookmark(subjectFile, contentIndex) {
+            if (!subjectFile) return;
+            const bookmarks = JSON.parse(localStorage.getItem('subjectBookmarks')) || {};
+            bookmarks[subjectFile] = contentIndex;
+            localStorage.setItem('subjectBookmarks', JSON.stringify(bookmarks));
           },
 
           getOptionClasses(qIndex, oIndex, isCorrectOption) {
@@ -492,7 +518,7 @@
           async loadSubject(
             file,
             resetAnswers = true,
-            initialContentIndex = 0,
+            requestedContentIndex = null,
           ) {
             this.stopSpeech();
             this.subjectData = null;
@@ -518,7 +544,19 @@
               );
 
               if (this.subjectData.contents.length > 0) {
-                this.selectContent(initialContentIndex);
+                const bookmarkedIndex = this.getBookmark(file);
+
+                if (requestedContentIndex !== null && bookmarkedIndex !== null && requestedContentIndex !== bookmarkedIndex) {
+                    const bookmarkedContent = this.subjectData.contents[bookmarkedIndex];
+                    if (confirm(`La última vez que visitaste esta asignatura estabas en el apartado "${bookmarkedContent.title}" del tema "${bookmarkedContent.topic}". ¿Quieres volver a ese apartado?`)) {
+                        this.selectContent(bookmarkedIndex);
+                    } else {
+                        this.selectContent(requestedContentIndex);
+                    }
+                } else {
+                    const indexToLoad = requestedContentIndex !== null ? requestedContentIndex : (bookmarkedIndex !== null ? bookmarkedIndex : 0);
+                    this.selectContent(indexToLoad);
+                }
               }
             } catch (error) {
               console.error("Error al cargar la asignatura:", error);
@@ -530,11 +568,19 @@
             this.stopSpeech();
             this.selectedContentIndex = index;
             this.updateUrl(this.selectedSubject, index);
+            this.setBookmark(this.selectedSubject, index);
 
             // Reinicia las respuestas de la sección actual al seleccionarla
             this.answers[index] = {};
             this.answers = { ...this.answers };
             document.getElementById("content").scrollTo({ top: 0 });
+
+            this.$nextTick(() => {
+                const activeButton = this.$root.querySelector(`#sidebar-content-${index}`);
+                if (activeButton) {
+                    activeButton.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            });
           },
 
           checkAnswer(qIndex, oIndex, isCorrect) {
