@@ -31,6 +31,7 @@
         <button
           @click="isSidebarOpen = !isSidebarOpen; stopSpeech()"
           class="lg:hidden text-gray-600 focus:outline-none"
+          :class="{'hidden': !subjectData}"
         >
           <svg
             x-show="!isSidebarOpen"
@@ -64,8 +65,10 @@
           </svg>
         </button>
 
-        <h1 class="text-xl lg:text-2xl font-bold text-gray-800 hidden sm:block">
-          📚 Repaso Prueba CFGS
+        <h1 class="text-xl lg:text-2xl font-bold text-gray-800">
+          <a href="/curso-cfgs-canarias/">
+            📚 <span class="hidden sm:inline">Repaso Prueba CFGS</span>
+          </a>
         </h1>
 
         <div class="flex items-center space-x-4">
@@ -88,277 +91,302 @@
         </div>
       </header>
 
-      <main class="flex flex-1 overflow-hidden relative">
-        <nav
-          x-cloak
-          :class="{ 
-                    'translate-x-0': isSidebarOpen, 
-                    '-translate-x-full': !isSidebarOpen 
-                }"
-          class="w-64 bg-gray-50 border-r border-gray-200 overflow-y-auto p-4 flex-shrink-0 lg:translate-x-0 lg:static absolute inset-y-0 left-0 z-20 sidebar-transition"
-          x-show="subjectData"
-        >
+      <main class="flex flex-1 relative">
+        <!-- Vista de selección de asignatura -->
+        <div x-show="!subjectData" x-cloak class="w-full p-4 sm:p-6 md:p-8">
           <h2
-            class="text-xl font-semibold mb-4 text-gray-700"
-            x-text="subjectData ? subjectData.title : ''"
-          ></h2>
-
-          <template
-            x-for="([topic, contents], topicIndex) in $store.groupedContents"
-            :key="topic"
+            class="text-2xl sm:text-3xl font-bold text-gray-800 mb-6 text-center"
           >
-            <div
-              :class="{'mt-4 border-t pt-4 border-gray-300': topicIndex > 0}"
-            >
-              <h3
-                class="font-bold text-base text-gray-800 mb-2"
-                x-text="topic"
-              ></h3>
-              <template
-                x-for="(content, index) in contents"
-                :key="content.title"
-              >
-                <div class="mb-2">
-                  <button
-                    :id="`sidebar-content-${content.originalIndex}`"
-                    @click="selectContent(content.originalIndex); isSidebarOpen = false"
-                    :class="{ 
-                                        'bg-blue-500 text-white font-semibold': selectedContentIndex === content.originalIndex, 
-                                        'text-gray-700 hover:bg-blue-100': selectedContentIndex !== content.originalIndex 
-                                    }"
-                    class="w-full text-left p-2 pl-4 rounded-lg transition duration-150 ease-in-out text-sm"
-                  >
-                    <span x-text="content.title"></span>
-                  </button>
-                </div>
-              </template>
-            </div>
-          </template>
-        </nav>
-
-        <div
-          x-show="isSidebarOpen"
-          @click="isSidebarOpen = false"
-          class="lg:hidden absolute inset-0 bg-black opacity-50 z-10"
-        ></div>
-
-        <div id="content" class="flex-1 overflow-y-auto p-4 lg:p-8">
+            Selecciona una asignatura
+          </h2>
           <div
-            x-show="!subjectData"
-            class="h-full flex items-center justify-center text-gray-600 text-2xl"
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6"
           >
-            Cargando asignatura...
-          </div>
-
-          <template x-if="selectedContent">
-            <div>
-              <h2
-                class="text-2xl lg:text-3xl font-extrabold mb-2 text-gray-800"
-                x-text="selectedContent.title"
-              ></h2>
-              <p
-                class="text-sm text-blue-600 font-medium mb-6"
-                x-text="selectedContent.topic"
-              ></p>
-
+            <template x-for="subject in availableSubjects" :key="subject.file">
               <button
-                @click="isSpeaking ? stopSpeech() : speak(selectedContent.text)"
-                :class="{
-                  'bg-red-500 hover:bg-red-600': isSpeaking,
-                  'bg-green-500 hover:bg-green-600': !isSpeaking
-                }"
-                class="text-white font-bold py-2 px-4 rounded flex items-center transition duration-150 mb-6"
+                @click="loadSubject(subject.file, true)"
+                class="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out flex flex-col items-center text-center border-2 border-transparent hover:border-blue-500"
               >
-                <svg
-                  x-show="!isSpeaking"
-                  class="w-5 h-5 mr-2"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9c2.828 2.83 2.828 7.425 0 10.253M17 13h1m-1 3h1m-1-7h1m-1 3h-1m-4 3h1m-1 3h1m-1-7h1m-1 3h-1m-4 3h1m-1 3h1m-1-7h1m-1 3h-1m-4 3h1m-1 3h1m-1-7h1"
-                  ></path>
-                </svg>
-                <svg
-                  x-show="isSpeaking"
-                  class="w-5 h-5 mr-2"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  ></path>
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M9 10h6m-3 3v-6"
-                  ></path>
-                </svg>
                 <span
-                  x-text="isSpeaking ? 'Detener Lectura' : 'Escuchar Lectura'"
+                  class="text-4xl mb-3"
+                  x-text="subject.emoji || '📚'"
                 ></span>
+                <h3
+                  class="text-lg font-semibold text-gray-900"
+                  x-text="subject.name"
+                ></h3>
               </button>
+            </template>
+          </div>
+        </div>
 
-              <div
-                class="prose lg:prose-lg max-w-none mb-10 p-6 bg-white rounded-xl shadow-lg border border-gray-200"
-                x-html="renderMarkdown(selectedContent.text)"
-              ></div>
-
-              <h3
-                class="text-xl lg:text-2xl font-bold text-gray-700 mb-4 border-b pb-2"
-              >
-                Sección de Repaso Rápido
-              </h3>
+        <!-- Vista de contenido de la asignatura -->
+        <template x-if="subjectData">
+          <div class="flex flex-1 overflow-hidden">
+            <nav
+              x-cloak
+              :class="{ 
+                        'translate-x-0': isSidebarOpen, 
+                        '-translate-x-full': !isSidebarOpen 
+                    }"
+              class="w-64 bg-gray-50 border-r border-gray-200 overflow-y-auto p-4 flex-shrink-0 lg:translate-x-0 lg:static absolute inset-y-0 left-0 z-20 sidebar-transition"
+            >
+              <h2
+                class="text-xl font-semibold mb-4 text-gray-700"
+                x-text="subjectData ? subjectData.title : ''"
+              ></h2>
 
               <template
-                x-for="(question, qIndex) in selectedContent.questions"
-                :key="qIndex"
+                x-for="([topic, contents], topicIndex) in $store.groupedContents"
+                :key="topic"
               >
                 <div
-                  class="mb-6 p-5 bg-white rounded-lg shadow-sm border border-blue-100"
+                  :class="{'mt-4 border-t pt-4 border-gray-300': topicIndex > 0}"
                 >
+                  <h3
+                    class="font-bold text-base text-gray-800 mb-2"
+                    x-text="topic"
+                  ></h3>
+                  <template
+                    x-for="(content, index) in contents"
+                    :key="content.title"
+                  >
+                    <div class="mb-2">
+                      <button
+                        :id="`sidebar-content-${content.originalIndex}`"
+                        @click="selectContent(content.originalIndex); isSidebarOpen = false"
+                        :class="{ 
+                                            'bg-blue-500 text-white font-semibold': selectedContentIndex === content.originalIndex, 
+                                            'text-gray-700 hover:bg-blue-100': selectedContentIndex !== content.originalIndex 
+                                        }"
+                        class="w-full text-left p-2 pl-4 rounded-lg transition duration-150 ease-in-out text-sm"
+                      >
+                        <span x-text="content.title"></span>
+                      </button>
+                    </div>
+                  </template>
+                </div>
+              </template>
+            </nav>
+
+            <div
+              x-show="isSidebarOpen"
+              @click="isSidebarOpen = false"
+              class="lg:hidden absolute inset-0 bg-black opacity-50 z-10"
+            ></div>
+
+            <div id="content" class="flex-1 overflow-y-auto p-4 lg:p-8">
+              <template x-if="selectedContent">
+                <div>
+                  <h2
+                    class="text-2xl lg:text-3xl font-extrabold mb-2 text-gray-800"
+                    x-text="selectedContent.title"
+                  ></h2>
                   <p
-                    class="font-semibold text-base lg:text-lg text-gray-800 mb-3"
-                    x-text="`${qIndex + 1}. ${question.text}`"
+                    class="text-sm text-blue-600 font-medium mb-6"
+                    x-text="selectedContent.topic"
                   ></p>
 
-                  <div class="space-y-2">
-                    <template
-                      x-for="(option, oIndex) in question.options"
-                      :key="oIndex"
+                  <button
+                    @click="isSpeaking ? stopSpeech() : speak(selectedContent.text)"
+                    :class="{
+                      'bg-red-500 hover:bg-red-600': isSpeaking,
+                      'bg-green-500 hover:bg-green-600': !isSpeaking
+                    }"
+                    class="text-white font-bold py-2 px-4 rounded flex items-center transition duration-150 mb-6"
+                  >
+                    <svg
+                      x-show="!isSpeaking"
+                      class="w-5 h-5 mr-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
-                      <button
-                        @click="checkAnswer(qIndex, oIndex, option.correct)"
-                        :disabled="answers[selectedContentIndex] && answers[selectedContentIndex][qIndex] !== undefined"
-                        :class="getOptionClasses(qIndex, oIndex, option.correct)"
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9c2.828 2.83 2.828 7.425 0 10.253M17 13h1m-1 3h1m-1-7h1m-1 3h-1m-4 3h1m-1 3h1m-1-7h1m-1 3h-1m-4 3h1m-1 3h1m-1-7h1m-1 3h-1m-4 3h1m-1 3h1m-1-7h1"
+                      ></path>
+                    </svg>
+                    <svg
+                      x-show="isSpeaking"
+                      class="w-5 h-5 mr-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      ></path>
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 10h6m-3 3v-6"
+                      ></path>
+                    </svg>
+                    <span
+                      x-text="isSpeaking ? 'Detener Lectura' : 'Escuchar Lectura'"
+                    ></span>
+                  </button>
+
+                  <div
+                    class="prose lg:prose-lg max-w-none mb-10 p-6 bg-white rounded-xl shadow-lg border border-gray-200"
+                    x-html="renderMarkdown(selectedContent.text)"
+                  ></div>
+
+                  <h3
+                    class="text-xl lg:text-2xl font-bold text-gray-700 mb-4 border-b pb-2"
+                  >
+                    Sección de Repaso Rápido
+                  </h3>
+
+                  <template
+                    x-for="(question, qIndex) in selectedContent.questions"
+                    :key="qIndex"
+                  >
+                    <div
+                      class="mb-6 p-5 bg-white rounded-lg shadow-sm border border-blue-100"
+                    >
+                      <p
+                        class="font-semibold text-base lg:text-lg text-gray-800 mb-3"
+                        x-text="`${qIndex + 1}. ${question.text}`"
+                      ></p>
+
+                      <div class="space-y-2">
+                        <template
+                          x-for="(option, oIndex) in question.options"
+                          :key="oIndex"
+                        >
+                          <button
+                            @click="checkAnswer(qIndex, oIndex, option.correct)"
+                            :disabled="answers[selectedContentIndex] && answers[selectedContentIndex][qIndex] !== undefined"
+                            :class="getOptionClasses(qIndex, oIndex, option.correct)"
+                          >
+                            <span x-text="option.text"></span>
+                            <span
+                              x-show="answers[selectedContentIndex] && answers[selectedContentIndex][qIndex] !== undefined && option.correct"
+                              class="float-right text-green-700 font-bold"
+                            >
+                              ✔ Correcto
+                            </span>
+                            <span
+                              x-show="answers[selectedContentIndex] && answers[selectedContentIndex][qIndex] === oIndex && !option.correct"
+                              class="float-right text-red-700 font-bold"
+                            >
+                              ❌ Incorrecto
+                            </span>
+                          </button>
+                        </template>
+                      </div>
+                    </div>
+                  </template>
+
+                  <template x-if="selectedContent.appUrl">
+                    <div
+                      class="mb-10 p-4 bg-white rounded-xl shadow-lg border border-blue-200"
+                      :class="{ 'hidden sm:block': selectedContent.appUrl.includes('desktop') }"
+                    >
+                      <h3
+                        class="text-xl font-bold text-gray-700 mb-4 border-b pb-2"
                       >
-                        <span x-text="option.text"></span>
-                        <span
-                          x-show="answers[selectedContentIndex] && answers[selectedContentIndex][qIndex] !== undefined && option.correct"
-                          class="float-right text-green-700 font-bold"
+                        🧩 Ejercicio Interactivo
+                      </h3>
+                      <iframe
+                        :src="selectedContent.appUrl"
+                        frameborder="0"
+                        class="w-full rounded-lg"
+                        style="height: 120vh; min-height: 600px"
+                      ></iframe>
+                    </div>
+                  </template>
+
+                  <div class="flex justify-between mt-12 border-t pt-8">
+                    <!-- Botón Anterior -->
+                    <div class="w-1/2 pr-2">
+                      <template x-if="selectedContentIndex > 0">
+                        <button
+                          @click="selectContent(selectedContentIndex - 1)"
+                          class="w-full text-left p-4 rounded-lg bg-white hover:bg-gray-50 shadow-md transition-all duration-200 hover:shadow-xl border border-gray-200 overflow-hidden"
                         >
-                          ✔ Correcto
-                        </span>
-                        <span
-                          x-show="answers[selectedContentIndex] && answers[selectedContentIndex][qIndex] === oIndex && !option.correct"
-                          class="float-right text-red-700 font-bold"
+                          <div class="flex items-center">
+                            <svg
+                              class="w-8 h-8 mr-4 text-blue-500 flex-shrink-0"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                              ></path>
+                            </svg>
+                            <div>
+                              <p class="text-sm font-semibold text-gray-500">
+                                Anterior
+                              </p>
+                              <p
+                                class="text-base lg:text-lg font-bold text-gray-800 truncate"
+                                x-text="subjectData.contents[selectedContentIndex - 1].title"
+                              ></p>
+                            </div>
+                          </div>
+                        </button>
+                      </template>
+                    </div>
+
+                    <!-- Botón Siguiente -->
+                    <div class="w-1/2 pl-2">
+                      <template
+                        x-if="selectedContentIndex < subjectData.contents.length - 1"
+                      >
+                        <button
+                          @click="selectContent(selectedContentIndex + 1)"
+                          class="w-full text-right p-4 rounded-lg bg-white hover:bg-gray-50 shadow-md transition-all duration-200 hover:shadow-xl border border-gray-200 overflow-hidden"
                         >
-                          ❌ Incorrecto
-                        </span>
-                      </button>
-                    </template>
+                          <div class="flex items-center justify-end">
+                            <div class="text-right">
+                              <p class="text-sm font-semibold text-gray-500">
+                                Siguiente
+                              </p>
+                              <p
+                                class="text-base lg:text-lg font-bold text-gray-800 truncate"
+                                x-text="subjectData.contents[selectedContentIndex + 1].title"
+                              ></p>
+                            </div>
+                            <svg
+                              class="w-8 h-8 ml-4 text-blue-500 flex-shrink-0"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M14 5l7 7m0 0l-7 7m7-7H3"
+                              ></path>
+                            </svg>
+                          </div>
+                        </button>
+                      </template>
+                    </div>
                   </div>
                 </div>
               </template>
-
-              <template x-if="selectedContent.appUrl">
-                <div
-                  class="mb-10 p-4 bg-white rounded-xl shadow-lg border border-blue-200"
-                  :class="{ 'hidden sm:block': selectedContent.appUrl.includes('desktop') }"
-                >
-                  <h3
-                    class="text-xl font-bold text-gray-700 mb-4 border-b pb-2"
-                  >
-                    🧩 Ejercicio Interactivo
-                  </h3>
-                  <iframe
-                    :src="selectedContent.appUrl"
-                    frameborder="0"
-                    class="w-full rounded-lg"
-                    style="height: 120vh; min-height: 600px"
-                  ></iframe>
-                </div>
-              </template>
-
-              <div class="flex justify-between mt-12 border-t pt-8">
-                <!-- Botón Anterior -->
-                <div class="w-1/2 pr-2">
-                  <template x-if="selectedContentIndex > 0">
-                    <button
-                      @click="selectContent(selectedContentIndex - 1)"
-                      class="w-full text-left p-4 rounded-lg bg-white hover:bg-gray-50 shadow-md transition-all duration-200 hover:shadow-xl border border-gray-200 overflow-hidden"
-                    >
-                      <div class="flex items-center">
-                        <svg
-                          class="w-8 h-8 mr-4 text-blue-500 flex-shrink-0"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M10 19l-7-7m0 0l7-7m-7 7h18"
-                          ></path>
-                        </svg>
-                        <div>
-                          <p class="text-sm font-semibold text-gray-500">
-                            Anterior
-                          </p>
-                          <p
-                            class="text-base lg:text-lg font-bold text-gray-800 truncate"
-                            x-text="subjectData.contents[selectedContentIndex - 1].title"
-                          ></p>
-                        </div>
-                      </div>
-                    </button>
-                  </template>
-                </div>
-
-                <!-- Botón Siguiente -->
-                <div class="w-1/2 pl-2">
-                  <template
-                    x-if="selectedContentIndex < subjectData.contents.length - 1"
-                  >
-                    <button
-                      @click="selectContent(selectedContentIndex + 1)"
-                      class="w-full text-right p-4 rounded-lg bg-white hover:bg-gray-50 shadow-md transition-all duration-200 hover:shadow-xl border border-gray-200 overflow-hidden"
-                    >
-                      <div class="flex items-center justify-end">
-                        <div class="text-right">
-                          <p class="text-sm font-semibold text-gray-500">
-                            Siguiente
-                          </p>
-                          <p
-                            class="text-base lg:text-lg font-bold text-gray-800 truncate"
-                            x-text="subjectData.contents[selectedContentIndex + 1].title"
-                          ></p>
-                        </div>
-                        <svg
-                          class="w-8 h-8 ml-4 text-blue-500 flex-shrink-0"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M14 5l7 7m0 0l-7 7m7-7H3"
-                          ></path>
-                        </svg>
-                      </div>
-                    </button>
-                  </template>
-                </div>
-              </div>
             </div>
-          </template>
-        </div>
+          </div>
+        </template>
       </main>
     </div>
 
@@ -369,13 +397,22 @@
 
         Alpine.data("studyApp", () => ({
           availableSubjects: [
-            { name: "Filosofía", file: "subjects/filosofia.json" },
+            { name: "Filosofía", file: "subjects/filosofia.json", emoji: "🤔" },
             {
-              name: "Empresa y modelos negocios ",
+              name: "Empresa y modelos negocios",
               file: "subjects/empresa.json",
+              emoji: "💼",
             },
-            { name: "Lengua y literatura", file: "subjects/lengua.json" },
-            { name: "Matemáticas", file: "subjects/matematicas.json" },
+            {
+              name: "Lengua y literatura",
+              file: "subjects/lengua.json",
+              emoji: "📖",
+            },
+            {
+              name: "Matemáticas",
+              file: "subjects/matematicas.json",
+              emoji: "➗",
+            },
           ],
           selectedSubject: "",
           subjectData: null,
@@ -383,7 +420,6 @@
           answers: {},
           isSpeaking: false,
           isSidebarOpen: false,
-          // 'activeView' ha sido eliminado
 
           get selectedContent() {
             return (
@@ -392,8 +428,6 @@
           },
 
           init() {
-            // Handle URL routing for subjects and content
-            // Use a timeout to ensure the hash is correctly read on initial page load
             setTimeout(() => this.route(), 50);
             window.addEventListener("hashchange", () => this.route());
 
@@ -415,31 +449,29 @@
               const urlContentIndex = contentIndexStr
                 ? parseInt(contentIndexStr, 10)
                 : null;
-              // If the subject in the URL is not the one currently selected
+
               if (subjectToLoad.file !== this.selectedSubject) {
-                // First, update the selector to match the URL
                 this.selectedSubject = subjectToLoad.file;
-                // Then, load the subject data
                 this.loadSubject(this.selectedSubject, true, urlContentIndex);
-              } else if (urlContentIndex !== null && urlContentIndex !== this.selectedContentIndex) {
-                const bookmarkedIndex = this.getBookmark(this.selectedSubject);
-                if (bookmarkedIndex !== null && urlContentIndex !== bookmarkedIndex) {
-                    const bookmarkedContent = this.subjectData.contents[bookmarkedIndex];
-                    if (confirm(`La última vez que visitaste esta asignatura estabas en el apartado "${bookmarkedContent.title}" del tema "${bookmarkedContent.topic}". ¿Quieres volver a ese apartado?`)) {
-                        this.selectContent(bookmarkedIndex);
-                    } else {
-                        this.selectContent(urlContentIndex);
-                    }
-                } else {
-                    this.selectContent(urlContentIndex);
-                }
+              } else if (
+                urlContentIndex !== null &&
+                urlContentIndex !== this.selectedContentIndex
+              ) {
+                this.selectContent(urlContentIndex);
               }
             } else {
-              // Default route if hash is invalid or empty
-              const defaultSubjectFile = this.availableSubjects[0].file;
-              const bookmarkedIndex = this.getBookmark(defaultSubjectFile);
-              // This will trigger a hashchange and re-run route()
-              this.updateUrl(defaultSubjectFile, bookmarkedIndex !== null ? bookmarkedIndex : 0);
+              // Si no hay hash, o no es válido, nos aseguramos de que no haya ninguna asignatura cargada
+              // para que se muestre la pantalla de selección.
+              this.subjectData = null;
+              this.selectedSubject = "";
+              // Limpiamos el hash si es inválido para tener una URL limpia
+              if (window.location.hash) {
+                history.pushState(
+                  "",
+                  document.title,
+                  window.location.pathname + window.location.search,
+                );
+              }
             }
           },
 
@@ -451,21 +483,26 @@
               .replace(".json", "");
             const newHash = `#/${subjectSlug}/${contentIndex}`;
             if (window.location.hash !== newHash) {
-              window.location.hash = newHash;
+              // Usamos replaceState para evitar añadir al historial cada vez que cambiamos de sección
+              history.replaceState(null, null, newHash);
             }
           },
 
           getBookmark(subjectFile) {
             if (!subjectFile) return null;
-            const bookmarks = JSON.parse(localStorage.getItem('subjectBookmarks')) || {};
-            return bookmarks[subjectFile] !== undefined ? bookmarks[subjectFile] : null;
+            const bookmarks =
+              JSON.parse(localStorage.getItem("subjectBookmarks")) || {};
+            return bookmarks[subjectFile] !== undefined
+              ? bookmarks[subjectFile]
+              : null;
           },
 
           setBookmark(subjectFile, contentIndex) {
             if (!subjectFile) return;
-            const bookmarks = JSON.parse(localStorage.getItem('subjectBookmarks')) || {};
+            const bookmarks =
+              JSON.parse(localStorage.getItem("subjectBookmarks")) || {};
             bookmarks[subjectFile] = contentIndex;
-            localStorage.setItem('subjectBookmarks', JSON.stringify(bookmarks));
+            localStorage.setItem("subjectBookmarks", JSON.stringify(bookmarks));
           },
 
           getOptionClasses(qIndex, oIndex, isCorrectOption) {
@@ -499,11 +536,9 @@
             return classes;
           },
 
-          // Función para agrupar contenidos por tema (topic)
           groupContents(contents) {
             const grouped = {};
             contents.forEach((content, index) => {
-              // Usamos un índice original para que los botones sigan apuntando al contenido correcto
               const contentWithIndex = { ...content, originalIndex: index };
               const topic = content.topic || "Sin tema";
               if (!grouped[topic]) {
@@ -511,7 +546,6 @@
               }
               grouped[topic].push(contentWithIndex);
             });
-            // Convertir el objeto en un array de pares [tema, contenidos] para usar con x-for
             return Object.entries(grouped);
           },
 
@@ -521,8 +555,8 @@
             requestedContentIndex = null,
           ) {
             this.stopSpeech();
-            this.subjectData = null;
-            this.selectedContentIndex = null;
+            // No establecemos subjectData a null aquí para evitar parpadeos.
+            // Se actualizará directamente cuando los datos estén listos.
 
             if (resetAnswers) {
               this.answers = {};
@@ -535,9 +569,10 @@
                   `No se pudo cargar ${file}. Asegúrate de que el archivo JSON existe.`,
                 );
               }
-              this.subjectData = await response.json();
+              const data = await response.json();
+              this.subjectData = data;
+              this.selectedSubject = file; // Asegurarse de que el select está sincronizado
 
-              // **AGRUPAR CONTENIDOS Y ALMACENAR EN EL STORE**
               Alpine.store(
                 "groupedContents",
                 this.groupContents(this.subjectData.contents),
@@ -545,18 +580,14 @@
 
               if (this.subjectData.contents.length > 0) {
                 const bookmarkedIndex = this.getBookmark(file);
+                const indexToLoad =
+                  requestedContentIndex !== null
+                    ? requestedContentIndex
+                    : bookmarkedIndex !== null
+                      ? bookmarkedIndex
+                      : 0;
 
-                if (requestedContentIndex !== null && bookmarkedIndex !== null && requestedContentIndex !== bookmarkedIndex) {
-                    const bookmarkedContent = this.subjectData.contents[bookmarkedIndex];
-                    if (confirm(`La última vez que visitaste esta asignatura estabas en el apartado "${bookmarkedContent.title}" del tema "${bookmarkedContent.topic}". ¿Quieres volver a ese apartado?`)) {
-                        this.selectContent(bookmarkedIndex);
-                    } else {
-                        this.selectContent(requestedContentIndex);
-                    }
-                } else {
-                    const indexToLoad = requestedContentIndex !== null ? requestedContentIndex : (bookmarkedIndex !== null ? bookmarkedIndex : 0);
-                    this.selectContent(indexToLoad);
-                }
+                this.selectContent(indexToLoad, true); // Pasamos true para indicar que es una carga inicial
               }
             } catch (error) {
               console.error("Error al cargar la asignatura:", error);
@@ -564,22 +595,31 @@
             }
           },
 
-          selectContent(index) {
+          selectContent(index, isInitialLoad = false) {
             this.stopSpeech();
             this.selectedContentIndex = index;
+
+            // Solo actualizamos la URL. Si es una carga inicial, la URL ya ha sido manejada por route().
             this.updateUrl(this.selectedSubject, index);
             this.setBookmark(this.selectedSubject, index);
 
-            // Reinicia las respuestas de la sección actual al seleccionarla
-            this.answers[index] = {};
-            this.answers = { ...this.answers };
-            document.getElementById("content").scrollTo({ top: 0 });
+            if (!this.answers[index]) {
+              this.answers[index] = {};
+              this.answers = { ...this.answers };
+            }
+
+            document.getElementById("content")?.scrollTo({ top: 0 });
 
             this.$nextTick(() => {
-                const activeButton = this.$root.querySelector(`#sidebar-content-${index}`);
-                if (activeButton) {
-                    activeButton.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }
+              const activeButton = this.$root.querySelector(
+                `#sidebar-content-${index}`,
+              );
+              if (activeButton) {
+                activeButton.scrollIntoView({
+                  behavior: "smooth",
+                  block: "center",
+                });
+              }
             });
           },
 
