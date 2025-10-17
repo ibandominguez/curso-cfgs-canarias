@@ -100,10 +100,22 @@
         {
           "text": "¿Según Aristóteles, cuál es el motor que mueve a los hombres a filosofar?",
           "options": [
-            { "text": "La ambición por el poder.", "correct": false },
-            { "text": "La admiración (asombro).", "correct": true },
-            { "text": "La fe en los dioses.", "correct": false },
-            { "text": "La experimentación científica.", "correct": false }
+            {
+              "text": "La ambición por el poder.",
+              "correct": false
+            },
+            {
+              "text": "La admiración (asombro).",
+              "correct": true
+            },
+            {
+              "text": "La fe en los dioses.",
+              "correct": false
+            },
+            {
+              "text": "La experimentación científica.",
+              "correct": false
+            }
           ]
         }
       ]
@@ -236,9 +248,18 @@
               "text": "La argumentación lógica y el análisis racional.",
               "correct": false
             },
-            { "text": "La experimentación empírica.", "correct": false },
-            { "text": "El dogma y la fe (verdad revelada).", "correct": true },
-            { "text": "La búsqueda incesante de la verdad.", "correct": false }
+            {
+              "text": "La experimentación empírica.",
+              "correct": false
+            },
+            {
+              "text": "El dogma y la fe (verdad revelada).",
+              "correct": true
+            },
+            {
+              "text": "La búsqueda incesante de la verdad.",
+              "correct": false
+            }
           ]
         }
       ]
@@ -364,6 +385,310 @@
             { "text": "Es una cultura etiológica.", "correct": false },
             { "text": "Es una cultura androcéntrica.", "correct": true },
             { "text": "Es una cultura cosmológica.", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "A. Origen y especificidad del ser humano: Naturaleza y Cultura",
+      "topic": "Tema 2. El ser humano como sujeto de la experiencia filosófica",
+      "text": "Uno de los problemas fundamentales de la filosofía siempre ha sido el **problema del ser humano**. La filosofía se pregunta si la especie humana posee alguna propiedad exclusiva que la diferencie del resto y si tiene alguna función especial en el mundo.\n\nLos seres humanos tenemos cuatro dimensiones principales:\n* **Dimensión biológica**: Somos seres vivos con funciones vitales, un cuerpo celular y ADN. Pertenecemos a la especie *Homo sapiens*, familia de los homínidos, orden de los primates.\n* **Dimensión psicológica**: Somos capaces de sentir, pensar, recordar y emocionarnos.\n* **Dimensión social**: Vivimos en sociedad, formando parte de una cultura.\n* **Dimensión personal**: Somos conscientes de nuestros pensamientos, sentimientos y decisiones, lo que nos da un valor único e irrepetible.",
+      "questions": [
+        {
+          "text": "¿Cuáles son las cuatro dimensiones de la realidad humana mencionadas en el texto?",
+          "options": [
+            { "text": "Biológica, psicológica, social y espiritual.", "correct": false },
+            { "text": "Biológica, psicológica, social y personal.", "correct": true },
+            { "text": "Física, mental, emocional y cultural.", "correct": false },
+            { "text": "Natural, cultural, individual y colectiva.", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "2.1. Fijismo y Evolucionismo",
+      "topic": "Tema 2. El ser humano como sujeto de la experiencia filosófica",
+      "text": "Para explicar la diversidad de especies, existen dos grandes teorías:\n\n* **Fijismo**: Propone que las especies **no cambian**, se mantienen invariables desde su creación (creacionismo). Esta idea, apoyada por naturalistas como **Carl von Linné**, se basaba en una interpretación literal de textos sagrados. **George Cuvier** propuso la **teoría del catastrofismo** para explicar los fósiles, sugiriendo que grandes catástrofes extinguieron formas de vida que fueron reemplazadas por otras.\n\n* **Evolucionismo**: Sostiene que las especies **cambian con el tiempo**. Se basa en el estudio de fósiles que muestran que los seres vivos del pasado no eran iguales a los actuales. Afirma que hay una continuidad entre especies, que surgen nuevas y otras desaparecen, y que el medio ambiente es un factor determinante en la supervivencia.",
+      "questions": [
+        {
+          "text": "¿Qué teoría propone que las especies se mantienen invariables a lo largo del tiempo desde que fueron creadas?",
+          "options": [
+            { "text": "Evolucionismo.", "correct": false },
+            { "text": "Catastrofismo.", "correct": false },
+            { "text": "Fijismo.", "correct": true },
+            { "text": "Lamarckismo.", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "2.1.3. La paradoja de la jirafa de Lamarck",
+      "topic": "Tema 2. El ser humano como sujeto de la experiencia filosófica",
+      "text": "La primera teoría evolutiva científica fue la de **Jean-Baptiste Lamarck**. Su \"transformismo\" se basa en dos leyes:\n\n1.  **\"La función hace al órgano\":** El uso frecuente de un órgano produce cambios en su estructura.\n2.  **\"Los caracteres adquiridos se heredan\":** Las modificaciones se transmiten a la descendencia.\n\nEl error de Lamarck fue pensar que los **caracteres adquiridos** (como el desarrollo muscular por el ejercicio) se heredan. Hoy sabemos que estos cambios no se transmiten genéticamente y, por tanto, mueren con el individuo.",
+      "questions": [
+        {
+          "text": "¿Cuál fue el principal error en la teoría de la evolución de Lamarck?",
+          "options": [
+            { "text": "Creer que las especies no cambiaban.", "correct": false },
+            { "text": "Pensar que los caracteres adquiridos durante la vida de un individuo se heredaban.", "correct": true },
+            { "text": "Negar la influencia del medio ambiente en la evolución.", "correct": false },
+            { "text": "Afirmar que la función no tenía relación con el órgano.", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "2.1.4. Teoría de la evolución de Darwin y Wallace",
+      "topic": "Tema 2. El ser humano como sujeto de la experiencia filosófica",
+      "text": "**Charles Darwin** y **Alfred Russell Wallace** propusieron la teoría evolutiva aceptada actualmente, basada en dos ideas:\n\n1.  **Variabilidad de la descendencia**: Los descendientes de una especie no son idénticos, presentan pequeñas variaciones entre sí.\n2.  **Selección natural**: Las variaciones que resultan beneficiosas para la adaptación a un medio aumentan las probabilidades de sobrevivir y reproducirse. Los individuos mejor adaptados transmiten sus rasgos a la descendencia, mientras que los peor adaptados tienden a desaparecer.\n\nSegún Darwin, el largo cuello de las jirafas se explica porque, ante la escasez de alimento, aquellas con cuellos ligeramente más largos tenían una ventaja para alcanzar las hojas de los árboles, lo que les permitió sobrevivir, reproducirse y transmitir ese rasgo.",
+      "questions": [
+        {
+          "text": "¿En qué dos ideas básicas se apoya la teoría de la evolución de Darwin y Wallace?",
+          "options": [
+            { "text": "Uso y desuso de los órganos y herencia de caracteres adquiridos.", "correct": false },
+            { "text": "Variabilidad de la descendencia y selección natural.", "correct": true },
+            { "text": "Catastrofismo y creacionismo.", "correct": false },
+            { "text": "Mutación genética y fijismo.", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "2.1.5. El neodarwinismo o la teoría sintética de la evolución",
+      "topic": "Tema 2. El ser humano como sujeto de la experiencia filosófica",
+      "text": "El **neodarwinismo** integra la teoría de Darwin con los descubrimientos de la **genética**. Pudo así explicar lo que Darwin no logró: el mecanismo de la herencia y el origen de la variabilidad.\n\nLa evolución, según la teoría sintética, se produce por dos causas:\n\n*   **Variabilidad genética**: Se origina al azar por **mutaciones** (cambios en la composición genética) y **recombinación genética**.\n*   **Selección natural**: Actúa sobre la variabilidad. Elimina las combinaciones genéticas peor adaptadas y favorece a las mejor adaptadas, que se reproducirán más eficientemente.\n\n| Teoría | Explicación de la Evolución |\n| :--- | :--- |\n| **Fijismo/Creacionismo** | Las especies son invariables, no se transforman. |\n| **Lamarck** | Los individuos se adaptan al medio y esas modificaciones son transmitidas. |\n| **Darwin** | El mecanismo de la evolución es la **selección natural**. |\n| **Teoría Sintética** | La **genética** explica la aparición de la variabilidad dentro de una misma especie. |",
+      "questions": [
+        {
+          "text": "¿Qué dos causas fundamentales explican la evolución según la teoría sintética o neodarwinismo?",
+          "options": [
+            { "text": "Adaptación individual y herencia de caracteres adquiridos.", "correct": false },
+            { "text": "Variabilidad genética (mutaciones) y selección natural.", "correct": true },
+            { "text": "Creacionismo y catastrofismo.", "correct": false },
+            { "text": "El esfuerzo por la supervivencia y la selección artificial.", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "2.2. Los orígenes de la especie humana",
+      "topic": "Tema 2. El ser humano como sujeto de la experiencia filosófica",
+      "text": "El ser humano (*Homo sapiens*) surgió hace unos 200,000 años como resultado de un largo proceso evolutivo. Para entender nuestro origen, diferenciamos dos procesos clave:\n\n*   **Hominización**: Proceso de **evolución biológica** por el cual surgió nuestra especie a partir de otros homínidos. La selección natural modificó las características anatómicas y fisiológicas de nuestros antepasados.\n*   **Humanización**: Proceso de **evolución cultural** que va más allá de lo biológico. Fue posible gracias al desarrollo del **lenguaje**, la **vida en sociedad**, la **técnica** y el **pensamiento complejo**.\n\nEs importante aclarar que el ser humano **no desciende de ninguna especie de primate que exista hoy**. Nuestro pariente vivo más cercano es el chimpancé, pero compartimos un antepasado común que vivió hace millones de años.",
+      "questions": [
+        {
+          "text": "¿Qué proceso se refiere a la evolución biológica que dio origen a nuestra especie a partir de otros homínidos?",
+          "options": [
+            { "text": "Humanización.", "correct": false },
+            { "text": "Hominización.", "correct": true },
+            { "text": "Bipedestación.", "correct": false },
+            { "text": "Sapientización.", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "2.2.2.1. Cambios en la anatomía de los homínidos",
+      "topic": "Tema 2. El ser humano como sujeto de la experiencia filosófica",
+      "text": "El proceso de hominización está marcado por cambios anatómicos cruciales:\n\n*   **Bipedismo**: Capacidad de caminar erguido sobre las dos extremidades posteriores. Permitió un desplazamiento más eficiente en la sabana, una mejor visión y, fundamentalmente, la **liberación de las manos**.\n*   **Liberación de las manos**: Las manos se convirtieron en herramientas precisas gracias al **pulgar oponible** (efecto pinza), permitiendo la manipulación y fabricación de objetos.\n*   **Disminución de la cara y los dientes**: Se reduce el tamaño de los caninos y molares, lo que provoca una disminución del tamaño de la cara y las mandíbulas (menor prognatismo facial).\n*   **Sapientización o encefalización**: Aumento significativo del tamaño y la complejidad del cerebro. La capacidad craneal se triplicó, permitiendo el desarrollo de la cultura y la técnica.",
+      "questions": [
+        {
+          "text": "¿Cuál de los siguientes cambios anatómicos en los homínidos fue una consecuencia directa del bipedismo y permitió la fabricación de herramientas?",
+          "options": [
+            { "text": "El aumento del tamaño del cerebro.", "correct": false },
+            { "text": "La disminución del tamaño de la cara.", "correct": false },
+            { "text": "La liberación de las manos.", "correct": true },
+            { "text": "La reducción de los dientes.", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "3. La dimensión psicológica del ser humano",
+      "topic": "Tema 2. El ser humano como sujeto de la experiencia filosófica",
+      "text": "La **dimensión psicológica** se refiere a nuestros procesos mentales (pensamientos, percepción, emociones) y nuestra conducta. Aunque el **conductismo** se centró solo en la conducta observable, la psicología actual reconoce la importancia de los procesos mentales.\n\n### 3.3. La memoria\nEs la capacidad de almacenar y recuperar información. Se distinguen tres tipos:\n*   **Memoria sensorial**: Retiene datos de los sentidos por 1-2 segundos.\n*   **Memoria a corto plazo**: Almacena información por 15-20 segundos.\n*   **Memoria a largo plazo**: Guarda información de manera definitiva y con capacidad aparentemente ilimitada.\n\n### 3.4. La emoción\nSomos seres emocionales. Se distingue entre:\n*   **Emoción**: Estado de ánimo intenso y de corta duración (ej. terror).\n*   **Sentimiento**: Estado de ánimo menos intenso pero más prolongado (ej. odio).\nLas emociones, aunque tienen una base biológica, no determinan nuestra conducta, ya que la inteligencia nos permite decidir cómo actuar.",
+      "questions": [
+        {
+          "text": "¿Qué tipo de memoria retiene información de manera definitiva y tiene una capacidad aparentemente ilimitada?",
+          "options": [
+            { "text": "Memoria sensorial.", "correct": false },
+            { "text": "Memoria a corto plazo.", "correct": false },
+            { "text": "Memoria a largo plazo.", "correct": true },
+            { "text": "Memoria emocional.", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "3.5. La inteligencia y la creatividad",
+      "topic": "Tema 2. El ser humano como sujeto de la experiencia filosófica",
+      "text": "La **inteligencia** es la capacidad de conocer, analizar, comprender y resolver problemas de forma creativa. Se manifiesta al afrontar situaciones nuevas que van más allá de nuestras rutinas.\n\n**Howard Gardner** propuso la **teoría de las inteligencias múltiples**, argumentando que no existe una única inteligencia, sino al menos ocho tipos:\n*   Lingüística\n*   Lógico-matemática\n*   Espacial\n*   Musical\n*   Cinestésica\n*   Intrapersonal\n*   Interpersonal\n*   Naturalista\n\n**Daniel Goleman** popularizó el concepto de **inteligencia emocional**, que corresponde a las inteligencias intrapersonal e interpersonal de Gardner y se relaciona con la empatía.\n\nLa **creatividad** es la capacidad de innovar e imaginar soluciones nuevas, siendo una de las manifestaciones más claras de la inteligencia.",
+      "questions": [
+        {
+          "text": "¿Qué psicólogo propuso la teoría de las inteligencias múltiples, argumentando que existen diferentes tipos de inteligencia más allá de la lógico-matemática?",
+          "options": [
+            { "text": "Daniel Goleman.", "correct": false },
+            { "text": "Sigmund Freud.", "correct": false },
+            { "text": "Howard Gardner.", "correct": true },
+            { "text": "Jean Piaget.", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "3.6. La identidad personal",
+      "topic": "Tema 2. El ser humano como sujeto de la experiencia filosófica",
+      "text": "La **identidad personal** es el conjunto de elementos que definen la personalidad única de un individuo a lo largo del tiempo. Es un proceso que se desarrolla durante toda la vida y responde a la pregunta **¿quién soy yo?**.\n\nSe construye a partir de dos tipos de factores:\n*   **Factores internos**: Experiencias, emociones, deseos, aspecto físico, etc.\n*   **Factores ambientales**: Contexto sociocultural, relaciones familiares, educación, etc.\n\nLas **crisis de identidad** suelen aparecer ante cambios bruscos (pérdida de un ser querido, adolescencia) o cuando hay una contradicción entre la autoimagen y la imagen que los demás tienen de uno, pudiendo generar ansiedad y sensación de vacío.",
+      "questions": [
+        {
+          "text": "¿Qué es la identidad personal?",
+          "options": [
+            { "text": "Es un rasgo biológico inmutable determinado por los genes.", "correct": false },
+            { "text": "Es el conjunto de elementos que definen la personalidad única de un individuo y que se construye a lo largo de la vida.", "correct": true },
+            { "text": "Es la capacidad de resolver problemas de forma creativa.", "correct": false },
+            { "text": "Es la imagen que los demás tienen de una persona.", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "4. La dimensión cultural y social del ser humano",
+      "topic": "Tema 2. El ser humano como sujeto de la experiencia filosófica",
+      "text": "La aparición del ser humano no puede entenderse solo desde la biología, sino que requiere el proceso de **humanización** (evolución cultural).\n\nDos elementos clave en la humanización fueron:\n*   **Lenguaje**: Permitió la comunicación articulada, la cooperación social, la aparición de la cultura y la técnica (herramientas, fuego).\n*   **Pensamiento abstracto**: Capacidad de representarse situaciones no presentes, recordar el pasado, imaginar el futuro, generalizar y razonar. Permite la conciencia de la propia existencia y de la muerte.\n\nLa **cultura** es el conjunto de información y patrones de comportamiento transmitidos por aprendizaje dentro de la especie humana. Es una forma de adaptación que, a diferencia de la biológica, nos permite transmitir las **experiencias adquiridas**.",
+      "questions": [
+        {
+          "text": "¿Qué dos elementos se consideran conquistas clave en el proceso de humanización o evolución cultural?",
+          "options": [
+            { "text": "El bipedismo y la liberación de las manos.", "correct": false },
+            { "text": "El lenguaje y el pensamiento abstracto.", "correct": true },
+            { "text": "La memoria y la inteligencia.", "correct": false },
+            { "text": "La agricultura y la escritura.", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "4.2. Naturaleza y Cultura",
+      "topic": "Tema 2. El ser humano como sujeto de la experiencia filosófica",
+      "text": "En el ser humano interactúan un factor biológico (**innato**) y otro cultural (**adquirido**). La **naturaleza** es nuestra herencia biológica (genes), mientras que la **cultura** es nuestra herencia social (aprendizaje).\n\nUn ejemplo claro es la distinción entre sexo y género:\n*   **Diferencia de sexo**: Rasgos **biológicos** e innatos que distinguen a hombres y mujeres.\n*   **Diferencia de género**: Rasgos **culturales** y adquiridos que distinguen los comportamientos, roles y pautas de hombres y mujeres en una sociedad.\n\nEn la actualidad, la **biotecnología** desdibuja la línea entre lo natural y lo artificial, planteando debates entre posturas como el **transhumanismo** (que busca superar las limitaciones biológicas) y los **bioconservadores** (que alertan sobre los riesgos de alterar la naturaleza humana).",
+      "questions": [
+        {
+          "text": "Según el texto, ¿cuál es la diferencia entre \"sexo\" y \"género\"",
+          "options": [
+            { "text": "No hay ninguna diferencia, son términos sinónimos.", "correct": false },
+            { "text": "El sexo se refiere a rasgos culturales y el género a rasgos biológicos.", "correct": false },
+            { "text": "El sexo se refiere a rasgos biológicos (innatos) y el género a rasgos culturales (adquiridos).", "correct": true },
+            { "text": "El sexo es una construcción social y el género es una determinación biológica.", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "4.5. Actitudes ante la diversidad cultural",
+      "topic": "Tema 2. El ser humano como sujeto de la experiencia filosófica",
+      "text": "La **diversidad cultural** es la existencia de múltiples culturas. Ante este hecho, se pueden adoptar diferentes actitudes:\n\n*   **Etnocentrismo**: Consiste en juzgar a las demás culturas desde la propia, considerándola superior. Puede llevar a actitudes violentas como el **racismo**, la **xenofobia** o la **aporofobia** (rechazo al pobre).\n*   **Relativismo cultural**: Sostiene que cada cultura solo tiene sentido dentro de su propio contexto, por lo que todas son igualmente válidas e incomparables. Su riesgo es que puede justificar prácticas que atentan contra la dignidad humana.\n*   **Pluriculturalismo (o Interculturalismo)**: Propone un diálogo entre culturas en pie de igualdad, valorando la diversidad pero defendiendo al mismo tiempo valores universales como los recogidos en la **Declaración Universal de los Derechos Humanos**. Busca un futuro de **mestizaje** y una civilización universal.",
+      "questions": [
+        {
+          "text": "¿Qué actitud ante la diversidad cultural propone un diálogo en pie de igualdad entre culturas, pero tomando como modelo universal de conducta la Declaración Universal de los Derechos Humanos?",
+          "options": [
+            { "text": "Etnocentrismo.", "correct": false },
+            { "text": "Relativismo cultural.", "correct": false },
+            { "text": "Pluriculturalismo o Interculturalismo.", "correct": true },
+            { "text": "Xenofobia.", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "B. La reflexión filosófica sobre el ser humano",
+      "topic": "Tema 2. El ser humano como sujeto de la experiencia filosófica",
+      "text": "La pregunta por el ser humano es central en la filosofía. **Immanuel Kant** resumió las grandes cuestiones de la filosofía en una sola: **¿Qué es el hombre?** Esta pregunta, abordada por la **antropología filosófica**, define el horizonte de nuestro conocimiento, nuestra conducta y el sentido de nuestra vida.\n\nEn esta sección se repasan argumentos sobre tres cuestiones clave:\n1.  El problema de la **libertad**.\n2.  La relación **mente-cerebro**.\n3.  La cuestión de la **existencia humana** y la condición de ser **persona**.",
+      "questions": [
+        {
+          "text": "¿Qué filósofo resumió las grandes cuestiones de la filosofía en la pregunta \"¿Qué es el hombre?\"?",
+          "options": [
+            { "text": "Aristóteles.", "correct": false },
+            { "text": "Platón.", "correct": false },
+            { "text": "Immanuel Kant.", "correct": true },
+            { "text": "Jean-Paul Sartre.", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "6.1. El determinismo",
+      "topic": "Tema 2. El ser humano como sujeto de la experiencia filosófica",
+      "text": "El **determinismo** es la doctrina filosófica que **niega la libertad**. Sostiene que todo cuanto ocurre, incluidas nuestras decisiones, obedece a una causa. Si todo está determinado por causas, entonces no somos libres.\n\nExisten varios tipos de determinismo:\n*   **Determinismo físico o mecanicista**: El universo es un gran mecanismo donde todo ocurre de forma necesaria. Si conociéramos el estado del universo y sus leyes, podríamos predecir el futuro (Laplace).\n*   **Determinismo genético**: Nuestro comportamiento está programado en nuestros genes (Richard Dawkins).\n*   **Determinismo economicista**: Todo está condicionado por factores económicos (Marx).\n*   **Determinismo teológico**: El destino del hombre ha sido decidido de antemano por Dios (Calvinismo).\n*   **Determinismo psicologista (Freud)**: El ser humano está dirigido por pulsiones de carácter inconsciente (el **Ello**), reguladas por una conciencia moral también inconsciente (el **Super-yo**). El **Yo**, la parte consciente, media entre ambos, dejando poco espacio para la libertad.",
+      "questions": [
+        {
+          "text": "¿Qué doctrina filosófica niega la libertad, argumentando que todos los acontecimientos están causados y, por lo tanto, son inevitables?",
+          "options": [
+            { "text": "Indeterminismo.", "correct": false },
+            { "text": "Existencialismo.", "correct": false },
+            { "text": "Determinismo.", "correct": true },
+            { "text": "Monismo.", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "6.2. El indeterminismo",
+      "topic": "Tema 2. El ser humano como sujeto de la experiencia filosófica",
+      "text": "El **indeterminismo** es una postura filosófica crítica con el determinismo que **afirma la existencia de la libertad**. Argumenta que, aunque estamos condicionados por causas, no estamos completamente determinados por ellas.\n\nArgumentos a favor de la libertad:\n*   La causalidad no implica necesidad. Una causa puede llevar a una acción, pero no de forma inevitable (ej. el hambre no conduce *inevitablemente* a comer).\n*   La convicción íntima de que somos libres es un presupuesto básico de nuestra conducta y el fundamento de la **responsabilidad moral**.\n*   El **indeterminismo científico**, basado en la mecánica cuántica, afirma que a nivel subatómico existen sucesos impredecibles, lo que sugiere que no todo en la naturaleza está determinado mecánicamente.\n*   **Jean-Paul Sartre** llega a la conclusión paradójica de que **\"estamos condenados a ser libres\"**. Incluso en las situaciones más condicionadas, siempre nos queda un resquicio para decidir libremente.",
+      "questions": [
+        {
+          "text": "¿Qué filósofo existencialista afirmó que el ser humano está \"condenado a ser libre\", significando que no podemos dejar de elegir?",
+          "options": [
+            { "text": "Karl Popper.", "correct": false },
+            { "text": "Sigmund Freud.", "correct": false },
+            { "text": "Jean-Paul Sartre.", "correct": true },
+            { "text": "Baruch Spinoza.", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "6.3. El problema mente/cerebro",
+      "topic": "Tema 2. El ser humano como sujeto de la experiencia filosófica",
+      "text": "Este problema se pregunta si el ser humano es solo materia o si hay en él un principio inmaterial o espiritual. Existen dos posturas principales:\n\n*   **Dualismo**: Sostiene que el ser humano está compuesto por dos principios: uno material (el **cuerpo**) y otro espiritual (la **mente** o alma). El problema principal es explicar cómo interactúan dos realidades tan distintas.\n*   **Monismo**: Afirma que el ser humano tiene una única naturaleza, no dual. Generalmente, equivale a una postura **materialista**: todo lo que parece inmaterial (como un pensamiento) no es más que un fenómeno resultado del funcionamiento de nuestra base material (el cerebro). Se habla de **monismo emergentista** para explicar cómo propiedades nuevas (como la conciencia) \"emergen\" de la base material.",
+      "questions": [
+        {
+          "text": "¿Qué postura filosófica sostiene que el ser humano está compuesto por dos principios, uno material (cuerpo) y otro espiritual (mente)?",
+          "options": [
+            { "text": "Monismo.", "correct": false },
+            { "text": "Dualismo.", "correct": true },
+            { "text": "Determinismo.", "correct": false },
+            { "text": "Existencialismo.", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "6.5. La condición de ser persona",
+      "topic": "Tema 2. El ser humano como sujeto de la experiencia filosófica",
+      "text": "El término **persona** ha evolucionado a lo largo de la historia:\n\n*   En la **antigua Grecia**, se refería al rol social del individuo dentro de la polis.\n*   En la **Edad Media**, **Boecio** la define como \"sustancia individual de naturaleza racional\", enfatizando la identidad propia.\n*   En la **época moderna**, **Kant** añade la dimensión ética: las personas no tienen precio, sino **dignidad**. Son un \"fin en sí mismas\" y merecen un respeto absoluto.\n\nActualmente, la noción de **persona** se opone a la de **individuo**. Mientras el individuo está cerrado en sí mismo, la persona se define por su apertura al mundo y a los otros, su capacidad de construir su propia vida (trascendencia) y su responsabilidad. La persona no es una entidad fija, sino una **tarea dinámica y una construcción continua**.",
+      "questions": [
+        {
+          "text": "¿Qué filósofo de la época moderna afirmó que las personas tienen dignidad y no precio, y que deben ser tratadas como un \"fin en sí mismas\"?",
+          "options": [
+            { "text": "Boecio.", "correct": false },
+            { "text": "Aristóteles.", "correct": false },
+            { "text": "Immanuel Kant.", "correct": true },
+            { "text": "Simone de Beauvoir.", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "6.6. Simone de Beauvoir: el segundo sexo",
+      "topic": "Tema 2. El ser humano como sujeto de la experiencia filosófica",
+      "text": "**Simone de Beauvoir** analiza la situación de la mujer como un \"segundo sexo\". Utiliza los conceptos existencialistas de trascendencia e inmanencia:\n\n*   **Trascendencia**: La capacidad del ser humano de ir más allá de sí mismo, de proyectarse y \"hacerse\". Se asocia tradicionalmente a lo masculino.\n*   **Inmanencia**: La condición de permanecer en lo dado, de ser un objeto o cosa. Beauvoir argumenta que la mujer ha sido arrinconada en la inmanencia por un modelo de opresión patriarcal.\n\nSu famosa frase **\"No se nace mujer: llega una a serlo\"** expresa que lo \"femenino\" no es una condición biológica, sino una **construcción social**. La salida a esta situación pasa por cambiar la \"situación\" a través de la educación en autonomía, la independencia económica y la defensa de los derechos para que las mujeres puedan realizarse como seres humanos plenos.",
+      "questions": [
+        {
+          "text": "¿Qué quiere decir Simone de Beauvoir con la frase \"No se nace mujer: llega una a serlo\"",
+          "options": [
+            { "text": "Que el sexo biológico no existe.", "correct": false },
+            { "text": "Que la identidad femenina es una construcción social y cultural, no una condición biológica.", "correct": true },
+            { "text": "Que las mujeres deben aspirar a ser como los hombres.", "correct": false },
+            { "text": "Que nacer mujer es una condena a la inmanencia.", "correct": false }
           ]
         }
       ]
