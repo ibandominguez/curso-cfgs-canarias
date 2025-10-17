@@ -5,5 +5,5 @@ DIR_NAME="$(basename "$DIR")"
 
 cd "$DIR/.."
 php -S localhost:8000 &
-xdg-open "http://localhost:8000/$DIR_NAME"
+xdg-open "http://localhost:8000/$DIR_NAME/"
 
