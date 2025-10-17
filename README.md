@@ -4,7 +4,13 @@ Un libro interactivo para repasar apuntes de estudio del curso para la prueba pa
 
 ## Cómo usar
 
-Simplemente abre el archivo `index.html` en tu navegador. Está creado usando cdns para que no requiera boostraping o env setup tools.
+```
+# Serve the app
+./serve.sh
+
+```
+
+O simplemente abre el archivo `index.html` en tu navegador. Está creado usando cdns para que no requiera boostraping o env setup tools.
 
 ## Contribuir
 
